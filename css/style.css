@@ -1,0 +1,41 @@
+body{
+    background-color: azure;
+    color: rgba(255, 0 ,0, 0.5);
+        
+    font: 20px Palatino Linotype;
+}
+
+.speech{
+    background-color: bisque
+}
+
+.a{
+    color: coral;
+    
+}
+
+a{
+    color: coral;
+}
+
+a:hover{
+    color:black;
+}
+
+a:active{
+    color:green;
+}
+
+
+.myForm{
+    padding: 20px;
+    
+}
+
+.myForm label{
+    display:block;
+}
+
+.formGroup{
+    padding-bottom: 15px;
+}
