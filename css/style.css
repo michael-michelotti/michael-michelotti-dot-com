@@ -1,41 +1,48 @@
-body{
-    background-color: azure;
-    color: rgba(255, 0 ,0, 0.5);
-        
-    font: 20px Palatino Linotype;
-}
-
-.speech{
-    background-color: bisque
-}
-
-.a{
-    color: coral;
+:root {
+    font-family: "Palatino Linotype";
+    color: black;
     
 }
 
-a{
-    color: coral;
+.header-nav {
+    background: #F5F5F5;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
 }
 
-a:hover{
-    color:black;
+.header-nav a {
+    text-decoration: none;
+    color: #0072FF;
+    font-weight: 500;
 }
 
-a:active{
-    color:green;
+.header-nav li {
+    list-style: none;
+    align-items: right;
 }
 
-
-.myForm{
-    padding: 20px;
-    
+.header-nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-.myForm label{
-    display:block;
+.header-nav li a {
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
 }
 
-.formGroup{
-    padding-bottom: 15px;
+.header-nav li a:hover {
+    color: #0072FF;
+}
+
+.header-nav a:hover {
+    color: black;
+}
+
+.section-header {
+    text-decoration: underline;
+    text-decoration-color: #0072FF;
 }
