@@ -1,2 +1,6 @@
 static
 archive
+.prettierrc
+config.env
+.vscode
+node_modules
