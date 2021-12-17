@@ -3,3 +3,4 @@ const factory = require('./handlerFactory');
 
 exports.getAllProjects = factory.getAll(Project);
 exports.createProject = factory.createOne(Project);
+exports.updateProject = factory.updateOne(Project);
