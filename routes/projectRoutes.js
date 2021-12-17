@@ -6,7 +6,8 @@ const router = express.Router();
 router
   .route('/:id')
   .get(projectController.getProject)
-  .patch(projectController.updateProject);
+  .patch(projectController.updateProject)
+  .delete(projectController.deleteProject);
 
 router
   .route('/')

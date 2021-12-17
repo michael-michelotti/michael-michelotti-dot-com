@@ -4,3 +4,4 @@ archive
 config.env
 .vscode
 node_modules
+public

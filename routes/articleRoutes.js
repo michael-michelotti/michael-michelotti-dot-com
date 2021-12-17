@@ -6,7 +6,8 @@ const router = express.Router();
 router
   .route('/:id')
   .get(articleController.getArticle)
-  .patch(articleController.updateArticle);
+  .patch(articleController.updateArticle)
+  .delete(articleController.deleteArticle);
 
 router
   .route('/')
