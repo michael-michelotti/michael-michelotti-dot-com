@@ -1,8 +1,8 @@
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const express = require('express');
-// const productRouter = require('./routes/productRoutes');
-// const purchaseRouter = require('./routes/purchaseRoutes');
+const projectRouter = require('./routes/projectRoutes');
+const articleRouter = require('./routes/articleRoutes');
 // const viewRouter = require('./routes/viewRouter');
 // const globalErrorHandler = require('./controllers/errorController');
 
@@ -23,14 +23,9 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 // Route Configuration
-// app.use('/', (req, res) => {
-//   res.status(200).json({
-//     hello: 'world',
-//   });
-// });
 // app.use('/', viewRouter);
-// app.use('/api/v1/products', productRouter);
-// app.use('/api/v1/purchases', purchaseRouter);
+app.use('/api/v1/projects', projectRouter);
+app.use('/api/v1/articles', articleRouter);
 
 app.get('/', function (req, res) {
   res.status(200).send('hello world');
