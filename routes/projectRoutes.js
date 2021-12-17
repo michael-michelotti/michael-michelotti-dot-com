@@ -3,7 +3,10 @@ const projectController = require('../controllers/projectController');
 
 const router = express.Router();
 
-router.route('/:id').patch(projectController.updateProject);
+router
+  .route('/:id')
+  .get(projectController.getProject)
+  .patch(projectController.updateProject);
 
 router
   .route('/')

@@ -3,7 +3,10 @@ const articleController = require('../controllers/articleController');
 
 const router = express.Router();
 
-router.route('/:id').patch(articleController.updateArticle);
+router
+  .route('/:id')
+  .get(articleController.getArticle)
+  .patch(articleController.updateArticle);
 
 router
   .route('/')
