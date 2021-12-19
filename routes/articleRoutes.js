@@ -3,6 +3,8 @@ const articleController = require('../controllers/articleController');
 
 const router = express.Router();
 
+router.route('/featured').get(articleController.getFeaturedArticles);
+
 router
   .route('/:id')
   .get(articleController.getArticle)

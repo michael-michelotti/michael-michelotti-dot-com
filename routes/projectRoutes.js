@@ -3,6 +3,8 @@ const projectController = require('../controllers/projectController');
 
 const router = express.Router();
 
+router.route('/featured').get(projectController.getFeaturedProjects);
+
 router
   .route('/:id')
   .get(projectController.getProject)
