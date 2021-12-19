@@ -29,7 +29,11 @@ const projectSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  postedOn: {
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+  updatedAt: {
     type: Date,
     default: Date.now(),
   },

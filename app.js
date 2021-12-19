@@ -3,8 +3,8 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const projectRouter = require('./routes/projectRoutes');
 const articleRouter = require('./routes/articleRoutes');
+const globalErrorHandler = require('./controllers/errorController');
 // const viewRouter = require('./routes/viewRouter');
-// const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
@@ -32,6 +32,6 @@ app.get('/', function (req, res) {
 });
 
 // Any time an error is passed into next, call this global error handler
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
 
 module.exports = app;
