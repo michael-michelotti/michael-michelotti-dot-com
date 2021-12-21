@@ -1,0 +1,31 @@
+.hero {
+  height: 95vh;
+  position: relative;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(/img/hero-backdrop.jpg);
+  background-size: cover;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &__name {
+    font-size: 7.2rem;
+    color: #fff;
+  }
+
+  &__links {
+    height: 7.5rem;
+    display: flex;
+    gap: 10rem;
+
+    &--github {
+      height: 100%;
+    }
+  }
+}
