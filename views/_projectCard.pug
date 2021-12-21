@@ -1,0 +1,14 @@
+mixin projectCard(project)
+  .project__card
+    .project__title
+      svg.project__icon
+        use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
+      .project__name= project.name
+    .project__summary= project.summary
+    .project__links
+      a.project__link(href=`${project.githubLink}`)
+        svg.project__link--icon
+          use(xlink:href='/img/sprite.svg#icon-github')
+      a.project__link(href=`${project.liveLink}`)
+        svg.project__link--icon
+          use(xlink:href='/img/sprite.svg#icon-link') 

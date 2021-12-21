@@ -1,0 +1,8 @@
+include _projectCard
+
+.projects
+  .title.projects__title.margin-bot-med.margin-top-lg featured projects 
+  .projects__content
+    each project in projects
+      +projectCard(project)
+

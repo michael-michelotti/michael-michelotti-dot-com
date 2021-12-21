@@ -1,0 +1,50 @@
+.projects {
+  background-color: $color-secondary;
+
+  &__title {
+    margin-top: 10rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+  }
+}
+
+.project {
+  &__card {
+    height: 20rem;
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &__name {
+    font-size: 3rem;
+  }
+
+  &__links {
+    display: flex;
+    gap: 5rem;
+    justify-content: space-evenly;
+  }
+
+  &__link {
+    &--icon {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+}
