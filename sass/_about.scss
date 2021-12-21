@@ -1,0 +1,53 @@
+.about {
+  &__title {
+    text-transform: uppercase;
+    font-size: 3.4rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-align: center;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10rem;
+    align-items: flex-start;
+  }
+
+  &__portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__img {
+    background: url(/img/img-self-portrait.jpg);
+    height: 37.5rem;
+    width: 37.5rem;
+    border-radius: 50%;
+    background-size: cover;
+    border: solid 0.6rem;
+    border-color: $color-primary;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    gap: 7.5rem;
+  }
+
+  &__icon {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  &__text {
+    width: 55rem;
+    height: 100%;
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
+}
