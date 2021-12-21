@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  background-color: #ebebeb;
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem;
+}
+
+.nav {
+  &__branding {
+    height: 100%;
+    display: flex;
+    gap: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &__name {
+    font-size: 3.2rem;
+    color: $color-primary;
+  }
+
+  &__logo {
+    height: 100%;
+
+    &--img {
+      height: 100%;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 3rem;
+    margin-right: 2rem;
+  }
+
+  &__link {
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

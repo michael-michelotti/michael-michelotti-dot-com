@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 // Route Configuration
-// app.use('/', viewRouter);
+app.use('/', viewRouter);
 app.use('/api/v1/projects', projectRouter);
 app.use('/api/v1/articles', articleRouter);
 
