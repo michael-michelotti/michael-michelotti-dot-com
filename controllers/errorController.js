@@ -20,7 +20,6 @@ const handleValidationErrorDB = (err) => {
 };
 
 sendErrorDev = (err, req, res) => {
-  console.log('hello world');
   // API
   if (req.originalUrl.startsWith('/api')) {
     return res.status(err.statusCode).json({

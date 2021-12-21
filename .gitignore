@@ -7,3 +7,4 @@ node_modules
 public
 dev-data
 .DS_Store
+test.js
