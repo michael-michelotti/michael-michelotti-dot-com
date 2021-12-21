@@ -39,5 +39,23 @@ const projectSchema = new mongoose.Schema({
   },
 });
 
+projectSchema.pre('save', function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
+
+projectSchema.pre('findOneAndUpdate', function (next) {
+  this.set({ updatedAt: new Date() });
+  next();
+});
+
+// If updating the name, I want to update the slug
+projectSchema.pre('findOneAndUpdate', function (next) {
+  if ('name' in this._update) {
+    this.set({ slug: slugify(this._update.name, { lower: true }) });
+  }
+  next();
+});
+
 const Project = mongoose.model('Project', projectSchema);
 module.exports = Project;

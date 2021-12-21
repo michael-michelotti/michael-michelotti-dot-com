@@ -4,7 +4,7 @@ const express = require('express');
 const projectRouter = require('./routes/projectRoutes');
 const articleRouter = require('./routes/articleRoutes');
 const globalErrorHandler = require('./controllers/errorController');
-// const viewRouter = require('./routes/viewRouter');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
