@@ -7,15 +7,18 @@
   font-family: 'Montserrat', sans-serif;
   padding: 1rem;
   position: sticky;
-}
 
-.nav {
   &__branding {
     height: 100%;
     display: flex;
     gap: 2rem;
     cursor: pointer;
     text-decoration: none;
+    color: $color-dark;
+
+    &:visited {
+      text-decoration: none;
+    }
   }
 
   &__name {
@@ -25,13 +28,12 @@
 
   &__logo {
     height: 100%;
-
     &--img {
       height: 100%;
     }
   }
 
-  &__links {
+  &__nav {
     display: flex;
     gap: 3rem;
     margin-right: 2rem;

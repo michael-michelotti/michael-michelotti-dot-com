@@ -2,8 +2,12 @@
   .hero__content
     .hero__name Michael Michelotti
     .hero__links
-      a.hero__links--github(href='https://github.com/michael-michelotti/')
-        svg 
-          use(xlink:href='/img/hero-icon-github.svg')
-      .hero__links--resume
-      .hero__links--linkedin
+      a.hero__link(href='https://github.com/michael-michelotti/', target='_blank')
+        svg.hero__icon
+          use(xlink:href='/img/sprite.svg#icon-github')
+      a.hero__link(href='#')
+        svg.hero__icon
+          use(xlink:href='/img/sprite.svg#icon-resume')
+      a.hero__link(href='https://www.linkedin.com/in/michael-michelotti-880456174/', target='_blank')
+        svg.hero__icon
+          use(xlink:href='/img/sprite.svg#icon-linkedin')
