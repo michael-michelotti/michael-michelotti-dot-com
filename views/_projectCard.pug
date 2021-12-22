@@ -1,14 +1,17 @@
 mixin projectCard(project)
   .project__card
-    .project__title
+    a.project__title(href=`projects/${project.slug}/`)
       svg.project__icon
         use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
       .project__name= project.name
+    img.project__img(src=`${project.coverImage}`)
     .project__summary= project.summary
     .project__links
       a.project__link(href=`${project.githubLink}`)
         svg.project__link--icon
           use(xlink:href='/img/sprite.svg#icon-github')
+        span.project__link--text GitHub
       a.project__link(href=`${project.liveLink}`)
         svg.project__link--icon
-          use(xlink:href='/img/sprite.svg#icon-link') 
+          use(xlink:href='/img/sprite.svg#icon-link')
+        span.project__link--text Live
