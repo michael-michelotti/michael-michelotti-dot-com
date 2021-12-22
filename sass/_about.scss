@@ -1,13 +1,8 @@
 .about {
-  &__title {
-    margin-top: 10rem;
-    margin-bottom: 5rem;
-  }
-
   &__content {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 10rem;
+    padding-bottom: 10rem;
     align-items: flex-start;
   }
 

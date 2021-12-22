@@ -1,10 +1,13 @@
 include _projectCard
 
 .projects
-  .title.projects__title.margin-bot-med featured projects 
+  .title.projects__title.margin-bot-med.padding-top-lg featured projects 
   .projects__content
-    +projectCard(projects[0])
-    .project__divider
-    +projectCard(projects[1])
-    .project__divider
-    +projectCard(projects[2])
+    if projects[0]
+      +projectCard(projects[0])
+    if projects[1]
+      .project__divider
+      +projectCard(projects[1])
+    if projects[2]
+      .project__divider
+      +projectCard(projects[2])

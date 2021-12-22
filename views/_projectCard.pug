@@ -7,11 +7,11 @@ mixin projectCard(project)
     img.project__img(src=`${project.coverImage}`)
     .project__summary= project.summary
     .project__links
-      a.project__link(href=`${project.githubLink}`)
+      a.project__link(href=`${project.githubLink}`, target='_blank')
         svg.project__link--icon
-          use(xlink:href='/img/sprite.svg#icon-github')
+          use(xlink:href='/img/sprite.svg#icon-github-black')
         span.project__link--text GitHub
-      a.project__link(href=`${project.liveLink}`)
+      a.project__link(href=`${project.liveLink}`, target='_blank')
         svg.project__link--icon
-          use(xlink:href='/img/sprite.svg#icon-link')
+          use(xlink:href='/img/sprite.svg#icon-linkedin-black')
         span.project__link--text Live
