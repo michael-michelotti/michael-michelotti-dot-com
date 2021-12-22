@@ -1,0 +1,53 @@
+.articles {
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10rem;
+  }
+}
+
+.article {
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__name {
+    font-size: 3rem;
+  }
+
+  &__card {
+    height: 25rem;
+    width: 60rem;
+    text-decoration: none;
+    color: $color-dark;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: $color-primary;
+  }
+
+  &__summary {
+    padding-left: 1.5rem;
+  }
+
+  &__point {
+    font-size: 1.8rem;
+    font-weight: 400;
+    display: list-item;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__img {
+    width: 30%;
+    padding: 1.5rem;
+  }
+}

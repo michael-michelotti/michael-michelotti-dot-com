@@ -17,3 +17,9 @@
 .padding-top-lg {
   padding-top: 10rem !important;
 }
+
+.card-divider {
+  width: 0px;
+  height: 30rem;
+  border-right: solid 1px $color-dark;
+}

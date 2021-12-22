@@ -1,0 +1,11 @@
+mixin articleCard(article)
+  a.article__card(href=`articles/${article.slug}/`)
+    .article__text
+      .article__title
+        svg.article__icon
+          use(xlink:href=`/img/sprite.svg#icon-${article.categories[0]}`, alt=`${article.categories[0]} icon`)
+        .article__name= article.name
+      ul.article__summary
+        each point in article.summaryPoints
+          li.article__point= point
+    img.article__img(src=`${article.coverImage}`, alt=`${article.name} cover image`)
