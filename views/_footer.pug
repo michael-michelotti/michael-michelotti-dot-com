@@ -1,0 +1,26 @@
+mixin info(icon, caption)
+  .footer__info-item
+    svg.footer__icon
+      use(xlink:href=`/img/sprite.svg#icon-${icon}`, alt=`${icon} icon`)
+    .footer__caption= caption
+
+mixin footerLink(icon)
+  a.footer__link
+    svg.footer__link-icon
+      use(xlink:href=`/img/sprite.svg#icon-${icon}`, alt=`${icon.split('-')[0]} icon`)
+
+
+.footer
+  .footer__title
+    .footer__line
+    .footer__title-text Contact
+    .footer__line
+  .footer__info
+    +info('location', 'San Diego, CA')
+    +info('email', 'michael.michelotti4@gmail.com')
+    +info('phone', '(650) 533-6841')
+  .footer__links
+    +footerLink('github-white')
+    +footerLink('resume-white')
+    +footerLink('linkedin-white')
+  .footer__copyright &copy; Michael Michelotti, 2020
