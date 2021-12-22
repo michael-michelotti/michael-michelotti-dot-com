@@ -4,13 +4,13 @@ mixin info(icon, caption)
       use(xlink:href=`/img/sprite.svg#icon-${icon}`, alt=`${icon} icon`)
     .footer__caption= caption
 
-mixin footerLink(icon)
-  a.footer__link
+mixin footerLink(link, icon)
+  a.footer__link(href=`${link}`, target='_blank')
     svg.footer__link-icon
       use(xlink:href=`/img/sprite.svg#icon-${icon}`, alt=`${icon.split('-')[0]} icon`)
 
 
-.footer
+.footer#footer
   .footer__title
     .footer__line
     .footer__title-text Contact
@@ -20,7 +20,7 @@ mixin footerLink(icon)
     +info('email', 'michael.michelotti4@gmail.com')
     +info('phone', '(650) 533-6841')
   .footer__links
-    +footerLink('github-white')
-    +footerLink('resume-white')
-    +footerLink('linkedin-white')
+    +footerLink('https://github.com/michael-michelotti/', 'github-white')
+    +footerLink('#', 'resume-white')
+    +footerLink('https://www.linkedin.com/in/michael-michelotti-880456174/', 'linkedin-white')
   .footer__copyright &copy; Michael Michelotti, 2020
