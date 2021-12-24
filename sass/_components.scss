@@ -4,18 +4,154 @@
   text-decoration: underline;
   text-decoration-thickness: 0.1rem;
   text-align: center;
+  font-weight: $font-light;
 }
 
-.m-bot-md {
-  margin-bottom: 5rem !important;
+// FEATURED PROJECTS CARD
+.project {
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 40rem;
+    width: 35rem;
+  }
+
+  &__title {
+    @include removeLinkDecoration;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: $font-light;
+  }
+
+  &__img {
+    width: 100%;
+    height: 25%;
+  }
+
+  &__icon--title {
+    @include iconSmall;
+    fill: $color-primary;
+  }
+
+  &__summary {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 3rem;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5rem;
+  }
+
+  &__link {
+    @include removeLinkDecoration;
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  &__icon {
+    @include iconSmall;
+    fill: $color-dark;
+  }
+
+  &__icon-caption {
+    @include removeLinkDecoration;
+    font-size: 1.8rem;
+    font-weight: $font-regular;
+  }
 }
 
-.m-top-lg {
-  margin-top: 10rem !important;
+// ARTICLE CARD
+.article {
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: $font-light;
+  }
+
+  &__name {
+    font-size: 3rem;
+  }
+
+  &__card {
+    @include removeLinkDecoration;
+    display: flex;
+    align-items: flex-start;
+    height: 25rem;
+    width: 60rem;
+  }
+
+  &__icon {
+    @include iconSmall;
+    fill: $color-primary;
+  }
+
+  &__summary {
+    padding-left: 1.5rem;
+  }
+
+  &__point {
+    font-size: 1.8rem;
+    font-weight: $font-regular;
+    display: list-item;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__img {
+    width: 30%;
+    padding: 1.5rem;
+  }
 }
 
-.p-top-lg {
-  padding-top: 10rem !important;
+// SKILL GRID (just the 4 icons and their caption)
+.skill-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10rem;
+  }
+
+  &__name {
+    font-size: 2.4rem;
+    color: $color-white;
+  }
+
+  &__skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 7.5rem;
+  }
+
+  &__icon {
+    @include iconLarge;
+    fill: $color-white;
+  }
+
+  &__caption {
+    color: $color-white;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: $font-bold;
+  }
 }
 
 .card-divider {

@@ -1,0 +1,14 @@
+.skills {
+  @include overlaidBackdrop(0.4, '/img/skills-backdrop.jpg');
+
+  &__title {
+    color: $color-white;
+  }
+
+  &__levels {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 10rem;
+  }
+}

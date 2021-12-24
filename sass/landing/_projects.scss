@@ -1,0 +1,10 @@
+.feat-projects {
+  background-color: $color-secondary;
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10rem;
+  }
+}
