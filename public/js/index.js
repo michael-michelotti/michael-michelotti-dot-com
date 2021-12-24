@@ -31,27 +31,41 @@ if (heroSection && header) {
 if (heroSection) {
   let sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.boundingClientRect.bottom >= 0) return;
-      console.log(entry);
-      //
-      if (entry.isIntersecting) return;
-      sectionId = entry.target.id;
-      switch (sectionId) {
-        case 'hero':
-          navAbout.classList.add('active-nav');
-          break;
-        case 'about':
-          navAbout.classList.remove('active-nav');
-          navProjects.classList.add('active-nav');
-          break;
-        case 'feat-projects':
-          navProjects.classList.remove('active-nav');
-          navArticles.classList.add('active-nav');
-          break;
-        case 'feat-articles':
-          navArticles.classList.remove('active-nav');
-          navSkills.classList.add('active-nav');
-          break;
+      let screenBotToTop =
+        entry.boundingClientRect.top - entry.rootBounds.height;
+      // console.log(entry);
+      if (
+        entry.isIntersecting === false &&
+        entry.boundingClientRect.bottom <= 0
+      ) {
+        leavingSection = entry.target;
+        nextSection = leavingSection.nextElementSibling;
+
+        // hero section doesn't have a navigation element
+        if (leavingSection.id != 'hero') {
+          leavingSectionNav = document.querySelector(
+            `[href="#${leavingSection.id}"]`
+          );
+          leavingSectionNav.classList.remove('active-nav');
+        }
+
+        nextSectionNav = document.querySelector(`[href="#${nextSection.id}"]`);
+        nextSectionNav.classList.add('active-nav');
+      } else if (screenBotToTop >= 0 && screenBotToTop <= 100) {
+        leavingSection = entry.target;
+        nextSection = leavingSection.previousElementSibling;
+        console.log(`leaving section ${leavingSection.id}`);
+        leavingSectionNav = document.querySelector(
+          `[href="#${leavingSection.id}"]`
+        );
+        leavingSectionNav.classList.remove('active-nav');
+
+        if (nextSection.id != 'hero') {
+          nextSectionNav = document.querySelector(
+            `[href="#${nextSection.id}"]`
+          );
+          nextSectionNav.classList.add('active-nav');
+        }
       }
     });
   });
