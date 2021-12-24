@@ -1,4 +1,4 @@
-.projects {
+.feat-projects {
   background-color: $color-secondary;
 
   &__content {
@@ -32,7 +32,7 @@
     height: 25%;
   }
 
-  &__icon {
+  &__icon--title {
     width: 2.5rem;
     height: 2.5rem;
     fill: $color-primary;
@@ -58,16 +58,17 @@
     gap: 0.8rem;
     text-decoration: none;
     color: $color-dark;
+  }
 
-    &--icon {
-      height: 2.5rem;
-      width: 2.5rem;
-    }
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: $color-dark;
+  }
 
-    &--text {
-      font-size: 1.8rem;
-      font-weight: 400;
-      text-decoration: none;
-    }
+  &__icon-caption {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-decoration: none;
   }
 }

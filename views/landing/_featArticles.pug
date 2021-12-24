@@ -1,0 +1,10 @@
+include ../mixins/_articleCard
+
+section.feat-articles#feat-articles
+  .title.feat-articles__title.m-bot-md.p-top-lg featured articles
+  .feat-articles__content
+    if articles[0]
+      +articleCard(articles[0])
+    if articles[1] 
+      .card-divider
+      +articleCard(articles[1])

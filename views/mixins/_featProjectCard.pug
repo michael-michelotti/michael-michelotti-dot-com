@@ -1,0 +1,17 @@
+mixin captionedIcon(section, icon, caption)
+  svg(class=`${section}__icon`)
+    use(xlink:href=`img/sprite.svg#icon-${icon}`)
+  span(class=`${section}__icon-caption`)= caption
+
+mixin featProjectCard(project)
+  .project__card
+    a.project__title(href=`projects/${project.slug}/`)
+      svg.project__icon--title: use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
+      span.project__name= project.name
+    img.project__img(src=`${project.coverImage}`)
+    .project__summary= project.summary
+    .project__links
+      a.project__link(href=`${project.githubLink || '#'}`, target='_blank')
+        +captionedIcon('project', 'github-black', 'GitHub')
+      a.project__link(href=`${project.liveLink || '#'}`, target='_blank')
+        +captionedIcon('project', 'linkedin-black', 'Live')
