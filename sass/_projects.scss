@@ -11,20 +11,19 @@
 
 .project {
   &__card {
-    height: 40rem;
-    width: 35rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    height: 40rem;
+    width: 35rem;
   }
 
   &__title {
+    @include removeLinkDecoration;
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    text-decoration: none;
-    color: $color-dark;
   }
 
   &__img {
@@ -33,8 +32,7 @@
   }
 
   &__icon--title {
-    width: 2.5rem;
-    height: 2.5rem;
+    @include iconSmall;
     fill: $color-primary;
   }
 
@@ -49,26 +47,24 @@
 
   &__links {
     display: flex;
-    gap: 5rem;
     justify-content: space-evenly;
+    gap: 5rem;
   }
 
   &__link {
+    @include removeLinkDecoration;
     display: flex;
     gap: 0.8rem;
-    text-decoration: none;
-    color: $color-dark;
   }
 
   &__icon {
-    height: 2.5rem;
-    width: 2.5rem;
+    @include iconSmall;
     fill: $color-dark;
   }
 
   &__icon-caption {
+    @include removeLinkDecoration;
     font-size: 1.8rem;
-    font-weight: 400;
-    text-decoration: none;
+    font-weight: $font-regular;
   }
 }

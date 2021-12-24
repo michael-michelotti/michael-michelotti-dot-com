@@ -6,7 +6,7 @@ mixin captionedIcon(section, icon, caption)
 mixin featProjectCard(project)
   .project__card
     a.project__title(href=`projects/${project.slug}/`)
-      svg.project__icon--title: use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
+      svg.project__icon--title: use(xlink:href=`img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
       span.project__name= project.name
     img.project__img(src=`${project.coverImage}`)
     .project__summary= project.summary

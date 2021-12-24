@@ -2,8 +2,8 @@
   &__content {
     display: flex;
     justify-content: space-around;
-    padding-bottom: 10rem;
     align-items: flex-start;
+    padding-bottom: 10rem;
   }
 
   &__portrait {
@@ -15,10 +15,10 @@
 
   &__img {
     background: url(/img/img-self-portrait.jpg);
+    background-size: cover;
     height: 37.5rem;
     width: 37.5rem;
     border-radius: 50%;
-    background-size: cover;
     border: solid 0.6rem;
     border-color: $color-primary;
   }
@@ -30,15 +30,15 @@
   }
 
   &__link-icon {
-    height: 5rem;
-    width: 5rem;
+    @include iconMedium;
+    fill: $color-dark;
   }
 
   &__text {
     width: 55rem;
     height: 100%;
     font-size: 2.4rem;
-    font-weight: 400;
+    font-weight: $font-regular;
   }
 
   &__p {

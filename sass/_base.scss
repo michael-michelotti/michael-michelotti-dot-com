@@ -1,9 +1,25 @@
-$font-primary: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600&display=swap');
+
+// COLORS
 $color-dark: #333;
+$color-light: #ebebeb;
+$color-white: #fff;
 $color-primary: #0072ff;
 $color-secondary: #edf5ff;
-$color-white: #fff;
 $color-tertiary: #898eba;
+
+// FONT SIZES
+$font-primary: 'Montserrat', sans-serif;
+$font-bold: 600;
+$font-regular: 400;
+$font-light: 200;
+$font-thin: 100;
+
+// ICON SIZES
+$icon-large-size: '7.5rem';
+$icon-medium-size: '5rem';
+$icon-small-size: '2.5rem';
+$title-size: '3.4rem';
 
 *,
 *::before,
@@ -22,6 +38,6 @@ html {
 body {
   font-family: $font-primary;
   color: $color-dark;
-  font-weight: 200;
+  font-weight: $font-regular;
   line-height: 1.6;
 }

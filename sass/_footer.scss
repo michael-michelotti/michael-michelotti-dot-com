@@ -1,10 +1,10 @@
 .footer {
-  padding: 3rem;
-  background-color: $color-tertiary;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+  padding: 3rem;
+  background-color: $color-tertiary;
 
   &__title {
     display: flex;
@@ -17,7 +17,7 @@
   &__line {
     height: 0;
     width: 10%;
-    border-top: solid 1px $color-white;
+    border-top: solid 0.1rem $color-white;
   }
 
   &__title-text {
@@ -42,8 +42,7 @@
   }
 
   &__icon {
-    height: 2.5rem;
-    width: 2.5rem;
+    @include iconSmall;
     fill: $color-white;
   }
 
@@ -53,8 +52,7 @@
   }
 
   &__link-icon {
-    height: 2.5rem;
-    width: 2.5rem;
+    @include iconSmall;
     fill: $color-white;
   }
 

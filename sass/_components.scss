@@ -1,13 +1,13 @@
-.title {
+.section-title {
   text-transform: uppercase;
-  font-size: 3.4rem;
+  font-size: $title-size;
   text-decoration: underline;
   text-decoration-thickness: 0.1rem;
   text-align: center;
 }
 
 .m-bot-md {
-  margin-bottom: 5rem;
+  margin-bottom: 5rem !important;
 }
 
 .m-top-lg {
@@ -21,9 +21,9 @@
 .card-divider {
   width: 0px;
   height: 30rem;
-  border-right: solid 1px $color-dark;
+  border-right: solid 0.1rem $color-dark;
 
   &--white {
-    border-right: solid 1px $color-white;
+    border-right: solid 0.1rem $color-white;
   }
 }

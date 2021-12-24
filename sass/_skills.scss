@@ -1,7 +1,5 @@
 .skills {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(/img/skills-backdrop.jpg);
-  background-size: cover;
+  @include overlaidBackdrop(0.4, '/img/skills-backdrop.jpg');
 
   &__title {
     color: $color-white;
@@ -41,8 +39,7 @@
   }
 
   &__icon {
-    height: 7.5rem;
-    width: 7.5rem;
+    @include iconLarge;
     fill: $color-white;
   }
 

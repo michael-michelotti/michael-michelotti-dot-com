@@ -3,23 +3,21 @@
   justify-content: space-between;
   align-items: center;
   height: 75px;
-  background-color: #ebebeb;
-  font-family: 'Montserrat', sans-serif;
+  background-color: $color-light;
   padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 1;
 
   &__branding {
-    height: 100%;
+    @include removeLinkDecoration;
     display: flex;
+    height: 100%;
     gap: 2rem;
     cursor: pointer;
-    text-decoration: none;
-    color: $color-dark;
 
     &:visited {
-      text-decoration: none;
+      @include removeLinkDecoration;
     }
   }
 
@@ -42,10 +40,9 @@
   }
 
   &__link {
+    @include removeLinkDecoration;
     font-size: 2.4rem;
-    font-weight: 400;
-    text-decoration: none;
-    color: $color-dark;
+    font-weight: $font-regular;
     cursor: pointer;
   }
 }

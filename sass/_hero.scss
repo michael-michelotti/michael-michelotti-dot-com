@@ -1,23 +1,19 @@
 .hero {
   height: 95vh;
   position: relative;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(/img/hero-backdrop.jpg);
-  background-size: cover;
+  @include overlaidBackdrop(0.4, '/img/hero-backdrop.jpg');
 
   &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    @include center;
   }
 
   &__name {
     font-size: 7.2rem;
-    color: #fff;
+    font-weight: $font-light;
+    color: $color-white;
   }
 
   &__links {
@@ -26,8 +22,7 @@
   }
 
   &__link-icon {
-    height: 7.5rem;
-    width: 7.5rem;
-    fill: #fff;
+    @include iconLarge;
+    fill: $color-white;
   }
 }

@@ -1,0 +1,36 @@
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin overlaidBackdrop($alpha, $url) {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, $alpha),
+      rgba(0, 0, 0, $alpha)
+    ),
+    url($url);
+  background-size: cover;
+}
+
+@mixin iconLarge {
+  height: $icon-large-size;
+  width: $icon-large-size;
+}
+
+@mixin iconMedium {
+  height: $icon-medium-size;
+  width: $icon-medium-size;
+}
+
+@mixin iconSmall {
+  height: $icon-small-size;
+  width: $icon-small-size;
+}
+
+@mixin removeLinkDecoration {
+  text-decoration: none;
+  color: $color-dark;
+}
