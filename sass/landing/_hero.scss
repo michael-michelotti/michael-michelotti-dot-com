@@ -24,5 +24,9 @@
   &__link-icon {
     @include iconLarge;
     fill: $color-white;
+
+    circle {
+      stroke: $color-dark;
+    }
   }
 }

@@ -19,3 +19,11 @@
   font-weight: $font-bold !important;
   text-decoration: underline !important;
 }
+
+.icon {
+  transition: all 0.5s;
+
+  &:hover {
+    fill: $color-primary;
+  }
+}

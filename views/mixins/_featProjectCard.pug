@@ -8,10 +8,11 @@ mixin featProjectCard(project)
     a.project__title(href=`projects/${project.slug}/`)
       svg.project__icon--title: use(xlink:href=`img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
       span.project__name= project.name
-    img.project__img(src=`${project.coverImage}`)
-    .project__summary= project.summary
+    a(href=`projects/${project.slug}/`)
+      img.project__img(src=`${project.coverImage}`)
+    a(href=`projects/${project.slug}/`).project__summary= project.summary
     .project__links
-      a.project__link(href=`${project.githubLink || '#'}`, target='_blank')
-        +captionedIcon('project', 'github-black', 'GitHub')
-      a.project__link(href=`${project.liveLink || '#'}`, target='_blank')
-        +captionedIcon('project', 'linkedin-black', 'Live')
+      a.project__link(href=`${project.githubLink || '#'}`, target='blank')
+        +captionedIcon('project', 'github', 'GitHub')
+      a.project__link(href=`${project.liveLink || '#'}`, target='blank')
+        +captionedIcon('project', 'live', 'Live')
