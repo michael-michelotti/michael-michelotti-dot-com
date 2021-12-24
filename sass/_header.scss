@@ -5,9 +5,9 @@
   height: 75px;
   background-color: $color-light;
   padding: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  //position: sticky;
+  //top: 0;
+  //z-index: 1;
 
   &__branding {
     @include removeLinkDecoration;
