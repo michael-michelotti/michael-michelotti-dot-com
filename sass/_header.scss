@@ -23,6 +23,11 @@
     font-size: 3.2rem;
     color: $color-primary;
     font-weight: $font-light;
+    transition: all 0.5s;
+
+    &:hover {
+      color: $color-dark;
+    }
   }
 
   @keyframes spinHorizontal {

@@ -1,0 +1,10 @@
+extends base
+
+include mixins/_articleCard
+
+block content
+  section.articles
+    .section-title.mb-md.pt-lg all articles
+    .articles__content
+      each article in articles
+        +articleCard(article)

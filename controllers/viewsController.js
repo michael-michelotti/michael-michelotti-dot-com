@@ -27,3 +27,21 @@ exports.getAllProjects = catchAsync(async (req, res, next) => {
     projects,
   });
 });
+
+exports.getAllArticles = catchAsync(async (req, res, next) => {
+  const articles = await Article.find({ hidden: false });
+
+  res.status(200).render('allArticles', {
+    title: 'All Articles',
+    articles,
+  });
+});
+
+exports.getArticle = catchAsync(async (req, res, next) => {
+  const article = await Article.find({ slug: slug });
+
+  res.status(200).render('article', {
+    title: article.name,
+    article,
+  });
+});

@@ -1,0 +1,11 @@
+.articles {
+  &__content {
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10rem;
+    justify-items: center;
+    align-items: center;
+    padding-bottom: 10rem;
+  }
+}
