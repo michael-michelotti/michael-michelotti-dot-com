@@ -4,7 +4,8 @@ archive
 config.env
 .vscode
 node_modules
-public
+public/css
+public/img
 dev-data
 .DS_Store
 test.js

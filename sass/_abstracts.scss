@@ -7,3 +7,15 @@
 .pt-lg {
   padding-top: 10rem !important;
 }
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: rgba($color-light, 0.75) !important;
+}
+
+.active-nav {
+  font-weight: $font-bold !important;
+  text-decoration: underline !important;
+}
