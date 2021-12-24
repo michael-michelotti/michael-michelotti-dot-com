@@ -13,8 +13,17 @@ exports.getLanding = catchAsync(async (req, res, next) => {
   // 2) Build template
   // 3) Render that template using tour data from 1)
   res.status(200).render('landing', {
-    title: 'Welcome!',
+    title: 'Welcome',
     projects: featProj,
     articles: featArt,
+  });
+});
+
+exports.getAllProjects = catchAsync(async (req, res, next) => {
+  const projects = await Project.find({ hidden: false });
+
+  res.status(200).render('allProjects', {
+    title: 'All Projects',
+    projects,
   });
 });

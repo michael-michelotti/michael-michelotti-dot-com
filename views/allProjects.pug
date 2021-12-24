@@ -1,0 +1,11 @@
+extends base
+
+include mixins/_projectRow
+
+block content
+  section.projects
+    .section-title.mb-md.pt-lg all projects
+    .projects__content
+      each project in projects
+        +projectRow(project)
+        .row-divider
