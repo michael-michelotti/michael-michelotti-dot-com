@@ -38,7 +38,7 @@ exports.getAllArticles = catchAsync(async (req, res, next) => {
 });
 
 exports.getArticle = catchAsync(async (req, res, next) => {
-  const article = await Article.find({ slug: slug });
+  const article = await Article.findOne({ slug: req.params.slug });
 
   res.status(200).render('article', {
     title: article.name,

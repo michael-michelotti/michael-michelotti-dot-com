@@ -1,0 +1,22 @@
+extends base
+
+block content
+  section.article-s
+    .article-s__content
+      .article-s__title.pt-lg= article.name
+      .article-s__hero
+        img.article-s__img(src=`${article.coverImage}`, alt=`${article.name} cover image`)
+        .article-s__caption= article.coverImageCaption
+      .article-s__by
+        .article-s__author by #{article.authors.join(', ')}
+        .article-s__date= article.createdAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})
+      - const articleParas = article.body.split('\n')
+      each para in articleParas
+        .article-s__body= para
+    //- will be absolutely positioned on wide screens
+    .rel-content
+      .rel-content__title
+      .rel-content__links
+        .rel-content__link
+        .rel-content__link
+        .rel-content__link
