@@ -318,3 +318,29 @@
     }
   }
 }
+
+// RELATED ARTICLE CARD
+.rel-article-card {
+  @include removeLinkDecoration;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: space-between;
+
+  &__img {
+    width: 12.5rem;
+    height: 9rem;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 0;
+      width: 20rem;
+      border-top: solid 1px $color-dark;
+    }
+  }
+}

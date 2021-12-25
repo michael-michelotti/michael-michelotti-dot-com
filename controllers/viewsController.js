@@ -40,8 +40,16 @@ exports.getAllArticles = catchAsync(async (req, res, next) => {
 exports.getArticle = catchAsync(async (req, res, next) => {
   const article = await Article.findOne({ slug: req.params.slug });
 
+  mainCategory = article.categories[0];
+
+  const relatedArticles = await Article.find({
+    categories: mainCategory,
+    _id: { $ne: article._id },
+  });
+
   res.status(200).render('article', {
     title: article.name,
     article,
+    relatedArticles,
   });
 });

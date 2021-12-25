@@ -44,3 +44,20 @@
     line-height: 1.8;
   }
 }
+
+.rel-content {
+  font-family: 'Montserrat', sans-serif;
+  position: fixed;
+  top: 40rem;
+  right: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 35rem;
+
+  &__title {
+    font-size: 2.4rem;
+    padding-left: 1rem;
+    font-weight: $font-light;
+  }
+}

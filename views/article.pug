@@ -1,5 +1,10 @@
 extends base
 
+mixin relatedArticleCard(article)
+  a.rel-article-card(href=`/articles/${article.slug}/`)
+    .rel-article-card__title= article.name
+    img.rel-article-card__img(src=`${article.coverImage}`, alt=`${article.name} cover image`)
+
 block content
   section.article-s
     .article-s__content
@@ -15,8 +20,6 @@ block content
         .article-s__body= para
     //- will be absolutely positioned on wide screens
     .rel-content
-      .rel-content__title
-      .rel-content__links
-        .rel-content__link
-        .rel-content__link
-        .rel-content__link
+      .rel-content__title Related Articles
+      for article in relatedArticles
+        +relatedArticleCard(article)
