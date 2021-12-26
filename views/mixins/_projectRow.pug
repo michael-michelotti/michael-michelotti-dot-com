@@ -1,16 +1,12 @@
-include _captionedIcon
 include _techGrid
+include _projectLinks
 
 mixin projectRow(project)
   .project-row
     .project-row__title
       .project-row__name= project.name
       .project-row__links
-        //- these buttons should be reused from landing page
-        a.project__link(href=`${project.githubLink || '#'}`, target=project.githubLink ? 'blank' : 'self')
-          +captionedIcon('project-row', 'github', 'GitHub')
-        a.project__link(href=`${project.liveLink || '#'}`, target=project.liveLink ? 'blank' : 'self')
-          +captionedIcon('project-row', 'live', 'Live')
+        +projectLinks(project)
 
     .project-row__content
       img.project-row__img(src=`/img/${project.coverImage}`)

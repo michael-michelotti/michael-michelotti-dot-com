@@ -10,5 +10,8 @@ header.header
       a.header__link#nav-feat-articles(href='#feat-articles') Articles
       a.header__link#nav-skills(href='#skills') Skills
       a.header__link#nav-footer(href='#footer') Contact
+    else if article
+      a.header__link(href='/articles') All Articles
+      a.header__link(href='/') Back Home
     else
       a.header__link(href='/') Back Home

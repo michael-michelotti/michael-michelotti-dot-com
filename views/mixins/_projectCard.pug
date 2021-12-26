@@ -1,4 +1,4 @@
-include _captionedIcon
+include _projectLinks
 
 mixin projectCard(project)
   .project-card
@@ -9,7 +9,4 @@ mixin projectCard(project)
       img.project-card__img(src=`/img/${project.coverImage}`)
     a(href=`projects/${project.slug}/`).project-card__summary= project.summary
     .project-card__links
-      a.project-card__link(href=`${project.githubLink || '#'}`, target=project.githubLink ? '_blank' : '_self')
-        +captionedIcon('project-card', 'github', 'GitHub')
-      a.project-card__link(href=`${project.liveLink || '#'}`, target=project.liveLink ? '_blank' : '_self')
-        +captionedIcon('project-card', 'live', 'Live')
+      +projectLinks(project)
