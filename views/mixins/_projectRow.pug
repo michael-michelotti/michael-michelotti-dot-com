@@ -1,4 +1,5 @@
 include _captionedIcon
+include _techGrid
 
 mixin projectRow(project)
   .project-row
@@ -6,10 +7,10 @@ mixin projectRow(project)
       .project-row__name= project.name
       .project-row__links
         //- these buttons should be reused from landing page
-        a.project__link(href=`${project.githubLink || '#'}`, target='blank')
-          +captionedIcon('project', 'github', 'GitHub')
-        a.project__link(href=`${project.liveLink || '#'}`, target='blank')
-          +captionedIcon('project', 'live', 'Live')
+        a.project__link(href=`${project.githubLink || '#'}`, target=project.githubLink ? 'blank' : 'self')
+          +captionedIcon('project-row', 'github', 'GitHub')
+        a.project__link(href=`${project.liveLink || '#'}`, target=project.liveLink ? 'blank' : 'self')
+          +captionedIcon('project-row', 'live', 'Live')
 
     .project-row__content
       img.project-row__img(src=`/img/${project.coverImage}`)
@@ -19,9 +20,4 @@ mixin projectRow(project)
         span #[em DESCRIPTION:]
         each para in descParas
           .project-row__description #{para}
-      .tech-used
-        .tech-used__title Tech Used
-        .tech-used__grid
-          each tech in project.techsUsed
-            svg.tech-used__grid-item
-              use(xlink:href=`/img/sprite.svg#icon-${tech}`, alt=`${tech} icon`)
+      +techGrid('Tech Used', project.techsUsed)

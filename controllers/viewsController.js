@@ -2,17 +2,16 @@ const catchAsync = require('../utils/catchAsync');
 const Project = require('../models/projectModel');
 const Article = require('../models/articleModel');
 
+const PAGE_ROOT = 'pages';
+
 exports.getLanding = catchAsync(async (req, res, next) => {
-  // 1) Get tour data from collection
   const featProj = await Project.find({ featured: true });
   const featArt = await Article.find({ featured: true });
 
   if (featProj.length > 3) featProj.splice(3);
   if (featArt.length > 2) featArt.splice(2);
 
-  // 2) Build template
-  // 3) Render that template using tour data from 1)
-  res.status(200).render('landing', {
+  res.status(200).render(`${PAGE_ROOT}/landing`, {
     title: 'Welcome',
     projects: featProj,
     articles: featArt,
@@ -22,7 +21,7 @@ exports.getLanding = catchAsync(async (req, res, next) => {
 exports.getAllProjects = catchAsync(async (req, res, next) => {
   const projects = await Project.find({ hidden: false });
 
-  res.status(200).render('allProjects', {
+  res.status(200).render(`${PAGE_ROOT}/allProjects`, {
     title: 'All Projects',
     projects,
   });
@@ -31,7 +30,7 @@ exports.getAllProjects = catchAsync(async (req, res, next) => {
 exports.getAllArticles = catchAsync(async (req, res, next) => {
   const articles = await Article.find({ hidden: false });
 
-  res.status(200).render('allArticles', {
+  res.status(200).render(`${PAGE_ROOT}/allArticles`, {
     title: 'All Articles',
     articles,
   });
@@ -47,7 +46,7 @@ exports.getArticle = catchAsync(async (req, res, next) => {
     _id: { $ne: article._id },
   });
 
-  res.status(200).render('article', {
+  res.status(200).render(`${PAGE_ROOT}/article`, {
     title: article.name,
     article,
     relatedArticles,

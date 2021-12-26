@@ -1,0 +1,38 @@
+.skill-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+  }
+
+  &__name {
+    font-size: 2.4rem;
+    color: $color-white;
+  }
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 15rem;
+  height: 15rem;
+
+  &__icon {
+    @include iconLarge;
+    fill: $color-white;
+  }
+
+  &__caption {
+    color: $color-white;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: $font-bold;
+  }
+}

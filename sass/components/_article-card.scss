@@ -1,20 +1,18 @@
-.article {
-  &__card:hover &__name {
+.article-card {
+  @include removeLinkDecoration;
+  display: flex;
+  align-items: flex-start;
+  height: 25rem;
+  width: 60rem;
+
+  &:hover &__name {
     transition: all 0.5s;
     color: $color-primary;
   }
 
-  &__card:hover &__icon {
+  &:hover &__icon {
     transition: all 0.5s;
     fill: $color-primary;
-  }
-
-  &__card {
-    @include removeLinkDecoration;
-    display: flex;
-    align-items: flex-start;
-    height: 25rem;
-    width: 60rem;
   }
 
   &__title {
@@ -52,45 +50,5 @@
     height: 20rem;
     padding: 1.5rem;
     object-fit: cover;
-  }
-}
-
-// SKILL GRID (just the 4 icons and their caption)
-.skill-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4rem;
-
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 3rem;
-  }
-
-  &__name {
-    font-size: 2.4rem;
-    color: $color-white;
-  }
-
-  &__skill {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 15rem;
-    height: 15rem;
-  }
-
-  &__icon {
-    @include iconLarge;
-    fill: $color-white;
-  }
-
-  &__caption {
-    color: $color-white;
-    font-size: 1.8rem;
-    text-align: center;
-    font-weight: $font-bold;
   }
 }

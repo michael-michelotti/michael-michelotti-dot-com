@@ -1,4 +1,4 @@
-include ../mixins/_articleCard
+include ../../mixins/_articleCard
 
 section.feat-articles#feat-articles
   .section-title.mb-md.pt-lg featured articles
@@ -8,3 +8,5 @@ section.feat-articles#feat-articles
     if articles[1] 
       .card-divider
       +articleCard(articles[1])
+  .feat-articles__btn
+    a.btn.btn--blue(href='articles') See All Articles

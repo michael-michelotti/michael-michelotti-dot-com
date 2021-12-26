@@ -1,23 +1,21 @@
-.project {
-  &__card:hover &__name {
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 35rem;
+  padding: 1rem 1rem 4rem 1rem;
+  border-radius: 1rem;
+
+  &:hover &__name {
     transition: all 0.5s;
     color: $color-primary;
   }
 
-  &__card:hover &__icon--title {
+  &:hover &__icon--title {
     transition: all 0.5s;
     fill: $color-primary;
-  }
-
-  &__card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    width: 35rem;
-    padding: 1rem 1rem 4rem 1rem;
-    border-radius: 1rem;
   }
 
   &__title {

@@ -2,6 +2,11 @@
   &__content {
     display: flex;
     justify-content: space-around;
-    padding-bottom: 10rem;
+    margin-bottom: 5rem;
+  }
+
+  &__btn {
+    margin-bottom: 10rem;
+    text-align: center;
   }
 }

@@ -1,0 +1,7 @@
+mixin techGrid(title, techsUsed)
+  .tech-grid
+    .tech-grid__title= title
+    .tech-grid__grid
+      each tech in techsUsed
+        svg.tech-grid__grid-item
+          use(xlink:href=`/img/sprite.svg#icon-${tech}`, alt=`${tech} icon`)

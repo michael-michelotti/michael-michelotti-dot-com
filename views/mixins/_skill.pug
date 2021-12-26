@@ -1,10 +1,10 @@
 mixin skill(icon, caption)
-  .skill-grid__skill
-      svg.skill-grid__icon
+  .skill
+      svg.skill__icon
         use(xlink:href=`img/sprite.svg#icon-${icon}`, alt=`${icon} icon`)
       - skill = undefined
       - if (caption.includes(' ')) {[skill, level] = caption.split(' ')}
       if skill
-        .skill-grid__caption #{skill} #[br] #{level}
+        .skill__caption #{skill} #[br] #{level}
       else
-        .skill-grid__caption= caption
+        .skill__caption= caption
