@@ -21,7 +21,7 @@ if (heroSection && header) {
       header.classList.toggle('sticky-nav', !entries[0].isIntersecting);
     },
     {
-      threshold: 0.01,
+      rootMargin: `-${header.offsetHeight}px`,
     }
   );
 
@@ -33,7 +33,6 @@ if (heroSection) {
     entries.forEach((entry) => {
       let screenBotToTop =
         entry.boundingClientRect.top - entry.rootBounds.height;
-      // console.log(entry);
       if (
         entry.isIntersecting === false &&
         entry.boundingClientRect.bottom <= 0

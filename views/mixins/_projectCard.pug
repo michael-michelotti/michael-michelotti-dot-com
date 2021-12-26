@@ -2,11 +2,11 @@ include _projectLinks
 
 mixin projectCard(project)
   .project-card
-    a.project-card__title(href=`projects/${project.slug}/`)
-      svg.project-card__icon--title: use(xlink:href=`img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
-      span.project-card__name= project.name
-    a(href=`projects/${project.slug}/`)
+    a.project-card__img-link(href=`/projects/${project.slug}/`)
       img.project-card__img(src=`/img/${project.coverImage}`)
-    a(href=`projects/${project.slug}/`).project-card__summary= project.summary
+    a.project-card__title(href=`/projects/${project.slug}/`)
+      svg.project-card__icon: use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
+      span.project-card__name= project.name
+    a(href=`/projects/${project.slug}/`).project-card__summary= project.summary
     .project-card__links
       +projectLinks(project)

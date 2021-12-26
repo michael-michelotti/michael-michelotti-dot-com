@@ -20,7 +20,7 @@
       width: 3px;
       background-color: $color-primary;
       transform: scaleY(0);
-      transition: transform 0.2s, width 0.5s cubic-bezier(1, 0, 0, 1) 0.2s;
+      transition: transform 0.1s, width 0.5s cubic-bezier(1, 0, 0, 1) 0.1s;
     }
 
     &:hover::before {
@@ -34,20 +34,19 @@
     fill: $color-dark;
     position: relative;
     z-index: 10;
-    transition: all 0.5s cubic-bezier(0.99, 0.11, 0.93, 0.35);
+    transition: fill 0.5s 0.1s;
+  }
+
+  &__link:hover &__icon {
+    fill: $color-white;
   }
 
   &__caption {
     @include removeLinkDecoration;
     font-size: 1.8rem;
-    font-weight: $font-regular;
     position: relative;
     z-index: 10;
-    transition: all 0.5s cubic-bezier(0.99, 0.11, 0.93, 0.35);
-  }
-
-  &__link:hover &__icon {
-    fill: $color-white;
+    transition: color 0.5s 0.1s;
   }
 
   &__link:hover &__caption {

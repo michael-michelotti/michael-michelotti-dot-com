@@ -30,19 +30,8 @@
     }
   }
 
-  @keyframes spinHorizontal {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(360deg);
-    }
-  }
   &__logo {
     height: 100%;
-    &:hover {
-      animation: spinHorizontal 0.8s 1 linear;
-    }
   }
 
   &__nav {
