@@ -6,7 +6,7 @@ about = document.getElementById('about');
 projects = document.getElementById('feat-projects');
 articles = document.getElementById('feat-articles');
 skills = document.getElementById('skills');
-contact = document.getElementById('footer');
+footer = document.getElementById('footer');
 
 // HEADER NAV LINKS
 navAbout = document.getElementById('nav-about');
@@ -15,63 +15,65 @@ navArticles = document.getElementById('nav-articles');
 navSkills = document.getElementById('nav-skills');
 navFooter = document.getElementById('nav-footer');
 
+// Using Intersection Observer API to make header sticky once scrolled below hero section
 if (heroSection && header) {
-  let heroObserver = new IntersectionObserver(
-    (entries) => {
-      header.classList.toggle('sticky-nav', !entries[0].isIntersecting);
-    },
-    {
-      rootMargin: `-${header.offsetHeight}px`,
-    }
-  );
+  const makeHeaderSticky = (entries) => {
+    header.classList.toggle('sticky-nav', !entries[0].isIntersecting);
+  };
+
+  let heroObserver = new IntersectionObserver(makeHeaderSticky, {
+    rootMargin: `-${header.offsetHeight}px`,
+  });
 
   heroObserver.observe(heroSection);
 }
 
+// Using Intersection Observer to highlight the current section on the header
 if (heroSection) {
-  let sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      let screenBotToTop =
-        entry.boundingClientRect.top - entry.rootBounds.height;
-      if (
-        entry.isIntersecting === false &&
-        entry.boundingClientRect.bottom <= 0
-      ) {
-        leavingSection = entry.target;
-        nextSection = leavingSection.nextElementSibling;
+  const enteringSectionHandler = (entries) => {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
 
-        // hero section doesn't have a navigation element
-        if (leavingSection.id != 'hero') {
-          leavingSectionNav = document.querySelector(
-            `[href="#${leavingSection.id}"]`
-          );
-          leavingSectionNav.classList.remove('active-nav');
-        }
+    sectionId = entry.target.id;
 
-        nextSectionNav = document.querySelector(`[href="#${nextSection.id}"]`);
-        nextSectionNav.classList.add('active-nav');
-      } else if (screenBotToTop >= 0 && screenBotToTop <= 100) {
-        leavingSection = entry.target;
-        nextSection = leavingSection.previousElementSibling;
-        console.log(`leaving section ${leavingSection.id}`);
-        leavingSectionNav = document.querySelector(
-          `[href="#${leavingSection.id}"]`
-        );
-        leavingSectionNav.classList.remove('active-nav');
-
-        if (nextSection.id != 'hero') {
-          nextSectionNav = document.querySelector(
-            `[href="#${nextSection.id}"]`
-          );
-          nextSectionNav.classList.add('active-nav');
-        }
+    const navLinks = document.querySelectorAll('.header__link');
+    navLinks.forEach((link) => {
+      if (link.href.split('#').at(-1) == sectionId) {
+        link.classList.add('active-nav');
+      } else {
+        link.classList.remove('active-nav');
       }
     });
+  };
+
+  const sectionObserver = new IntersectionObserver(enteringSectionHandler, {
+    threshold: 0.5,
   });
 
-  [heroSection, about, projects, articles, skills, contact].forEach(
-    (section) => {
-      sectionObserver.observe(section);
+  const sections = document.querySelectorAll('section');
+  sections.forEach((section) => sectionObserver.observe(section));
+
+  // Handle footer only highlighting when it's 100% in the viewport
+  const footerInFrame = (entries) => {
+    const [entry] = entries;
+    console.log(entry);
+    if (!entry.isIntersecting) {
+      navFooter.classList.remove('active-nav');
+      navSkills.classList.add('active-nav');
+      return;
     }
-  );
+
+    const navLinks = document.querySelectorAll('.header__link');
+    navLinks.forEach((link) => {
+      link.classList.remove('active-nav');
+    });
+
+    navFooter.classList.add('active-nav');
+  };
+
+  const footerObserver = new IntersectionObserver(footerInFrame, {
+    threshold: 0.99,
+  });
+
+  footerObserver.observe(footer);
 }

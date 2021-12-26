@@ -19,17 +19,17 @@
   &__img {
     background: url(/img/img-self-portrait.jpg);
     background-size: cover;
-    height: 37.5rem;
-    width: 37.5rem;
+    height: 50rem;
+    width: 50rem;
     border-radius: 50%;
-    border: solid 0.6rem;
+    border: solid 1rem;
     border-color: $color-primary;
   }
 
   &__links {
     display: flex;
     flex-direction: row;
-    gap: 7.5rem;
+    gap: 10rem;
   }
 
   &__link-icon {

@@ -1,6 +1,7 @@
 header.header
   a.header__branding(href='/')
-    img.header__logo(src='/img/logo.png', alt='Michael Michelotti logo')
+    svg.header__logo
+      use(xlink:href='/img/sprite.svg#icon-logo', alt=`Logo icon`)
     .header__name Michael Michelotti
   nav.header__nav
     //- title is "welcome" on the landing page, which is the only page with these links
