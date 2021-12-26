@@ -8,4 +8,4 @@ mixin articleCard(article)
       ul.article__summary
         each point in article.summaryPoints
           li.article__point= point
-    img.article__img(src=`${article.coverImage}`, alt=`${article.name} cover image`)
+    img.article__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)

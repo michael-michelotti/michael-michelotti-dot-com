@@ -12,7 +12,7 @@ mixin projectRow(project)
           +captionedIcon('project', 'live', 'Live')
 
     .project-row__content
-      img.project-row__img(src=`${project.coverImage}`)
+      img.project-row__img(src=`/img/${project.coverImage}`)
       .project-row__text
         .project-row__summary #[em SUMMARY:] #{project.summary}
         - const descParas = project.detailDescription.split('\n')
@@ -24,4 +24,4 @@ mixin projectRow(project)
         .tech-used__grid
           each tech in project.techsUsed
             svg.tech-used__grid-item
-              use(xlink:href=`img/sprite.svg#icon-${tech}`, alt=`${tech} icon`)
+              use(xlink:href=`/img/sprite.svg#icon-${tech}`, alt=`${tech} icon`)

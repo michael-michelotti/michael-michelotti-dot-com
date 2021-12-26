@@ -6,7 +6,7 @@ mixin featProjectCard(project)
       svg.project__icon--title: use(xlink:href=`img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
       span.project__name= project.name
     a(href=`projects/${project.slug}/`)
-      img.project__img(src=`${project.coverImage}`)
+      img.project__img(src=`/img/${project.coverImage}`)
     a(href=`projects/${project.slug}/`).project__summary= project.summary
     .project__links
       a.project__link(href=`${project.githubLink || '#'}`, target='blank')

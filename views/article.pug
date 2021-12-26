@@ -3,14 +3,14 @@ extends base
 mixin relatedArticleCard(article)
   a.rel-article-card(href=`/articles/${article.slug}/`)
     .rel-article-card__title= article.name
-    img.rel-article-card__img(src=`${article.coverImage}`, alt=`${article.name} cover image`)
+    img.rel-article-card__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
 
 block content
   section.article-s
     .article-s__content
       .article-s__title.pt-lg= article.name
       .article-s__hero
-        img.article-s__img(src=`${article.coverImage}`, alt=`${article.name} cover image`)
+        img.article-s__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
         .article-s__caption= article.coverImageCaption
       .article-s__by
         .article-s__author by #{article.authors.join(', ')}
