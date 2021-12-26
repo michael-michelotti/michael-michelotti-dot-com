@@ -1,0 +1,48 @@
+.project-row {
+  width: 150rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+  }
+
+  &__content {
+    display: flex;
+    gap: 9rem;
+  }
+
+  &__img {
+    height: 27.5rem;
+    width: 45rem;
+  }
+
+  &__links {
+    display: flex;
+    gap: 5rem;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+  }
+
+  &__summary {
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    &:not(&:last-child) {
+      margin-bottom: 0.2rem;
+    }
+  }
+}

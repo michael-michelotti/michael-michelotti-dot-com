@@ -1,0 +1,21 @@
+.card-divider {
+  align-self: center;
+  width: 0px;
+  height: 30rem;
+  border-right: solid 0.1rem $color-dark;
+
+  &--white {
+    border-right: solid 0.1rem $color-white;
+  }
+}
+
+.row-divider {
+  align-self: center;
+  height: 0px;
+  width: 100rem;
+  border-top: solid 0.1rem $color-dark;
+
+  &:last-child {
+    display: none;
+  }
+}

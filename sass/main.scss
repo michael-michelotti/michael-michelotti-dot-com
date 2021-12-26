@@ -1,14 +1,23 @@
 @import 'mixins';
 @import 'base';
 @import 'abstracts';
-@import 'components';
+@import 'typography';
+
 @import 'header';
 @import 'footer';
-@import 'landing/hero';
-@import 'landing/about';
-@import 'landing/projects';
-@import 'landing/articles';
-@import 'landing/skills';
-@import 'allProjects';
-@import 'allArticles';
-@import 'article';
+
+@import 'pages/allProjects';
+@import 'pages/allArticles';
+@import 'pages/article';
+@import 'pages/landing/hero';
+@import 'pages/landing/about';
+@import 'pages/landing/projects';
+@import 'pages/landing/articles';
+@import 'pages/landing/skills';
+
+@import 'components/article-card';
+@import 'components/project-card';
+@import 'components/project-row';
+@import 'components/rel-article-card';
+@import 'components/tech-grid';
+@import 'components/dividers';
