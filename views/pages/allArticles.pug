@@ -6,5 +6,15 @@ block content
   section.articles
     .section-title.mb-md.pt-lg all articles
     .articles__content.pb-lg
-      each article in articles
-        +articleCard(article)
+      - const indexedArticles = articles.map((a, i) => [i, a])
+      each entry in indexedArticles
+        - const [i, article] = entry
+        - const rowNum = Math.floor(i / 2) + 1
+        //- even articles, lay down column divider
+        if i % 2 === 0
+          +articleCard(article, `grid-row: ${rowNum}`)
+          .card-divider(style=`grid-row: ${rowNum}`)
+        //- odd articles, lay down row divider
+        else
+          +articleCard(article, `grid-row: ${rowNum}`)
+          .row-divider(style=`grid-row: ${rowNum}`)
