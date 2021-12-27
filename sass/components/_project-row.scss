@@ -1,9 +1,13 @@
 .project-row {
-  width: 150rem;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+
+  @include respond(tab-land) {
+    width: 70%;
+  }
 
   &__title {
     display: flex;
@@ -20,15 +24,29 @@
   &__content {
     display: flex;
     gap: 9rem;
+
+    @include respond(tab-land) {
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
   }
 
   &__img {
-    height: 27.5rem;
-    width: 45rem;
+    width: 33%;
+    object-fit: cover;
+
+    @include respond(tab-land) {
+      width: 50%;
+    }
+
+    @include respond(phone) {
+      width: 80%;
+    }
   }
 
   &__text {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   &__summary {

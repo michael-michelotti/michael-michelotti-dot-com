@@ -22,10 +22,18 @@
 .row-divider {
   align-self: center;
   height: 0px;
-  width: 100rem;
+  width: 80rem;
   border-top: solid 0.1rem $color-dark;
 
   &:last-child {
     display: none;
+  }
+
+  @include respond(tab-land) {
+    width: 60rem;
+  }
+
+  @include respond(tab-port) {
+    width: 30rem;
   }
 }
