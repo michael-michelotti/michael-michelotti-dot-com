@@ -1,12 +1,11 @@
-.article-s {
+.article {
   &__content {
     font-family: 'Georgia', sans-serif;
-    display: flex;
-    flex-direction: column;
     gap: 3rem;
-    padding-bottom: 10rem;
     width: 60rem;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
 
   &__hero {
@@ -48,9 +47,9 @@
 
 .rel-content {
   font-family: $font-primary;
-  position: fixed;
+  position: absolute;
   top: 40rem;
-  right: 20rem;
+  right: 10vw;
   display: flex;
   flex-direction: column;
   gap: 3rem;

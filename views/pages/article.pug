@@ -6,20 +6,21 @@ mixin relatedArticleCard(article)
     img.rel-article-card__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
 
 block content
-  section.article-s
-    .article-s__content
-      .article-s__title.pt-lg= article.name
-      .article-s__hero
-        img.article-s__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
-        .article-s__caption= article.coverImageCaption
-      .article-s__by
-        .article-s__author by #{article.authors.join(', ')}
-        .article-s__date= article.createdAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})
+  section.article
+    .article__content.pt-lg.pb-lg
+      .article__title= article.name
+      .article__hero
+        img.article__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
+        .article__caption= article.coverImageCaption
+      .article__by
+        .article__author by #{article.authors.join(', ')}
+        .article__date= article.createdAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})
       - const articleParas = article.body.split('\n')
       each para in articleParas
-        .article-s__body= para
-    //- will be absolutely positioned on wide screens
-    .rel-content
-      .rel-content__title Related Articles
-      for article in relatedArticles
-        +relatedArticleCard(article)
+        .article__body= para
+
+    if relatedArticles
+      .rel-content
+        .rel-content__title Related Articles
+        for article in relatedArticles
+          +relatedArticleCard(article)

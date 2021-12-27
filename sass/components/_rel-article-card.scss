@@ -5,6 +5,14 @@
   padding: 1rem;
   justify-content: space-between;
 
+  &:hover &__title {
+    color: $color-primary;
+  }
+
+  &:hover &__title::before {
+    border-top: solid 1px $color-primary;
+  }
+
   &__img {
     width: 12.5rem;
     height: 9rem;
@@ -12,6 +20,7 @@
 
   &__title {
     font-size: 1.4rem;
+    transition: color 0.5s;
 
     &::before {
       content: '';
@@ -19,6 +28,7 @@
       height: 0;
       width: 20rem;
       border-top: solid 1px $color-dark;
+      transition: all 0.5s;
     }
   }
 }
