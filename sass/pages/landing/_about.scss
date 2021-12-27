@@ -6,7 +6,7 @@
     margin: 0 10vw;
     gap: 5rem;
 
-    @include respond(tab-port) {
+    @include respond(tab-land) {
       flex-direction: column;
       align-items: center;
     }
@@ -23,22 +23,28 @@
   &__img {
     background: url(/img/img-self-portrait.jpg);
     background-size: cover;
-    height: 50rem;
-    width: 50rem;
+    height: 40rem;
+    width: 40rem;
     border-radius: 50%;
-    border: solid 1rem $color-primary;
+    border: solid 0.75rem $color-primary;
 
     @include respond(tab-land) {
       height: 35rem;
       width: 35rem;
       border: solid 0.5rem $color-primary;
     }
+
+    @include respond(phone) {
+      height: 30rem;
+      width: 30rem;
+      border: solid 0.3rem $color-primary;
+    }
   }
 
   &__links {
     display: flex;
     flex-direction: row;
-    gap: 10rem;
+    gap: 8rem;
 
     @include respond(tab-land) {
       gap: 5rem;
@@ -53,9 +59,16 @@
   &__text {
     width: 55rem;
     height: 100%;
-    font-size: 2.4rem;
-    font-weight: $font-regular;
+    font-size: 2.2rem;
     flex-grow: 2;
+
+    @include respond(tab-land) {
+      width: 100%;
+    }
+
+    @include respond(phone) {
+      font-size: 1.8rem;
+    }
   }
 
   &__p {

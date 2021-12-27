@@ -18,6 +18,10 @@
     height: 0;
     width: 10%;
     border-top: solid 0.1rem $color-white;
+
+    @include respond(phone) {
+      width: 30%;
+    }
   }
 
   &__title-text {
@@ -29,7 +33,7 @@
     display: flex;
     gap: 12rem;
 
-    @include respond(tab-port) {
+    @include respond(tab-land) {
       flex-direction: column;
       align-items: center;
       gap: 2rem;
@@ -45,6 +49,10 @@
   &__caption {
     font-size: 1.8rem;
     color: $color-white;
+
+    @include respond(phone) {
+      font-size: 1.4rem;
+    }
   }
 
   &__icon {

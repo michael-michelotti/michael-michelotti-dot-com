@@ -11,12 +11,16 @@
   }
 
   &__name {
-    font-size: 7.2rem;
+    font-size: 7rem;
     font-weight: $font-thin;
     color: $color-white;
     text-align: center;
 
     @include respond(tab-land) {
+      font-size: 6rem;
+    }
+
+    @include respond(phone) {
       font-size: 5rem;
     }
   }

@@ -1,11 +1,11 @@
 .col-divider {
   align-self: center;
   width: 0;
-  height: 30rem;
+  height: 25rem;
   border-right: solid 0.1rem $color-dark;
 
   @include respond(tab-land) {
-    width: 30rem;
+    width: 25rem;
     height: 0;
     border-top: solid 0.1rem $color-dark;
   }

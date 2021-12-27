@@ -3,8 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   row-gap: 3.5rem;
 
-  gap: 3.5rem;
-  width: 40rem;
+  width: 30rem;
   background-color: $color-light;
 
   &__img {
@@ -20,7 +19,7 @@
   &__title {
     @include removeLinkDecoration;
     width: 80%;
-    color: #fff;
+    color: $color-white;
     background-color: $color-tertiary;
     display: flex;
     justify-content: center;
@@ -31,7 +30,7 @@
     justify-self: center;
     align-self: end;
     transform: translateY(50%);
-    padding: 1.25rem;
+    padding: 1rem;
     transition: all 0.5s;
 
     &:hover {
@@ -46,7 +45,7 @@
   }
 
   &__name {
-    font-size: 2.4rem;
+    font-size: 2rem;
     transition: color 0.5s;
   }
 

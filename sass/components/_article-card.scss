@@ -2,10 +2,12 @@
   @include removeLinkDecoration;
   display: flex;
   align-items: flex-start;
-  width: 60rem;
+  width: 50rem;
 
   @include respond(phone) {
-    width: 50rem;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
   }
 
   &:hover &__name {
@@ -26,7 +28,7 @@
   }
 
   &__name {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   &__icon {
@@ -39,7 +41,7 @@
   }
 
   &__point {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: $font-regular;
     display: list-item;
 
@@ -53,5 +55,9 @@
     height: 20rem;
     padding: 1rem;
     object-fit: cover;
+
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
