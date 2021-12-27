@@ -36,15 +36,69 @@ exports.getAllArticles = catchAsync(async (req, res, next) => {
   });
 });
 
+// MongoDB aggregation pipeline to find articles with overlapping categories and tags
+// Sorted by amount of overlap (categories then tags)
+async function getRelatedArticles(article) {
+  return await Article.aggregate([
+    {
+      $match: { _id: { $ne: article._id } },
+    },
+    {
+      $addFields: {
+        commonCategories: {
+          $reduce: {
+            input: '$categories',
+            initialValue: 0,
+            in: {
+              $add: [
+                '$$value',
+                {
+                  $toInt: { $in: ['$$this', article.categories] },
+                },
+              ],
+            },
+          },
+        },
+        commonTags: {
+          $reduce: {
+            input: '$tags',
+            initialValue: 0,
+            in: {
+              $add: [
+                '$$value',
+                {
+                  $toInt: { $in: ['$$this', article.tags] },
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
+    {
+      $match: {
+        $or: [{ commonCategories: { $gt: 0 } }, { commonTags: { $gt: 0 } }],
+      },
+    },
+    {
+      $sort: { commonCategories: -1, commonTags: -1, updatedAt: -1 },
+    },
+    {
+      $limit: 3,
+    },
+    {
+      $project: {
+        name: 1,
+        slug: 1,
+        coverImage: 1,
+      },
+    },
+  ]);
+}
+
 exports.getArticle = catchAsync(async (req, res, next) => {
   const article = await Article.findOne({ slug: req.params.slug });
-
-  mainCategory = article.categories[0];
-
-  const relatedArticles = await Article.find({
-    categories: mainCategory,
-    _id: { $ne: article._id },
-  });
+  const relatedArticles = await getRelatedArticles(article);
 
   res.status(200).render(`${PAGE_ROOT}/article`, {
     title: article.name,

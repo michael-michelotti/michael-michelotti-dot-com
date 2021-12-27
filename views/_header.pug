@@ -4,14 +4,14 @@ header.header
       use(xlink:href='/img/sprite.svg#icon-logo', alt=`Logo icon`)
     .header__name Michael Michelotti
   nav.header__nav
-    //- title is "welcome" on the landing page, which is the only page with these links
-    if title === 'Welcome'
+    - const renderedFile = filename.split('/').at(-1)
+    if renderedFile === 'landing.pug'
       a.header__link#nav-about(href='#about') About
       a.header__link#nav-feat-projects(href='#feat-projects') Projects
       a.header__link#nav-feat-articles(href='#feat-articles') Articles
       a.header__link#nav-skills(href='#skills') Skills
       a.header__link#nav-footer(href='#footer') Contact
-    else if article
+    else if renderedFile === 'article.pug'
       a.header__link(href='/articles') All Articles
       a.header__link(href='/') Back Home
     else
