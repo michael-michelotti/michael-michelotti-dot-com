@@ -9,5 +9,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    @include respond(tab-land) {
+      flex-direction: column;
+      gap: 5rem;
+    }
   }
 }

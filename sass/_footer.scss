@@ -28,6 +28,12 @@
   &__info {
     display: flex;
     gap: 12rem;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
   }
 
   &__info-item {
@@ -49,6 +55,10 @@
   &__links {
     display: flex;
     gap: 14rem;
+
+    @include respond(tab-port) {
+      gap: 5rem;
+    }
   }
 
   &__link-icon {

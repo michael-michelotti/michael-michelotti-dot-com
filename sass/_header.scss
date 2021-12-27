@@ -2,9 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 75px;
+  height: 7.5rem;
   background-color: $color-light;
   padding: 1rem;
+
+  @include respond(tab-port) {
+    height: 5rem;
+    padding: 0.5rem;
+  }
 
   &__branding {
     @include removeLinkDecoration;
@@ -23,6 +28,10 @@
     color: $color-primary;
     font-weight: $font-light;
     transition: all 0.5s;
+
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 
   &__branding:hover &__name {
@@ -33,6 +42,11 @@
     fill: $color-primary;
     @include iconMedium;
     transition: fill 0.5s;
+
+    @include respond(tab-port) {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
   }
 
   &__branding:hover &__logo {
@@ -54,6 +68,10 @@
 
     &:hover {
       color: $color-primary;
+    }
+
+    @include respond(tab-port) {
+      font-size: 1.8rem;
     }
   }
 }

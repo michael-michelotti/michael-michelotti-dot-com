@@ -3,6 +3,12 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 5rem;
+
+    @include respond(tab-land) {
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+    }
   }
 
   &__btn {

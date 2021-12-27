@@ -2,8 +2,11 @@
   @include removeLinkDecoration;
   display: flex;
   align-items: flex-start;
-  height: 25rem;
   width: 60rem;
+
+  @include respond(phone) {
+    width: 50rem;
+  }
 
   &:hover &__name {
     transition: all 0.5s;

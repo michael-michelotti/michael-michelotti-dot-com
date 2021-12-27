@@ -14,19 +14,28 @@
     font-size: 7.2rem;
     font-weight: $font-thin;
     color: $color-white;
+    text-align: center;
+
+    @include respond(tab-land) {
+      font-size: 5rem;
+    }
   }
 
   &__links {
     display: flex;
     gap: 10rem;
+
+    @include respond(phone) {
+      gap: 5rem;
+    }
   }
 
   &__link-icon {
     @include iconLarge;
     fill: $color-white;
 
-    circle {
-      stroke: $color-dark;
+    @include respond(tab-land) {
+      @include iconMedium;
     }
   }
 }

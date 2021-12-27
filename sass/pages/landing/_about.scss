@@ -5,6 +5,11 @@
     align-items: flex-start;
     margin: 0 10vw;
     gap: 5rem;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__portrait {
@@ -21,14 +26,23 @@
     height: 50rem;
     width: 50rem;
     border-radius: 50%;
-    border: solid 1rem;
-    border-color: $color-primary;
+    border: solid 1rem $color-primary;
+
+    @include respond(tab-land) {
+      height: 35rem;
+      width: 35rem;
+      border: solid 0.5rem $color-primary;
+    }
   }
 
   &__links {
     display: flex;
     flex-direction: row;
     gap: 10rem;
+
+    @include respond(tab-land) {
+      gap: 5rem;
+    }
   }
 
   &__link-icon {
