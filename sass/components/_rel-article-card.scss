@@ -14,8 +14,7 @@
   }
 
   &__img {
-    width: 12.5rem;
-    height: 9rem;
+    width: 50%;
   }
 
   &__title {
@@ -26,7 +25,7 @@
       content: '';
       position: absolute;
       height: 0;
-      width: 20rem;
+      width: 15rem;
       border-top: solid 1px $color-dark;
       transition: all 0.5s;
     }

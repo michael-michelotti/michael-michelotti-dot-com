@@ -1,4 +1,12 @@
 .article {
+  @include respond(phone) {
+    margin: 0 5vw;
+  }
+
+  @include respond(tab-land) {
+    padding-bottom: 5rem !important;
+  }
+
   &__content {
     font-family: 'Georgia', sans-serif;
     gap: 3rem;
@@ -6,6 +14,14 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+
+    @include respond(tab-port) {
+      width: 50rem;
+    }
+
+    @include respond(phone) {
+      width: initial;
+    }
   }
 
   &__hero {
@@ -49,11 +65,17 @@
   font-family: $font-primary;
   position: absolute;
   top: 40rem;
-  right: 10vw;
+  right: 2vw;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  width: 35rem;
+  width: 25rem;
+
+  @include respond(tab-land) {
+    position: static;
+    padding-bottom: 10rem;
+    margin: 0 auto;
+  }
 
   &__title {
     font-size: 2.4rem;
