@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/michael-michelotti/michaelmichelotticom#readme",
   "devDependencies": {
-    "node-sass": "^7.0.0"
+    "node-sass": "^7.0.0",
+    "nodemon": "^2.0.15"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

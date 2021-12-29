@@ -1,12 +1,13 @@
-include ../../mixins/_articleCard
+if articles
+  include ../../mixins/_articleCard
 
-section.feat-articles#feat-articles
-  .section-title.mb-md.pt-lg featured articles
-  .feat-articles__content
-    if articles[0]
-      +articleCard(articles[0])
-    if articles[1] 
-      .col-divider
-      +articleCard(articles[1])
-  .feat-articles__btn.pb-lg
-    a.btn.btn--blue(href='/articles') See All Articles &rarr;
+  section.feat-articles#feat-articles
+    .section-title.mb-md.pt-lg featured articles
+    .feat-articles__content
+      if articles[0]
+        +articleCard(articles[0])
+      if articles[1] 
+        .col-divider
+        +articleCard(articles[1])
+    .feat-articles__btn.pb-lg
+      a.btn.btn--blue(href='/articles') See All Articles &rarr;

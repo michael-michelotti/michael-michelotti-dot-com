@@ -1,4 +1,4 @@
-const AppError = require('./../utils/appError');
+const AppError = require('../utils/appError');
 
 const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}: ${err.value}.`;
@@ -6,9 +6,10 @@ const handleCastErrorDB = (err) => {
 };
 
 const handleDuplicateFieldsDB = (err) => {
-  const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
+  dupFields = Object.keys(err.keyValue).join(', ');
+  dupValues = Object.values(err.keyValue).join(', ');
+  message = `Duplicate field value(s) for ${dupFields}: ${dupValues}. Please use another value!`;
 
-  const message = `Duplicate field value: ${value}. Please use another value!`;
   return new AppError(message, 400);
 };
 
@@ -19,7 +20,7 @@ const handleValidationErrorDB = (err) => {
   return new AppError(message, 400);
 };
 
-sendErrorDev = (err, req, res) => {
+const sendErrorDev = (err, req, res) => {
   // API
   if (req.originalUrl.startsWith('/api')) {
     return res.status(err.statusCode).json({
@@ -30,11 +31,45 @@ sendErrorDev = (err, req, res) => {
     });
   }
 
-  // B) RENDERED WEBSITE
+  // RENDERED WEBSITE
   console.error('ERROR 💥', err);
-  return res.status(err.statusCode).render('error', {
+  return res.status(err.statusCode).render('pages/error', {
     title: 'Something went wrong!',
     msg: err.message,
+  });
+};
+
+const sendErrorProd = (err, req, res) => {
+  // API
+  if (req.originalUrl.startsWith('/api')) {
+    // Trust the error status and message if the error was made by us (is operational)
+    if (err.isOperational) {
+      return res.status(err.statusCode).json({
+        status: err.status,
+        message: err.message,
+      });
+    }
+
+    // Do not leak error details if the error is not operational
+    console.error('ERROR 💥', err);
+    return res.status(500).json({
+      status: 'error',
+      message: 'Something went very wrong!',
+    });
+  }
+
+  // RENDERED WEBSITE
+  if (err.isOperational) {
+    return res.status(err.statusCode).render('pages/error', {
+      title: 'Something went wrong!',
+      msg: err.message,
+    });
+  }
+
+  console.error('ERROR', err);
+  return res.status(err.statusCode).render('pages/error', {
+    title: 'Something went wrong!',
+    msg: 'Please try again later.',
   });
 };
 
@@ -48,7 +83,10 @@ module.exports = (err, req, res, next) => {
     let error = { ...err };
     error.message = err.message;
 
-    if (error.name === 'CastError') error = handleCastErrorDB(error);
+    // 3 errors create operational errors for:
+    // invalid object ID (cast error), duplicate unique fields (code 11000), failure of validation rules (validation error)
+    if (error.message.includes('Cast to ObjectId failed'))
+      error = handleCastErrorDB(error);
     if (error.code === 11000) error = handleDuplicateFieldsDB(error);
     if (error.name === 'ValidationError')
       error = handleValidationErrorDB(error);

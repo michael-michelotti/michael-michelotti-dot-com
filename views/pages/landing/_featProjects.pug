@@ -1,15 +1,16 @@
-include ../../mixins/_projectCard
+if projects
+  include ../../mixins/_projectCard
 
-section.feat-projects#feat-projects
-  .section-title.mb-md.pt-lg featured projects 
-  .feat-projects__content
-    if projects[0]
-      +projectCard(projects[0])
-    if projects[1]
-      .col-divider
-      +projectCard(projects[1])
-    if projects[2]
-      .col-divider
-      +projectCard(projects[2])
-  .feat-projects__btn.pb-lg
-    a.btn.btn--blue(href='/projects') See All Projects &rarr;
+  section.feat-projects#feat-projects
+    .section-title.mb-md.pt-lg featured projects 
+    .feat-projects__content
+      if projects[0]
+        +projectCard(projects[0])
+      if projects[1]
+        .col-divider
+        +projectCard(projects[1])
+      if projects[2]
+        .col-divider
+        +projectCard(projects[2])
+    .feat-projects__btn.pb-lg
+      a.btn.btn--blue(href='/projects') See All Projects &rarr;

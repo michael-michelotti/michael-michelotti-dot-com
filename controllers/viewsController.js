@@ -1,20 +1,21 @@
 const catchAsync = require('../utils/catchAsync');
 const Project = require('../models/projectModel');
 const Article = require('../models/articleModel');
+const AppError = require('../utils/appError');
 
 const PAGE_ROOT = 'pages';
 
 exports.getLanding = catchAsync(async (req, res, next) => {
-  const featProj = await Project.find({ featured: true });
-  const featArt = await Article.find({ featured: true });
+  const featProjects = await Project.find({ featured: true });
+  const featArticles = await Article.find({ featured: true });
 
-  if (featProj.length > 3) featProj.splice(3);
-  if (featArt.length > 2) featArt.splice(2);
+  if (featProjects.length > 3) featProjects.splice(3);
+  if (featArticles.length > 2) featArticles.splice(2);
 
   res.status(200).render(`${PAGE_ROOT}/landing`, {
     title: 'Welcome',
-    projects: featProj,
-    articles: featArt,
+    projects: featProjects,
+    articles: featArticles,
   });
 });
 
@@ -98,6 +99,10 @@ async function getRelatedArticles(article) {
 
 exports.getArticle = catchAsync(async (req, res, next) => {
   const article = await Article.findOne({ slug: req.params.slug });
+
+  if (!article)
+    next(new AppError('Could not find an article with that name.', 404));
+
   const relatedArticles = await getRelatedArticles(article);
 
   res.status(200).render(`${PAGE_ROOT}/article`, {

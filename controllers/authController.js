@@ -19,8 +19,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   const verified = await bcrypt.compare(process.env.AUTH_PASSWORD, pwHash);
 
-  if (!verified)
-    return next(new AppError('Unable to authenticate. Route denied.', 401));
+  if (!verified) return next(new AppError('Unable to authenticate.', 401));
 
   next();
 });
