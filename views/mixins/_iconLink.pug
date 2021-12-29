@@ -1,4 +1,4 @@
 mixin iconLink(section, link, icon)
-  a(class=`${section}__link`, href=`${link}`, target='blank')
+  a(class=`${section}__link`, href=`${link}`, target='_blank')
     svg(class=`${section}__link-icon` + ' icon')
       use(xlink:href=`/img/sprite.svg#icon-${icon}`, alt=`${icon.split('-')[0]} icon`)

@@ -1,10 +1,10 @@
 mixin skill(icon, caption)
   .skill
-      svg.skill__icon
-        use(xlink:href=`img/sprite.svg#icon-${icon}`, alt=`${icon} icon`)
-      - skill = undefined
-      - if (caption.includes(' ')) {[skill, level] = caption.split(' ')}
-      if skill
-        .skill__caption #{skill} #[br] #{level}
-      else
-        .skill__caption= caption
+    svg.skill__icon
+      use(xlink:href=`/img/sprite.svg#icon-${icon}`, alt=`${icon} icon`)
+    - skill = undefined
+    - if (caption.includes(' ')) {[skill, level] = caption.split(' ')}
+    if skill
+      .skill__caption #{skill} #[br] #{level}
+    else
+      .skill__caption= caption

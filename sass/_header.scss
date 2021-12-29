@@ -27,7 +27,7 @@
     font-size: 2.4rem;
     color: $color-primary;
     font-weight: $font-light;
-    transition: all 0.5s;
+    transition: all $transition-slow;
 
     @include respond(tab-port) {
       display: none;
@@ -41,7 +41,7 @@
   &__logo {
     fill: $color-primary;
     @include iconMedium;
-    transition: fill 0.5s;
+    transition: fill $transition-slow;
 
     @include respond(tab-port) {
       height: 3.5rem;
@@ -67,7 +67,7 @@
     @include removeLinkDecoration;
     font-size: 1.8rem;
     cursor: pointer;
-    transition: color 0.5s;
+    transition: color $transition-slow;
 
     &:hover {
       color: $color-primary;

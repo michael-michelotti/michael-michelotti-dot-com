@@ -19,7 +19,7 @@
 
   &__title {
     font-size: 1.4rem;
-    transition: color 0.5s;
+    transition: color $transition-slow;
 
     &::before {
       content: '';
@@ -27,7 +27,7 @@
       height: 0;
       width: 15rem;
       border-top: solid 1px $color-dark;
-      transition: all 0.5s;
+      transition: all $transition-slow;
     }
   }
 }

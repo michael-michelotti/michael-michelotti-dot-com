@@ -34,7 +34,7 @@
     fill: $color-dark;
     position: relative;
     z-index: 10;
-    transition: fill 0.2s;
+    transition: fill 0.3s;
   }
 
   &__link:hover &__icon {
@@ -46,7 +46,7 @@
     font-size: 1.8rem;
     position: relative;
     z-index: 10;
-    transition: color 0.2s;
+    transition: color 0.3s;
   }
 
   &__link:hover &__caption {

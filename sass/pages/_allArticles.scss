@@ -7,6 +7,12 @@
     justify-items: center;
     align-items: center;
 
+    @include respond(tab-land) {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+
     // DETERMINE HOW TO STYLE ARTICLES AND DIVIDERS IN GRID
     // first child is article in column 1
     & *:nth-child(4n + 1) {

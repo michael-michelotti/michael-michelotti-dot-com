@@ -27,10 +27,6 @@ app.use('/', viewRouter);
 app.use('/api/v1/projects', projectRouter);
 app.use('/api/v1/articles', articleRouter);
 
-app.get('/', function (req, res) {
-  res.status(200).send('hello world');
-});
-
 // Any time an error is passed into next, call this global error handler
 app.use(globalErrorHandler);
 

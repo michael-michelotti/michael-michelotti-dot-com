@@ -1,4 +1,4 @@
-mixin info(icon, caption)
+mixin footerInfo(icon, caption)
   .footer__info-item
     svg.footer__icon
       use(xlink:href=`/img/sprite.svg#icon-${icon}`, alt=`${icon} icon`)
@@ -12,9 +12,9 @@ footer.footer#footer
     .footer__title-text Contact
     .footer__line
   .footer__info
-    +info('location', 'San Diego, CA')
-    +info('email', 'michael.michelotti4@gmail.com')
-    +info('phone', '(650) 533-6841')
+    +footerInfo('location', 'San Diego, CA')
+    +footerInfo('email', 'michael.michelotti4@gmail.com')
+    +footerInfo('phone', '(650) 533-6841')
   .footer__links
     +iconLink('footer', 'https://github.com/michael-michelotti/', 'github')
     +iconLink('footer', 'https://docs.google.com/document/d/15DyAmPyQAJdAErT6t9CYetkSjEr99UV_9mo41ps13sY/edit?usp=sharing', 'resume')

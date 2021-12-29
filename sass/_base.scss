@@ -6,17 +6,24 @@ $color-medium: #777;
 $color-light: #ebebeb;
 $color-white: #fff;
 $color-primary: #0072ff;
-$color-primary-dark: #004499;
 $color-secondary: #edf5ff;
 $color-tertiary: #898eba;
 
-// FONT SIZES
+// FONT TYPES AND WEIGHTS
 $font-primary: 'Montserrat', sans-serif;
+$font-article: 'Georgia', sans-serif;
 $font-bold: 600;
 $font-regular: 400;
 $font-light: 200;
 $font-thin: 100;
+
+// FONT SIZES
 $title-size: 3.4rem;
+
+// TRANSITION TIMES
+$transition-slow: 0.5s;
+$transition-medium: 0.3s;
+$transition-fast: 0.1s;
 
 // ICON SIZES
 $icon-xl-size: 8rem;

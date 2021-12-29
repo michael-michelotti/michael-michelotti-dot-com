@@ -31,7 +31,7 @@
     align-self: end;
     transform: translateY(50%);
     padding: 1rem;
-    transition: all 0.5s;
+    transition: all $transition-slow;
 
     &:hover {
       background-color: darken($color-tertiary, 10%);
@@ -41,12 +41,12 @@
   &__icon {
     @include iconSmall;
     fill: $color-white;
-    transition: fill 0.5s;
+    transition: fill $transition-slow;
   }
 
   &__name {
     font-size: 2rem;
-    transition: color 0.5s;
+    transition: color $transition-slow;
   }
 
   &__summary {

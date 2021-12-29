@@ -6,21 +6,21 @@ mixin relatedArticleCard(article)
     img.rel-article-card__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
 
 block content
-  section.article
-    .article__content.pt-lg.pb-lg
-      .article__title= article.name
-      .article__hero
-        img.article__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
-        .article__caption= article.coverImageCaption
-      .article__by
-        .article__author by #{article.authors.join(', ')}
-        .article__date= article.createdAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})
-      - const articleParas = article.body.split('\n')
+  article.article.pt-lg.pb-lg
+    .article__title= article.name
+    header.article__header
+      img.article__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
+      .article__caption= article.coverImageCaption
+    .article__by
+      .article__author by #{article.authors.join(', ')}
+      .article__date= article.createdAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})
+    - const articleParas = article.body.split('\n')
+    .article__body
       each para in articleParas
-        .article__body= para
+        .article__para= para
 
     if relatedArticles
-      .rel-content
+      aside.rel-content
         .rel-content__title Related Articles
         for article in relatedArticles
           +relatedArticleCard(article)

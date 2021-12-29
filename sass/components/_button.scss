@@ -6,7 +6,7 @@
     font-weight: $font-light;
     text-decoration: none;
     padding: 1rem 3rem;
-    transition: all 0.5s;
+    transition: all $transition-slow;
     font-size: 2rem;
     cursor: pointer;
   }
