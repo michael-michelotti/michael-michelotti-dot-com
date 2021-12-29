@@ -49,10 +49,6 @@
   &__caption {
     font-size: 1.8rem;
     color: $color-white;
-
-    @include respond(phone) {
-      font-size: 1.4rem;
-    }
   }
 
   &__icon {
@@ -63,10 +59,6 @@
   &__links {
     display: flex;
     gap: 14rem;
-
-    @include respond(tab-port) {
-      gap: 5rem;
-    }
   }
 
   &__link-icon {

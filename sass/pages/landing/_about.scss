@@ -26,28 +26,12 @@
     width: 40rem;
     border-radius: 50%;
     border: solid 0.75rem $color-primary;
-
-    @include respond(tab-land) {
-      height: 35rem;
-      width: 35rem;
-      border: solid 0.5rem $color-primary;
-    }
-
-    @include respond(phone) {
-      height: 30rem;
-      width: 30rem;
-      border: solid 0.3rem $color-primary;
-    }
   }
 
   &__links {
     display: flex;
     flex-direction: row;
     gap: 8rem;
-
-    @include respond(tab-land) {
-      gap: 5rem;
-    }
   }
 
   &__link-icon {
@@ -62,10 +46,6 @@
 
     @include respond(tab-land) {
       width: 100%;
-    }
-
-    @include respond(phone) {
-      font-size: 1.8rem;
     }
   }
 

@@ -6,19 +6,9 @@
   display: flex;
   flex-direction: column;
 
-  @include respond(tab-port) {
-    width: 50rem;
-  }
-
   @include respond(phone) {
     width: initial;
-  }
-  @include respond(phone) {
     margin: 0 5vw;
-  }
-
-  @include respond(tab-land) {
-    padding-bottom: 5rem !important;
   }
 
   &__header {

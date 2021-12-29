@@ -42,11 +42,6 @@
     fill: $color-primary;
     @include iconMedium;
     transition: fill $transition-slow;
-
-    @include respond(tab-port) {
-      height: 3.5rem;
-      width: 3.5rem;
-    }
   }
 
   &__branding:hover &__logo {
@@ -57,10 +52,6 @@
     display: flex;
     gap: 3rem;
     margin-right: 2rem;
-
-    @include respond(tab-port) {
-      gap: 2rem;
-    }
   }
 
   &__link {
