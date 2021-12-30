@@ -56,7 +56,6 @@ if (heroSection) {
   // Handle footer only highlighting when it's 100% in the viewport
   const footerInFrame = (entries) => {
     const [entry] = entries;
-    console.log(entry);
     if (!entry.isIntersecting) {
       navFooter.classList.remove('active-nav');
       navSkills.classList.add('active-nav');
@@ -76,4 +75,47 @@ if (heroSection) {
   });
 
   footerObserver.observe(footer);
+}
+
+if (skills) {
+  const lazyLoadSkills = (entries, observer) => {
+    const [entry] = entries;
+
+    if (!entry.isIntersecting) return;
+
+    entry.target.style = `background: linear-gradient(0, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(/img/${entry.target.dataset.src})`;
+
+    entry.target.classList.remove('lazy-img');
+    observer.unobserve(entry.target);
+  };
+
+  const skillsObserver = new IntersectionObserver(lazyLoadSkills, {
+    rootMargin: '200px',
+  });
+
+  skillsObserver.observe(skills);
+}
+
+if (projects) {
+  const loadImg = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.src = entry.target.dataset.src;
+
+      entry.target.addEventListener('load', function (e) {
+        entry.target.classList.remove('lazy-img');
+      });
+
+      observer.unobserve(entry.target);
+    });
+  };
+
+  const imgTargets = document.querySelectorAll('img[data-src]');
+  console.log(imgTargets);
+  const imgObserver = new IntersectionObserver(loadImg, {
+    rootMargin: '200px',
+  });
+
+  imgTargets.forEach((img) => imgObserver.observe(img));
 }

@@ -1,5 +1,5 @@
 .skills {
-  @include overlaidBackdrop(0.4, '/img/skills-backdrop.jpg');
+  @include overlaidBackdrop(0.4, '/img/skills-backdrop-lazy.jpg');
 
   &__title {
     color: $color-white;

@@ -6,8 +6,16 @@ const AppError = require('../utils/appError');
 const PAGE_ROOT = 'pages';
 
 exports.getLanding = catchAsync(async (req, res, next) => {
-  const featProjects = await Project.find({ featured: true });
-  const featArticles = await Article.find({ featured: true });
+  /**
+   * Array of featured projects
+   * @type {Array<Object>}
+   */
+  const featProjects = await Project.find({ featured: true, hidden: false });
+  /**
+   * Array of featured articles
+   * @type {Array<Object>}
+   */
+  const featArticles = await Article.find({ featured: true, hidden: false });
 
   if (featProjects.length > 3) featProjects.splice(3);
   if (featArticles.length > 2) featArticles.splice(2);
@@ -20,6 +28,10 @@ exports.getLanding = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllProjects = catchAsync(async (req, res, next) => {
+  /**
+   * Array of projects which aren't hidden
+   * @type {Array<Object>}
+   */
   const projects = await Project.find({ hidden: false });
 
   res.status(200).render(`${PAGE_ROOT}/allProjects`, {
@@ -29,6 +41,10 @@ exports.getAllProjects = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllArticles = catchAsync(async (req, res, next) => {
+  /**
+   * Array of articles which aren't hidden
+   * @type {Array<Object>}
+   */
   const articles = await Article.find({ hidden: false });
 
   res.status(200).render(`${PAGE_ROOT}/allArticles`, {
@@ -37,8 +53,12 @@ exports.getAllArticles = catchAsync(async (req, res, next) => {
   });
 });
 
-// MongoDB aggregation pipeline to find articles with overlapping categories and tags
-// Sorted by amount of overlap (categories then tags)
+/**
+ * MongoDB aggregation pipeline to find articles with overlapping categories and tags
+ * Sorted by amount of overlap (categories then tags)
+ * @param {Object} article main article
+ * @returns {Array<Object>} articles considered related to main article
+ */
 async function getRelatedArticles(article) {
   return await Article.aggregate([
     {
@@ -53,9 +73,7 @@ async function getRelatedArticles(article) {
             in: {
               $add: [
                 '$$value',
-                {
-                  $toInt: { $in: ['$$this', article.categories] },
-                },
+                { $toInt: { $in: ['$$this', article.categories] } },
               ],
             },
           },
@@ -65,12 +83,7 @@ async function getRelatedArticles(article) {
             input: '$tags',
             initialValue: 0,
             in: {
-              $add: [
-                '$$value',
-                {
-                  $toInt: { $in: ['$$this', article.tags] },
-                },
-              ],
+              $add: ['$$value', { $toInt: { $in: ['$$this', article.tags] } }],
             },
           },
         },
@@ -98,11 +111,19 @@ async function getRelatedArticles(article) {
 }
 
 exports.getArticle = catchAsync(async (req, res, next) => {
+  /**
+   * Article which matches the URL slug
+   * @type {Object}
+   */
   const article = await Article.findOne({ slug: req.params.slug });
 
   if (!article)
     next(new AppError('Could not find an article with that name.', 404));
 
+  /**
+   * Articles with overlapping categories or tags with main article
+   * @type {Array<Object>}
+   */
   const relatedArticles = await getRelatedArticles(article);
 
   res.status(200).render(`${PAGE_ROOT}/article`, {
