@@ -12,9 +12,9 @@ block content
         - const rowNum = Math.floor(i / 2) + 1
         //- even articles, lay down column divider
         if i % 2 === 0
-          +articleCard(article, `grid-row: ${rowNum}`)
+          +articleCard(article, `grid-row: ${rowNum}`, lazyLoad=false)
           .col-divider(style=`grid-row: ${rowNum}`)
         //- odd articles, lay down row divider
         else
-          +articleCard(article, `grid-row: ${rowNum}`)
+          +articleCard(article, `grid-row: ${rowNum}`, lazyLoad=false)
           .row-divider(style=`grid-row: ${rowNum}`)

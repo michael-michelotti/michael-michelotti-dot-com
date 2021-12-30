@@ -90,7 +90,7 @@ if (skills) {
   };
 
   const skillsObserver = new IntersectionObserver(lazyLoadSkills, {
-    rootMargin: '200px',
+    rootMargin: '500px',
   });
 
   skillsObserver.observe(skills);
@@ -101,7 +101,7 @@ if (projects) {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
 
-      entry.target.src = entry.target.dataset.src;
+      entry.target.srcset = entry.target.dataset.srcset;
 
       entry.target.addEventListener('load', function (e) {
         entry.target.classList.remove('lazy-img');
@@ -111,8 +111,7 @@ if (projects) {
     });
   };
 
-  const imgTargets = document.querySelectorAll('img[data-src]');
-  console.log(imgTargets);
+  const imgTargets = document.querySelectorAll('img[data-srcset]');
   const imgObserver = new IntersectionObserver(loadImg, {
     rootMargin: '200px',
   });

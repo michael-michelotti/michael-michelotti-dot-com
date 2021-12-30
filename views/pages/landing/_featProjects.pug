@@ -5,12 +5,12 @@ if projects
     .section-title.mb-md.pt-lg featured projects 
     .feat-projects__content
       if projects[0]
-        +projectCard(projects[0])
+        +projectCard(projects[0], lazyLoad=true)
       if projects[1]
         .col-divider
-        +projectCard(projects[1])
+        +projectCard(projects[1], lazyLoad=true)
       if projects[2]
         .col-divider
-        +projectCard(projects[2])
+        +projectCard(projects[2], lazyLoad=true)
     .feat-projects__btn.pb-lg
       a.btn.btn--blue(href='/projects') See All Projects &rarr;

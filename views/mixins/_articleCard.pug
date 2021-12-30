@@ -1,4 +1,4 @@
-mixin articleCard(article, inlineStyle='')
+mixin articleCard(article, inlineStyle='', lazyLoad=false)
   a.article-card(href=`/articles/${article.slug}/`, style=inlineStyle)
     .article-card__text
       .article-card__title
@@ -8,4 +8,7 @@ mixin articleCard(article, inlineStyle='')
       ul.article-card__summary
         each point in article.summaryPoints
           li.article-card__point= point
-    img.lazy-img.article-card__img(src=`/img/lazy-${article.coverImage}`, data-src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
+    if lazyLoad
+      img.lazy-img.article-card__img(src=`/img/lazy-${article.coverImage}`, data-src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
+    else
+      img.article-card__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)

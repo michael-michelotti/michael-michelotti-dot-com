@@ -1,9 +1,14 @@
 include _projectLinks
 
-mixin projectCard(project)
+mixin projectCard(project, lazyLoad=false)
+  - const sizeImage = (url, size='') => url.split('.')[0] + size + '.' + url.split('.')[1]
   .project-card
     a.project-card__img-link(href=`/projects/${project.slug}/`)
-      img.project-card__img.lazy-img(src=`/img/lazy-${project.coverImage}`, data-src=`/img/${project.coverImage}`)
+      - const im = project.coverImage
+      if lazyLoad
+        img.project-card__img.lazy-img(srcset=`/img/${sizeImage(im, '-lazy')} 1x, /img/${sizeImage(im, '-lazy')} 2x`, data-srcset=`/img/${sizeImage(im, '-small')} 1x, /img/${sizeImage(im, '')} 2x`, src=`/img/${sizeImage(im, '-lazy')}`)
+      else
+        img.project-card__img(srcset=`/img/${sizeImage(im, '-small')} 1x, /img/${sizeImage(im, '')} 2x`, src=`/img/${project.coverImage}`)
     a.project-card__title(href=`/projects/${project.slug}/`)
       svg.project-card__icon: use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
       span.project-card__name= project.name
