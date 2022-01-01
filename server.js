@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
+console.log('does this show up in the heroku logs?');
+
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
   console.log(err.name, err.message);
@@ -16,6 +18,8 @@ const db = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 
+console.log('got to connecting to database');
+
 mongoose
   .connect(db)
   .then(() => console.log('DB connection successful'))
@@ -24,6 +28,8 @@ mongoose
 const server = app.listen(port, () => {
   console.log(`App running on port ${port}`);
 });
+
+console.log('connected to server');
 
 process.on('unhandledRejection', (err) => {
   console.log('Unhandled Rejection! Shutting down...');
