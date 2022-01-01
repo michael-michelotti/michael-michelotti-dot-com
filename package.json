@@ -4,8 +4,11 @@
   "description": "portfolio website for michael michelotti",
   "main": "server.js",
   "scripts": {
-    "start:backend": "nodemon server.js",
-    "watch:sass": "node-sass sass/main.scss public/css/style.css -w"
+    "start": "nodemon server.js",
+    "start:prod": "set NODE_ENV=production& nodemon server.js",
+    "watch:sass": "node-sass sass/main.scss public/css/style.css -w",
+    "watch:js": "parcel ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +22,8 @@
   "homepage": "https://github.com/michael-michelotti/michaelmichelotticom#readme",
   "devDependencies": {
     "node-sass": "^7.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

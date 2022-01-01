@@ -1,11 +1,7 @@
-static
-archive
 .prettierrc
-config.env
 .vscode
+*.env
 node_modules
-public/css
-public/img
 dev-data
 .DS_Store
-test.js
+.cache/

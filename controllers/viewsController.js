@@ -118,7 +118,7 @@ exports.getArticle = catchAsync(async (req, res, next) => {
   const article = await Article.findOne({ slug: req.params.slug });
 
   if (!article)
-    next(new AppError('Could not find an article with that name.', 404));
+    return next(new AppError('Could not find an article with that name.', 404));
 
   /**
    * Articles with overlapping categories or tags with main article
