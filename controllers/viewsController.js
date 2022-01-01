@@ -104,7 +104,7 @@ async function getRelatedArticles(article) {
       $project: {
         name: 1,
         slug: 1,
-        coverImage: 1,
+        cardImage: 1,
       },
     },
   ]);

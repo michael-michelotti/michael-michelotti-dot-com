@@ -15,6 +15,7 @@ const articleSchema = new mongoose.Schema({
   slug: String,
   categories: [String],
   tags: [String],
+  cardImage: String,
   coverImage: String,
   coverImageCaption: String,
   images: [String],

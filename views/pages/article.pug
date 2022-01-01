@@ -3,13 +3,19 @@ extends ../base
 mixin relatedArticleCard(article)
   a.rel-article-card(href=`/articles/${article.slug}/`)
     .rel-article-card__title= article.name
-    img.rel-article-card__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
+    img.rel-article-card__img(src=`/img/${article.cardImage}`, alt=`${article.name} cover image`)
 
 block content
+  - const sizeImage = (url, size='') => url.split('.')[0] + size + '.' + url.split('.')[1]
+  - const im = article.coverImage
   article.article.pt-lg.pb-lg
     .article__title= article.name
     header.article__header
-      img.article__img(src=`/img/${article.coverImage}`, alt=`${article.name} cover image`)
+      picture.article__pic
+        source(media='(max-width: 37.5em)', srcset=`/img/${sizeImage(im, '-small')} 1x, /img/${im} 2x`)
+        source(media='(max-width: 56.25em)', srcset=`/img/${sizeImage(im, '-small')} 1x, /img/${sizeImage(im, '-large')} 2x`)
+        source(media='(max-width: 75em)', srcset=`/img/${im} 1x, /img/${sizeImage(im, '-large')} 2x`)
+        img.article__img(src=`/img/${im}`, alt=`${article.name} cover image`)
       .article__caption= article.coverImageCaption
     .article__by
       .article__author by #{article.authors.join(', ')}

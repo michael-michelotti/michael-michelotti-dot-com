@@ -5,9 +5,9 @@ if articles
     .section-title.mb-md.pt-lg featured articles
     .feat-articles__content
       if articles[0]
-        +articleCard(articles[0], lazyLoad=true)
+        +articleCard(articles[0], '', lazyLoad=true)
       if articles[1] 
         .col-divider
-        +articleCard(articles[1], lazyLoad=true)
+        +articleCard(articles[1], '', lazyLoad=true)
     .feat-articles__btn.pb-lg
       a.btn.btn--blue(href='/articles') See All Articles &rarr;
