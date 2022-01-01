@@ -1,12 +1,22 @@
+.main {
+  position: relative;
+  height: 50vh;
+}
+
 .error {
-  @include absCenter;
+  margin: 10rem auto;
   max-width: 80rem;
   text-align: center;
 
   &__title {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 1rem;
+  }
+
+  &__uhoh {
+    font-size: 2.4rem;
   }
 
   &__emoji {
@@ -15,9 +25,9 @@
   }
 
   &__msg {
-    font-size: 2.5rem;
+    margin: 0 auto;
+    font-size: 2.4rem;
     font-weight: $font-bold;
     max-width: 50rem;
-    margin-left: 0 auto;
   }
 }
