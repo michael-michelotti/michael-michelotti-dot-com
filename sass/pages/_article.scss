@@ -30,6 +30,12 @@
     font-weight: bold;
   }
 
+  &__updated {
+    font-size: 1.4rem;
+    color: $color-medium;
+    font-style: italic;
+  }
+
   &__title {
     font-size: 5rem;
     font-weight: bold italic;

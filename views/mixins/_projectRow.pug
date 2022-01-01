@@ -2,7 +2,6 @@ include _techGrid
 include _projectLinks
 
 mixin projectRow(project)
-  - const sizeImage = (url, size='') => url.split('.')[0] + size + '.' + url.split('.')[1]
   - const im = project.coverImage
   .project-row
     .project-row__title
@@ -12,10 +11,10 @@ mixin projectRow(project)
 
     .project-row__content
       picture.project-row__picture
-        source(media='(max-width: 56.25em)', srcset=`/img/${sizeImage(im, '-small')} 1x, /img/${im} 2x`)
+        source(media='(max-width: 56.25em)', srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`)
         source(media='(max-width: 75em)', srcset=`/img/${im}`)
-        source(media='(max-width: 112.5em)', srcset=`/img/${im} 1x, /img/${sizeImage(im, '-large')} 2x`)
-        source(media='(min-width: 112.5em)', srcset=`/img/${sizeImage(im, '-large')}`)
+        source(media='(max-width: 112.5em)', srcset=`/img/${im} 1x, /img/${sizeImageUrl(im, '-large')} 2x`)
+        source(media='(min-width: 112.5em)', srcset=`/img/${sizeImageUrl(im, '-large')}`)
         img.project-row__img(src=`/img/${project.coverImage}`, alt=`${project.name} cover photo`)
       .project-row__text
         .project-row__summary #[em SUMMARY:] #[br] #{project.summary}
