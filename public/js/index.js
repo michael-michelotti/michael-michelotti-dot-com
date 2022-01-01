@@ -56,6 +56,9 @@ if (heroSection) {
   // Handle footer only highlighting when it's 100% in the viewport
   const footerInFrame = (entries) => {
     const [entry] = entries;
+
+    if (entry.intersectionRatio === 0) return;
+
     if (!entry.isIntersecting) {
       navFooter.classList.remove('active-nav');
       navSkills.classList.add('active-nav');

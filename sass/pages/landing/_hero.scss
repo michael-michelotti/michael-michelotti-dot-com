@@ -25,5 +25,6 @@
   &__link-icon {
     @include iconLarge;
     fill: $color-white;
+    transition: all $transition-slow;
   }
 }

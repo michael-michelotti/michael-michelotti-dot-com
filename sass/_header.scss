@@ -58,7 +58,7 @@
     @include removeLinkDecoration;
     font-size: 1.8rem;
     cursor: pointer;
-    transition: color $transition-slow;
+    transition: color $transition-fast;
 
     &:hover {
       color: $color-primary;

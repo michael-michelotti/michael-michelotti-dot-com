@@ -30,8 +30,6 @@
 }
 
 .icon {
-  transition: all $transition-slow;
-
   &:hover {
     fill: $color-primary;
   }

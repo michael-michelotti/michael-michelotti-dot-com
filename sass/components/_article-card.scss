@@ -11,12 +11,12 @@
   }
 
   &:hover &__name {
-    transition: all $transition-slow;
+    transition: all $transition-medium;
     color: $color-primary;
   }
 
   &:hover &__icon {
-    transition: all $transition-slow;
+    transition: all $transition-medium;
     fill: $color-primary;
   }
 

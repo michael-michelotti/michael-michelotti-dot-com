@@ -65,10 +65,8 @@ body {
   font-weight: 600 !important;
   text-decoration: underline !important; }
 
-.icon {
-  transition: all 0.5s; }
-  .icon:hover {
-    fill: #0072ff; }
+.icon:hover {
+  fill: #0072ff; }
 
 .lazy-img {
   filter: blur(2rem); }
@@ -128,7 +126,7 @@ body {
     color: #333;
     font-size: 1.8rem;
     cursor: pointer;
-    transition: color 0.5s; }
+    transition: color 0.15s; }
     .header__link:hover {
       color: #0072ff; }
 
@@ -180,7 +178,8 @@ body {
   .footer__link-icon {
     height: 2rem;
     width: 2rem;
-    fill: #fff; }
+    fill: #fff;
+    transition: 0.15s; }
   .footer__copyright {
     color: #fff;
     font-size: 1.4rem; }
@@ -301,7 +300,8 @@ body {
   .hero__link-icon {
     height: 6rem;
     width: 6rem;
-    fill: #fff; }
+    fill: #fff;
+    transition: all 0.5s; }
 
 .about__content {
   display: flex;
@@ -336,7 +336,8 @@ body {
 .about__link-icon {
   height: 4rem;
   width: 4rem;
-  fill: #333; }
+  fill: #333;
+  transition: all 0.3s; }
 
 .about__text {
   height: 100%;
@@ -427,10 +428,10 @@ body {
       align-items: center;
       width: 80%; } }
   .article-card:hover .article-card__name {
-    transition: all 0.5s;
+    transition: all 0.3s;
     color: #0072ff; }
   .article-card:hover .article-card__icon {
-    transition: all 0.5s;
+    transition: all 0.3s;
     fill: #0072ff; }
   .article-card__title {
     display: flex;
