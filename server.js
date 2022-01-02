@@ -1,14 +1,8 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const fs = require('fs');
-
-if (process.env.NODE_ENV === 'production') {
-  const http = require('http');
-  const https = require('https');
-  const key = fs.readFileSync('sslcert/privkey.pem', 'utf-8');
-  const cert = fs.readFileSync('sslcert/fullchain.pem', 'utf-8');
-  const credentials = { key, cert };
-}
+const http = require('http');
+const https = require('https');
 
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -31,6 +25,10 @@ mongoose
   .catch((err) => console.log(err));
 
 if (process.env.NODE_ENV === 'production') {
+  const key = fs.readFileSync('sslcert/privkey.pem', 'utf-8');
+  const cert = fs.readFileSync('sslcert/fullchain.pem', 'utf-8');
+  const credentials = { key, cert };
+
   const httpServer = http.createServer(app);
   const httpsServer = https.createServer(credentials, app);
 
