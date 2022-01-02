@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const fs = require('fs');
 
-console.log('does this show up in the heroku logs?');
+if (process.env.NODE_ENV === 'production') {
+  const http = require('http');
+  const https = require('https');
+  const key = fs.readFileSync('sslcert/privkey.pem', 'utf-8');
+  const cert = fs.readFileSync('sslcert/fullchain.pem', 'utf-8');
+  const credentials = { key, cert };
+}
 
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -18,18 +25,22 @@ const db = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 
-console.log('got to connecting to database');
-
 mongoose
   .connect(db)
   .then(() => console.log('DB connection successful'))
   .catch((err) => console.log(err));
 
-const server = app.listen(port, () => {
-  console.log(`App running on port ${port}`);
-});
+if (process.env.NODE_ENV === 'production') {
+  const httpServer = http.createServer(app);
+  const httpsServer = https.createServer(credentials, app);
 
-console.log('connected to server');
+  httpServer.listen(8080);
+  httpsServer.listen(8443);
+} else {
+  const server = app.listen(port, () => {
+    console.log(`App running on port ${port}`);
+  });
+}
 
 process.on('unhandledRejection', (err) => {
   console.log('Unhandled Rejection! Shutting down...');
