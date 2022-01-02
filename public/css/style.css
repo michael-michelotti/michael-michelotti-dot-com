@@ -341,14 +341,14 @@ body {
 
 .about__text {
   height: 100%;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   flex: 2 1; }
   @media only screen and (max-width: 75em) {
     .about__text {
       width: 100%; } }
 
 .about__p:not(:last-child) {
-  margin-bottom: 1rem; }
+  margin-bottom: 1.5rem; }
 
 .feat-projects {
   background-color: #edf5ff; }

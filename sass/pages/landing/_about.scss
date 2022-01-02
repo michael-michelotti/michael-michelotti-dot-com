@@ -42,7 +42,7 @@
 
   &__text {
     height: 100%;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     flex: 2 1;
 
     @include respond(tab-land) {
@@ -52,7 +52,7 @@
 
   &__p {
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
   }
 }
