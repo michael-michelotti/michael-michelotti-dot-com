@@ -32,10 +32,14 @@ if (process.env.NODE_ENV === 'production') {
   const httpServer = http.createServer(app);
   const httpsServer = https.createServer(credentials, app);
 
-  httpServer.listen(8080);
-  httpsServer.listen(8443);
+  httpServer
+    .listen(8080)
+    .then(() => console.log('HTTP server listening on port 8080'));
+  httpsServer
+    .listen(8443)
+    .then(() => console.log('HTTPS server listening on port 8443'));
 } else {
-  const server = app.listen(port, () => {
+  app.listen(port, () => {
     console.log(`App running on port ${port}`);
   });
 }
