@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const fs = require('fs');
-const http = require('http');
-const https = require('https');
 
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -25,6 +22,9 @@ mongoose
   .catch((err) => console.log(err));
 
 if (process.env.NODE_ENV === 'production') {
+  const fs = require('fs');
+  const http = require('http');
+  const https = require('https');
   const key = fs.readFileSync('sslcert/privkey.pem', 'utf-8');
   const cert = fs.readFileSync('sslcert/fullchain.pem', 'utf-8');
   const credentials = { key, cert };
@@ -32,12 +32,8 @@ if (process.env.NODE_ENV === 'production') {
   const httpServer = http.createServer(app);
   const httpsServer = https.createServer(credentials, app);
 
-  httpServer
-    .listen(8080)
-    .then(() => console.log('HTTP server listening on port 8080'));
-  httpsServer
-    .listen(8443)
-    .then(() => console.log('HTTPS server listening on port 8443'));
+  httpServer.listen(80);
+  httpsServer.listen(443);
 } else {
   app.listen(port, () => {
     console.log(`App running on port ${port}`);
