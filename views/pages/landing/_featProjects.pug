@@ -2,7 +2,8 @@ if projects
   include ../../mixins/_projectCard
 
   section.feat-projects#feat-projects
-    .section-title.mb-md.pt-lg featured projects 
+    .title-container.mb-md.pt-lg 
+      span.section-title featured projects 
     .feat-projects__content
       if projects[0]
         +projectCard(projects[0], lazyLoad=true)

@@ -26,7 +26,6 @@
   &__name {
     font-size: 2.4rem;
     color: $color-primary;
-    font-weight: $font-light;
     transition: all $transition-slow;
 
     @include respond(tab-port) {

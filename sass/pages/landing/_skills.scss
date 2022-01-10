@@ -1,9 +1,5 @@
 .skills {
-  @include overlaidBackdrop(0.4, '/img/skills-backdrop-lazy.jpg');
-
-  &__title {
-    color: $color-white;
-  }
+  @include overlaidBackdrop(0.55, '/img/skills-backdrop-lazy.jpg');
 
   &__levels {
     display: flex;

@@ -1,8 +1,17 @@
+.title-container {
+  text-align: center;
+}
+
 .section-title {
   text-transform: uppercase;
   font-size: $title-size;
-  font-weight: $font-light;
+  font-weight: 600;
+  letter-spacing: -0.5px;
   text-align: center;
-  text-decoration: underline;
-  text-decoration-thickness: 0.1rem;
+  border-bottom: 3px solid $color-dark;
+}
+
+.section-title--white {
+  color: #fff;
+  border-bottom: 3px solid #fff;
 }

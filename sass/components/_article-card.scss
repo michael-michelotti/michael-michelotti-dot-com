@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    font-weight: $font-light;
+    font-weight: 600;
   }
 
   &__name {
@@ -42,8 +42,8 @@
 
   &__point {
     font-size: 1.4rem;
-    font-weight: $font-regular;
-    display: list-item;
+    line-height: 1.8;
+    // display: list-item;
 
     &:not(:last-child) {
       margin-bottom: 1rem;

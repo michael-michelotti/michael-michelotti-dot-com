@@ -2,7 +2,8 @@ if articles
   include ../../mixins/_articleCard
 
   section.feat-articles#feat-articles
-    .section-title.mb-md.pt-lg featured articles
+    .title-container.mb-md.pt-lg
+      span.section-title featured articles
     .feat-articles__content
       if articles[0]
         +articleCard(articles[0], '', lazyLoad=true)

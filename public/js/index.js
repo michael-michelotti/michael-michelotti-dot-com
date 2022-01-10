@@ -86,7 +86,7 @@ if (skills) {
 
     if (!entry.isIntersecting) return;
 
-    entry.target.style = `background: linear-gradient(0, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(/img/${entry.target.dataset.src})`;
+    entry.target.style = `background: linear-gradient(0, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(/img/${entry.target.dataset.src})`;
 
     entry.target.classList.remove('lazy-img');
     observer.unobserve(entry.target);
