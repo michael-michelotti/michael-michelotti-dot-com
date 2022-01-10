@@ -279,7 +279,7 @@ body {
 .hero {
   height: 100vh;
   position: relative;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/hero-backdrop.jpg");
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/hero-backdrop.jpg");
   background-size: cover; }
   .hero__content {
     display: flex;

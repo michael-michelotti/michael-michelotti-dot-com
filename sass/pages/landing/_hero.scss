@@ -1,7 +1,7 @@
 .hero {
   height: 100vh;
   position: relative;
-  @include overlaidBackdrop(0.4, '/img/hero-backdrop.jpg');
+  @include overlaidBackdrop(0.55, '/img/hero-backdrop.jpg');
 
   &__content {
     display: flex;
