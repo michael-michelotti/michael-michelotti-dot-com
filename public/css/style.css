@@ -181,8 +181,8 @@ body {
     display: flex;
     gap: 14rem; }
   .footer__link-icon {
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     fill: #fff;
     transition: 0.15s; }
   .footer__copyright {
@@ -327,6 +327,7 @@ body {
   flex: 1 0; }
 
 .about__img {
+  display: block;
   background: url(/img/img-self-portrait.jpg);
   background-size: cover;
   height: 40rem;
@@ -651,7 +652,7 @@ body {
   .skill-grid__name {
     font-size: 2.4rem;
     color: #fff;
-    font-weight: 600; }
+    font-weight: 400; }
 
 .skill {
   display: flex;

@@ -5,7 +5,8 @@ section.about#about
     span.section-title about me
   .about__content.pb-lg
     .about__portrait
-      .about__img
+      div
+        span(class='about__img', role='img', aria-label='Portrait of Michael Michelotti')
       .about__links
         +iconLink('about', githubLink, 'github')
         +iconLink('about', resumeLink, 'resume')

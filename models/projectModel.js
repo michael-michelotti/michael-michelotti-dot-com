@@ -19,6 +19,7 @@ const projectSchema = new mongoose.Schema({
   liveLink: String,
   githubLink: String,
   coverImage: String,
+  coverImageAltText: String,
   images: [String],
   contributors: [String],
   featured: {

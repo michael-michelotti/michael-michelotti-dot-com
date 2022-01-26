@@ -8,10 +8,12 @@ mixin projectCard(project, lazyLoad=false)
       if lazyLoad
         img.project-card__img.lazy-img(srcset=`/img/${sizeImageUrl(im, '-lazy')} 1x, /img/${sizeImageUrl(im, '-lazy')} 2x`
         data-srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
-        src=`/img/${sizeImageUrl(im, '-lazy')}`)
+        src=`/img/${sizeImageUrl(im, '-lazy')}`
+        alt=project.coverImageAltText)
       else
         img.project-card__img(srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
-        src=`/img/${project.coverImage}`)
+        src=`/img/${project.coverImage}`
+        alt=project.coverImageAltText)
 
     a.project-card__title(href='#')
       svg.project-card__icon: use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)

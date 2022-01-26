@@ -3,7 +3,7 @@ extends ../base
 mixin relatedArticleCard(article)
   a.rel-article-card(href=`/articles/${article.slug}/`)
     .rel-article-card__title= article.name
-    img.rel-article-card__img(src=`/img/${article.cardImage}`, alt=`${article.name} cover image`)
+    img.rel-article-card__img(src=`/img/${article.cardImage}`, alt=article.coverImageAltText)
 
 block content
   //- declaring this in a varible with a short name because i repeat it a bunch 

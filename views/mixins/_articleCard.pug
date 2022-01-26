@@ -13,8 +13,8 @@ mixin articleCard(article, inlineStyle='', lazyLoad=false)
       img.lazy-img.article-card__img(srcset=`/img/${sizeImageUrl(im, '-lazy')} 1x, /img/${sizeImageUrl(im, '-lazy')} 2x`
       data-srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
       src=`/img/lazy-${im}`
-      alt=`${article.name} cover image`)
+      alt=article.cardImageAltText)
     else
       img.article-card__img(srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
-      alt=`${article.name} card image`
+      alt=article.cardImageAltText
       src=`/img/${im}`)

@@ -62,7 +62,8 @@
   }
 
   &__link-icon {
-    @include iconSmall;
+    height: 3rem;
+    width: 3rem;
     fill: $color-white;
     transition: $transition-fast;
   }
