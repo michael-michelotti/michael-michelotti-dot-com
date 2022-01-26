@@ -1,3 +1,6 @@
+const { marked } = require('marked');
+const sanitizeHtml = require('sanitize-html');
+
 const catchAsync = require('../utils/catchAsync');
 const Project = require('../models/projectModel');
 const Article = require('../models/articleModel');
@@ -116,6 +119,12 @@ exports.getArticle = catchAsync(async (req, res, next) => {
    * @type {Object}
    */
   const article = await Article.findOne({ slug: req.params.slug });
+
+  // Parse the article body markdown into HTML, sanitize
+  article.body = marked.parse(article.body, {
+    sanitizer: sanitizeHtml,
+    langPrefix: 'language-python',
+  });
 
   if (!article)
     return next(new AppError('Could not find an article with that name.', 404));

@@ -39,8 +39,10 @@
     "http": "^0.0.1-security",
     "https": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
+    "marked": "^4.0.10",
     "mongoose": "^6.1.2",
     "pug": "^3.0.2",
+    "sanitize-html": "^2.6.1",
     "slugify": "^1.6.4",
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"

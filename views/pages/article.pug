@@ -25,11 +25,11 @@ block content
       - const oneHourAfterCreation = article.createdAt.getTime() + 1 * 60 * 60 * 1000
       if article.updatedAt.getTime() > oneHourAfterCreation
         .article__updated Updated: #{article.updatedAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', 'hour': '2-digit', 'minute': '2-digit'})}
-    - const articleParas = article.body.split('\n')
+    //- - const articleParas = article.body.split('\n')
     
-    .article__body
-      each para in articleParas
-        .article__para= para
+    .article__body !{article.body}
+      //- each para in articleParas
+      //-   .article__para= para
 
     if relatedArticles
       aside.rel-content
