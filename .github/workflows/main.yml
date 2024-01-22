@@ -23,7 +23,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           echo "Changed permission on key"
           
-          ssh-keyscan -H $LINODE_IP
+          ssh-keyscan -H $LINODE_IP >> ~/.ssh/known_hosts
           echo "Added IP to known hosts"
           echo $LINODE_IP
         env:
