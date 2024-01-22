@@ -27,7 +27,7 @@ jobs:
           echo $LINODE_IP
         env:
           LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
-          LINODE_IP: ${{ env.LINODE_LOGIN }}
+          LINODE_IP: ${{ vars.LINODE_LOGIN }}
 
       - name: Git Pull and Restart PM2
         run: |
