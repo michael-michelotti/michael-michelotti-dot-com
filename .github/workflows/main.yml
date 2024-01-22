@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Test Echo
-        run: echo "Hello world"
+        run: echo "Hello world test test"
     
       - name: SSH setup
         run: |
