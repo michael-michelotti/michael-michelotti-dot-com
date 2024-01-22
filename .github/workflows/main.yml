@@ -1,0 +1,29 @@
+name: Deploy to Linode
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH setup
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$LINODE_SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H "$LINODE_IP" >> ~/.ssh/known_hosts
+        env:
+          LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
+          LINODE_IP: ${{ secrets.LINODE_IP }}
+
+      - name: Git Pull and Restart PM2
+        run: |
+          ssh $"LINODE_IP" "cd $"PROJECT_PATH" && git pull && pm2 restart all"
+        env:
+          LINODE_IP: ${{ secrets.LINODE_IP }}
+          PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
+          
