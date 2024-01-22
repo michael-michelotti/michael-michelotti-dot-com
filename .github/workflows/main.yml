@@ -16,9 +16,14 @@ jobs:
       - name: SSH setup
         run: |
           mkdir -p ~/.ssh/
+          echo "Made SSH directory"
           echo "$LINODE_SSH_KEY" > ~/.ssh/id_rsa
+          echo "Put SSH key in file"
           chmod 600 ~/.ssh/id_rsa
+          echo "Changed permission on key"
           ssh-keyscan -H "$LINODE_IP" >> ~/.ssh/known_hosts
+          echo "Added IP to known hosts"
+          echo $LINODE_IP
         env:
           LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
           LINODE_IP: ${{ secrets.LINODE_IP }}
