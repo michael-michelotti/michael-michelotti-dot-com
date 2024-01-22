@@ -35,5 +35,5 @@ jobs:
           ssh $LINODE_IP "cd $PROJECT_PATH && git pull && pm2 restart all"
         env:
           LINODE_IP: ${{ secrets.LINODE_IP }}
-          PROJECT_PATH: ${{ env.PROJECT_PATH }}
+          PROJECT_PATH: ${{ vars.PROJECT_PATH }}
           
