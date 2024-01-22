@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Test Echo
+        run: echo "Hello world"
+    
       - name: SSH setup
         run: |
           mkdir -p ~/.ssh/
@@ -22,8 +25,8 @@ jobs:
 
       - name: Git Pull and Restart PM2
         run: |
-          ssh $"LINODE_IP" "cd $"PROJECT_PATH" && git pull && pm2 restart all"
+          ssh $LINODE_IP "cd $PROJECT_PATH && git pull && pm2 restart all"
         env:
           LINODE_IP: ${{ secrets.LINODE_IP }}
-          PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
+          PROJECT_PATH: ${{ env.PROJECT_PATH }}
           
