@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/michael-michelotti/michaelmichelotticom#readme",
   "devDependencies": {
-    "node-sass": "^7.0.0",
+    "node-sass": "^9.0.0",
     "nodemon": "^2.0.15",
     "parcel-bundler": "^1.12.5"
   },
