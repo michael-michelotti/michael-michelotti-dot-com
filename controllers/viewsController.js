@@ -24,7 +24,7 @@ exports.getLanding = catchAsync(async (req, res, next) => {
   if (featArticles.length > 2) featArticles.splice(2);
 
   res.status(200).render(`${PAGE_ROOT}/landing`, {
-    title: 'Welcome!',
+    title: 'Welcome',
     projects: featProjects,
     articles: featArticles,
   });
