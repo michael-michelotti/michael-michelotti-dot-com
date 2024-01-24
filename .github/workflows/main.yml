@@ -16,18 +16,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test Echo
-        run: echo "Hello world test test"
-    
       - name: SSH setup
         run: |
           mkdir -p ~/.ssh/
           echo "$LINODE_SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H $LINODE_USER@$LINODE_IP >> ~/.ssh/known_hosts
-        env:
-          LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
-          LINODE_IP: ${{ vars.LINODE_LOGIN }}
+          ssh-keyscan -H $LINODE_IP >> ~/.ssh/known_hosts
 
       - name: Git Pull and Restart PM2
         run: |
