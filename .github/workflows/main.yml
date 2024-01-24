@@ -8,7 +8,7 @@ on:
 env:
   LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
   LINODE_USER: ${{ secrets.LINODE_USER }}
-  LINODE_IP: ${{ vars.LINODE_IP }}
+  LINODE_IP: ${{ secrets.LINODE_IP }}
   PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
       
 jobs:
