@@ -6,10 +6,10 @@ on:
       - master
 
 env:
-  LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }};
-  LINODE_USER: ${{ secrets.LINODE_USER }};
-  LINODE_IP: ${{ secrets.LINODE_IP }};
-  PROJECT_PATH: ${{ secrets.PROJECT_PATH }};
+  LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
+  LINODE_USER: ${{ secrets.LINODE_USER }}
+  LINODE_IP: ${{ vars.LINODE_IP }}
+  PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
       
 jobs:
   deploy:
@@ -21,6 +21,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$LINODE_SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          echo $LINODE_IP
           ssh-keyscan -H $LINODE_IP >> ~/.ssh/known_hosts
 
       - name: Git Pull and Restart PM2
