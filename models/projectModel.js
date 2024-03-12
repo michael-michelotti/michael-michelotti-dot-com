@@ -26,6 +26,15 @@ const projectSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  featured_position: {
+    type: Number,
+    validate: {
+      validator: function(v) {
+        return v >= 1 && v <= 3;
+      },
+      message: props => `${props.value} is not a valid featured project position. Must be between 1 and 3.`
+    }
+  },
   hidden: {
     type: Boolean,
     default: false,

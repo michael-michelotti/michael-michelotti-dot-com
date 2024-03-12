@@ -20,6 +20,7 @@ exports.getLanding = catchAsync(async (req, res, next) => {
    */
   const featArticles = await Article.find({ featured: true, hidden: false });
 
+  featProjects.sort((a, b) => a.featured_position - b.featured_position);
   if (featProjects.length > 3) featProjects.splice(3);
   if (featArticles.length > 2) featArticles.splice(2);
 
