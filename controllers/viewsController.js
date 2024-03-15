@@ -51,6 +51,18 @@ exports.getAllProjects = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getProject = catchAsync(async (req, res, next) => {
+  const project = await Project.findOne({ slug: req.params.slug });
+
+  if (!project)
+    return next(new AppError('Could not find a project with that name.', 404));
+
+  res.status(200).render(`${PAGE_ROOT}/project`, {
+    title: project.name,
+    project
+  });
+});
+
 exports.getAllArticles = catchAsync(async (req, res, next) => {
   /**
    * Array of articles which aren't hidden
@@ -128,14 +140,14 @@ exports.getArticle = catchAsync(async (req, res, next) => {
    */
   const article = await Article.findOne({ slug: req.params.slug });
 
+  if (!article)
+    return next(new AppError('Could not find an article with that name.', 404));
+
   // Parse the article body markdown into HTML, sanitize
   article.body = marked.parse(article.body, {
     sanitizer: sanitizeHtml,
     langPrefix: 'language-python',
   });
-
-  if (!article)
-    return next(new AppError('Could not find an article with that name.', 404));
 
   /**
    * Articles with overlapping categories or tags with main article

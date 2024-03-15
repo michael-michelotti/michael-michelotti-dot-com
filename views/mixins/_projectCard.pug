@@ -15,7 +15,7 @@ mixin projectCard(project, lazyLoad=false)
         src=`/img/${project.coverImage}`
         alt=project.coverImageAltText)
 
-    a.project-card__title(href='#')
+    a.project-card__title(href=`/projects/${project.slug}/`)
       svg.project-card__icon: use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
       span.project-card__name= project.name
     a(href=`/projects/${project.slug}/`).project-card__summary= project.summary

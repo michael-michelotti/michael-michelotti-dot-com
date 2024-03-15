@@ -18,7 +18,7 @@ block content
             input.projects__tech-filter-tech-checkbox(type="checkbox", name=tech, value=tech)
     .projects__content(id="projectsContent")
       each project in projects
-        +projectRow(project)
+        +projectRow(project, `/projects/${project.slug}/`)
         .row-divider
 
 block scripts 

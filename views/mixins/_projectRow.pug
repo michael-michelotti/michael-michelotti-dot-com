@@ -1,13 +1,20 @@
 include _techGrid
 include _projectLinks
 
-mixin projectRow(project)
+mixin projectRow(project, href='')
   - const im = project.coverImage
   .project-row
-    .project-row__title
-      .project-row__name= project.name
-      .project-row__links
-        +projectLinks(project)
+    if href
+      .project-row__title
+        a.project-row__name(href=href)= project.name
+        .project-row__links
+          +projectLinks(project)
+    else
+      .project-row__title
+        .project-row__name= project.name
+        .project-row__links
+          +projectLinks(project)
+
 
     .project-row__content
       picture.project-row__picture

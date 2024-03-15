@@ -15,5 +15,8 @@ header.header
     else if filename.endsWith('article.pug')
       a.header__link(href='/articles') All Articles
       a.header__link(href='/') Back Home
+    else if filename.endsWith('project.pug')
+      a.header__link(href='/projects') All Projects
+      a.header__link(href='/') Back Home
     else
       a.header__link(href='/') Back Home
