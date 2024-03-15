@@ -5,7 +5,22 @@ include ../mixins/_projectRow
 block content
   section.projects
     .section-title.mb-md.pt-lg all projects
-    .projects__content
+    .projects__search.mb-md
+      input.projects__search-box(id="searchInput", type="text", placeholder="Type to search...")
+      select.projects__category-filter(id="categoryFilter")
+        option(value="", selected) none
+        each category in uniqueCategories
+          option(value=category) #{category}
+      .projects__tech-filter(id="techFilter")
+        each tech in uniqueTechs
+          label.projects__tech-filter-tech
+            div.projects__tech-filter-tech-label #{tech}
+            input.projects__tech-filter-tech-checkbox(type="checkbox", name=tech, value=tech)
+    .projects__content(id="projectsContent")
       each project in projects
         +projectRow(project)
         .row-divider
+
+block scripts 
+  script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js')
+  script(src='/js/all-projects.js')

@@ -77,9 +77,17 @@ exports.getOne = (Model, popOptions) =>
 
 exports.getAll = (Model) =>
   catchAsync(async (req, res, next) => {
-    let filter = {};
+    let query;
 
-    const features = new APIFeatures(Model.find(filter), req.query)
+    if (req.query.search) {
+      const searchResults = await Model.aggregate([{$search: req.query.search}]); 
+      const ids = searchResults.map((result) => result._id);
+      query = Model.find({_id: {$in: ids}});
+    } else {
+      query = Model.find({});
+    }
+
+    const features = new APIFeatures(query, req.query)
       .filter()
       .sort()
       .limitFields()

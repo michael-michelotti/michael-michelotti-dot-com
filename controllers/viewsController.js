@@ -38,8 +38,15 @@ exports.getAllProjects = catchAsync(async (req, res, next) => {
    */
   const projects = await Project.find({ hidden: false });
 
+  const allTechs = projects.flatMap((project) => project.techsUsed);
+  const uniqueTechs = [...new Set(allTechs)];
+  const allCategories = projects.flatMap((project) => project.categories);
+  const uniqueCategories = [...new Set(allCategories)];
+
   res.status(200).render(`${PAGE_ROOT}/allProjects`, {
     title: 'All Projects',
+    uniqueTechs,
+    uniqueCategories,
     projects,
   });
 });

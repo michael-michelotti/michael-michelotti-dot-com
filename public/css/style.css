@@ -191,6 +191,39 @@ body {
 
 .projects {
   padding-bottom: 10rem; }
+  .projects__search {
+    display: flex;
+    flex-direction: row;
+    margin-inline: auto;
+    width: 80%;
+    height: 4rem;
+    gap: 5rem; }
+  .projects__search-box {
+    flex: 1 0 50%;
+    font-size: 1.4rem;
+    font-family: "Montserrat", sans-serif;
+    border: 0.1rem solid #333;
+    border-radius: 0.4rem;
+    padding: 1rem; }
+  .projects__category-filter {
+    flex-grow: 1;
+    font-size: 1.4rem;
+    font-family: "Montserrat", sans-serif;
+    border: 0.1rem solid #333;
+    border-radius: 0.4rem;
+    padding: 1rem; }
+  .projects__tech-filter {
+    display: flex;
+    gap: 0.5rem; }
+    .projects__tech-filter-tech {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center; }
+      .projects__tech-filter-tech-label {
+        font-size: 1.4rem; }
+      .projects__tech-filter-tech-checkbox {
+        transform: scale(1.3);
+        margin: 0.2rem; }
   .projects__content {
     display: flex;
     flex-direction: column;
