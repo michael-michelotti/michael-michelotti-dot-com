@@ -3,6 +3,9 @@ const categoryFilter = document.getElementById('categoryFilter');
 const techFilters = document.querySelectorAll('#techFilter input[type="checkbox"]');
 const projectsContent = document.getElementById('projectsContent');
 const allProjectRows = document.querySelectorAll('.project-row');
+const techDropdownButton = document.querySelector('.checkbox-filter__button');
+const techDropdownContent = document.querySelector('.checkbox-filter__content');
+const dropdownArrow = document.querySelector('.checkbox-filter__arrow');
 
 const debouncedSearch = _.debounce(async (event) => {
         const searchQuery = searchInput.value;
@@ -59,3 +62,25 @@ async function fetchSearchResults(query, category, techs) {
         console.error("Could not fetch data: ", err);
     }
 }
+
+techDropdownButton.addEventListener('click', (event) => {
+    if (techDropdownContent.style.display === 'none') {
+        techDropdownContent.style.display = 'block';
+        dropdownArrow.classList.add('rotate-180');
+    }
+    else {
+        techDropdownContent.style.display = 'none';
+        dropdownArrow.classList.remove('rotate-180');
+    }
+
+    event.stopPropagation();
+})
+
+window.addEventListener('click', (event) => {
+    const withinDropdown = event.target.closest('.checkbox-filter__content');
+    const clickedButton = event.target.matches('.checkbox-filter__button');
+
+    if (!withinDropdown && !clickedButton) {
+        techDropdownContent.style.display = 'none';
+    }
+})

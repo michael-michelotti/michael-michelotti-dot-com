@@ -1,0 +1,33 @@
+.checkbox-filter {
+  flex-grow: 1;
+
+  &__content {
+    display: none;
+    position: absolute;
+    padding: 1rem;
+    z-index: 1;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  &__button {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    background-color: $color-white;
+    border: 0.1rem solid $color-dark;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    font-family: $font-primary;
+    font-size: 1.4rem;
+  }
+
+  &__arrow {
+    display: inline-block;
+    transition: transform 0.1s ease-in-out;
+    margin-left: 1rem;
+  }
+}

@@ -73,6 +73,9 @@ body {
 .lazy-img {
   filter: blur(2rem); }
 
+.rotate-180 {
+  transform: rotate(180deg); }
+
 .title-container {
   text-align: center; }
 
@@ -210,6 +213,7 @@ body {
     padding: 1rem; }
   .projects__category-filter {
     flex-grow: 1;
+    appearance: none;
     font-size: 1.4rem;
     font-family: "Montserrat", sans-serif;
     border: 0.1rem solid #333;
@@ -781,3 +785,28 @@ body {
     transition: color 0.3s; }
   .project-links__link:hover .project-links__caption {
     color: #fff; }
+
+.checkbox-filter {
+  flex-grow: 1; }
+  .checkbox-filter__content {
+    display: none;
+    position: absolute;
+    padding: 1rem;
+    z-index: 1; }
+  .checkbox-filter__label {
+    display: block;
+    margin-bottom: 0.5rem; }
+  .checkbox-filter__button {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border: 0.1rem solid #333;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem; }
+  .checkbox-filter__arrow {
+    display: inline-block;
+    transition: transform 0.1s ease-in-out;
+    margin-left: 1rem; }

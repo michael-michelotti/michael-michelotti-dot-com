@@ -1,0 +1,9 @@
+mixin checkboxFilter(values)
+  .checkbox-filter
+    button.checkbox-filter__button 
+      | Select from Dropdown
+      span.checkbox-filter__arrow &or;
+    .checkbox-filter__content
+      each value in values
+        label.checkbox-filter__label #{value}
+          input.checkbox-filter__input(type='checkbox', value=value)
