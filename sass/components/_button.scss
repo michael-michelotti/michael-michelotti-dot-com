@@ -11,12 +11,12 @@
   }
 
   &--blue {
-    background-color: $color-primary;
+    background-color: $color-tertiary;
     color: $color-white;
 
     &:hover,
     &:active {
-      background-color: darken($color-primary, 10%);
+      background-color: darken($color-tertiary, 10%);
     }
   }
 }

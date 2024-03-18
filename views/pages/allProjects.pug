@@ -9,7 +9,8 @@ block content
     .projects__search.mb-md
       input.projects__search-box(id="searchInput", type="text", placeholder="Type to search...")
       select.projects__category-filter(id="categoryFilter")
-        option(value="", selected) none
+        option(value="", selected)
+          | Select category
         each category in uniqueCategories
           option(value=category) #{category}
       +checkboxFilter(uniqueTechs)

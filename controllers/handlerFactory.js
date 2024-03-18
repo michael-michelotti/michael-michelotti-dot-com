@@ -87,6 +87,10 @@ exports.getAll = (Model) =>
       query = Model.find({});
     }
 
+    if (req.query.techsUsed) {
+      req.query.techsUsed = {$in: req.query.techsUsed.split(',')};
+    }
+
     const features = new APIFeatures(query, req.query)
       .filter()
       .sort()

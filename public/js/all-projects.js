@@ -1,11 +1,11 @@
 const searchInput = document.getElementById('searchInput');
 const categoryFilter = document.getElementById('categoryFilter');
-const techFilters = document.querySelectorAll('#techFilter input[type="checkbox"]');
 const projectsContent = document.getElementById('projectsContent');
 const allProjectRows = document.querySelectorAll('.project-row');
 const techDropdownButton = document.querySelector('.checkbox-filter__button');
 const techDropdownContent = document.querySelector('.checkbox-filter__content');
 const dropdownArrow = document.querySelector('.checkbox-filter__arrow');
+const techFilters = document.querySelectorAll('.checkbox-filter__input');
 
 const debouncedSearch = _.debounce(async (event) => {
         const searchQuery = searchInput.value;
@@ -43,12 +43,14 @@ async function fetchSearchResults(query, category, techs) {
     if (query.length >= 1)
         url += `search[index]=default&search[autocomplete][query]=${encodeURIComponent(query)}&search[autocomplete][path]=name&`;
 
-    if (category)
+    if (category.length !== 0)
         url += `categories=${category}&`
 
-    if (techs)
-        techs.forEach((tech) => url += `techsUsed=${tech}&`);
-
+    if (techs.length !== 0) {
+        console.log(techs);
+        url += `techsUsed=` + techs.join(',');
+    }
+    
     console.log(url);
     
     try {
@@ -64,13 +66,11 @@ async function fetchSearchResults(query, category, techs) {
 }
 
 techDropdownButton.addEventListener('click', (event) => {
-    if (techDropdownContent.style.display === 'none') {
-        techDropdownContent.style.display = 'block';
-        dropdownArrow.classList.add('rotate-180');
+    if (techDropdownContent.style.display === 'block') {
+        techDropdownContent.style.display = 'none';
     }
     else {
-        techDropdownContent.style.display = 'none';
-        dropdownArrow.classList.remove('rotate-180');
+        techDropdownContent.style.display = 'block';
     }
 
     event.stopPropagation();
@@ -78,7 +78,7 @@ techDropdownButton.addEventListener('click', (event) => {
 
 window.addEventListener('click', (event) => {
     const withinDropdown = event.target.closest('.checkbox-filter__content');
-    const clickedButton = event.target.matches('.checkbox-filter__button');
+    const clickedButton = event.target.closest('.checkbox-filter__button');
 
     if (!withinDropdown && !clickedButton) {
         techDropdownContent.style.display = 'none';
