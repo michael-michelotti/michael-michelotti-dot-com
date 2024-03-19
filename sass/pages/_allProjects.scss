@@ -20,27 +20,6 @@
     @include searchBarBox;
   }
 
-  &__tech-filter {
-    display: flex;
-    gap: 0.5rem;
-
-    &-tech {
-      display: flex;
-      gap: 0.2rem;
-      align-items: center;
-
-      &-label {
-        font-size: 1.4rem;
-      }
-
-      &-checkbox {
-        transform: scale(1.3);
-        margin: 0.2rem;
-      }
-    }
-
-  }
-
   &__content {
     display: flex;
     flex-direction: column;

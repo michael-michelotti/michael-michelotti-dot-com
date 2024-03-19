@@ -30,12 +30,8 @@
     height: 100%;
     width: 100%;
     background-color: $color-white;
-    border: 0.1rem solid $color-dark;
-    border-radius: 0.4rem;
-    padding: 1rem;
-    font-family: $font-primary;
-    font-size: 1.4rem;
     text-align: left;
+    @include searchBarBox;
 
     &:focus {
       border: 0.2rem solid $color-dark;
