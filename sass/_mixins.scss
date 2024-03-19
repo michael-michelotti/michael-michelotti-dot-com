@@ -35,6 +35,15 @@
   color: $color-dark;
 }
 
+@mixin searchBarBox {
+  appearance: none;
+  font-size: 1.4rem;
+  font-family: $font-primary;
+  border: 0.1rem solid $color-dark;
+  border-radius: 0.4rem;
+  padding: 1rem;
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone
