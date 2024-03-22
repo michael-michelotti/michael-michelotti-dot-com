@@ -28,7 +28,7 @@ block content
     
     .article__body !{article.body}
 
-    if relatedArticles
+    if relatedArticles.length > 0
       aside.rel-content
         .rel-content__title Related Articles
         for article in relatedArticles
