@@ -9,6 +9,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith('Bearer')
   ) {
     pwHash = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.token) {
+    pwHash = req.cookies.token;
   }
 
   if (!pwHash) {

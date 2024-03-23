@@ -161,3 +161,9 @@ exports.getArticle = catchAsync(async (req, res, next) => {
     relatedArticles,
   });
 });
+
+exports.postArticle = catchAsync(async (req, res, next) => {
+  res.status(200).render(`${PAGE_ROOT}/postArticle`, {
+    title: "Create an article",
+  });
+});
