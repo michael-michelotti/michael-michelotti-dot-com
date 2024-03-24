@@ -1,4 +1,8 @@
 const express = require('express');
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({storage: storage});
+
 const articleController = require('../controllers/articleController');
 const authController = require('../controllers/authController');
 
@@ -15,6 +19,6 @@ router
 router
   .route('/')
   .get(articleController.getAllArticles)
-  .post(authController.protect, articleController.createArticle);
+  .post(authController.protect, upload.any(), articleController.processFrontendPost, articleController.createArticle);
 
 module.exports = router;
