@@ -2,7 +2,8 @@ extends ../base
 
 block content
   .post-article
-    h1 Create an article
+    .title-container.mb-md
+      span.section-title create an article
     form(id="postArticleForm").post-article__form
       label.post-article__label(for="name")
         | Title: 
@@ -60,7 +61,7 @@ block content
         option(value="no") No
         option(value="yes") Yes
 
-    button.post-article__btn Post
+      a.btn.btn--blue(href="#").post-article__btn.mt-md Post
 
 block scripts 
   script(src='/js/post-article.js')

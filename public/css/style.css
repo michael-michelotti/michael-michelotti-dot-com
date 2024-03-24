@@ -330,15 +330,20 @@ body {
   .post-article__form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem; }
+    gap: 1rem;
+    max-width: 80rem;
+    margin: 0 auto; }
   .post-article__label {
-    font-size: 1.4rem; }
+    font-size: 1.6rem; }
   .post-article__input {
     font-family: inherit;
     color: inherit;
+    font-size: 1.4rem;
     padding: .4rem .8rem;
-    display: block; }
+    display: block;
+    width: 100%; }
+  .post-article__btn {
+    align-self: center; }
 
 .hero {
   height: 100vh;
