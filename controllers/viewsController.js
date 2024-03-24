@@ -167,3 +167,9 @@ exports.postArticle = catchAsync(async (req, res, next) => {
     title: "Create an article",
   });
 });
+
+exports.postProject = catchAsync(async (req, res, next) => {
+  res.status(200).render(`${PAGE_ROOT}/postProject`, {
+    title: "Create a project",
+  });
+});

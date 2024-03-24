@@ -1,6 +1,9 @@
 const express = require('express');
 const projectController = require('../controllers/projectController');
 const authController = require('../controllers/authController');
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({storage: storage});
 
 const router = express.Router();
 
@@ -15,6 +18,6 @@ router
 router
   .route('/')
   .get(projectController.getAllProjects)
-  .post(authController.protect, projectController.createProject);
+  .post(authController.protect, upload.any(), projectController.processFrontendPost, projectController.createProject);
 
 module.exports = router;

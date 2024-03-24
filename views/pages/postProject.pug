@@ -1,0 +1,75 @@
+extends ../base
+
+block content
+  .content-form
+    .title-container.mb-md
+      span.section-title create a project
+
+    form(id="postProjectForm").content-form__form
+      label.content-form__label(for="name")
+        | Name: 
+        input.content-form__input(type="text", id="name", name="name")
+
+      label.content-form__label(for="summary")
+        | Summary:
+        input.content-form__input(id="summary", name="summary", rows=3)
+
+      label.content-form__label(for="detailDescription")
+        | Detailed Description:
+        textarea.content-form__input(id="detailDescription", name="detailDescription", rows=3)
+
+      label.content-form__label(for="categories")
+        | Categories (separate with newline):
+        textarea.content-form__input(id="categories", name="categories", rows=3)
+
+      label.content-form__label(for="tags")
+        | Tags (separate with newline):
+        textarea.content-form__input(id="tags", name="tags", rows=3)
+
+      label.content-form__label(for="techsUsed")
+        | Techs Used (separate with newline):
+        textarea.content-form__input(id="techsUsed", name="techsUsed", rows=3)
+
+      label.content-form__label(for="liveLink")
+        | Live link:
+        input.content-form__input(type="text", id="liveLink", name="liveLink")
+
+      label.content-form__label(for="githubLink")
+        | Github link:
+        input.content-form__input(type="text", id="githubLink", name="githubLink")
+
+      label.content-form__label(for="coverImage")
+        | Cover image (1200x800px):
+        input.content-form__input(type="file", id="coverImage", name="coverImage")
+
+      label.content-form__label(for="coverImageAlt")
+        | Cover image alt text:
+        input.content-form__input(type="text", id="coverImageAlt", name="coverImageAlt")
+
+      label.content-form__label(for="contributors")
+        | Contributors (separate by newline):
+        textarea.content-form__input(id="contributors", name="contributors", rows=3)
+
+      label.content-form__label(for="featured")
+        | Featured:
+      select(id="featured", name="featured")
+        option(value="no") No
+        option(value="yes") Yes
+
+      label.content-form__label(for="featured_position")
+        | Featured Position (1-3):
+      select(id="featured_position", name = "featured_position")
+        option(value="1") 1
+        option(value="2") 2
+        option(value="3") 3
+      
+      label.content-form__label(for="hidden")
+        | Hidden:
+      select(id="hidden", name="hidden")
+        option(value="no") No
+        option(value="yes") Yes
+
+      a.btn.btn--blue(href="#").content-form__btn.mt-md Post
+
+block scripts 
+  script(src='/js/post-project.js')

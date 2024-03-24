@@ -1,17 +1,17 @@
 const articleForm = document.querySelector('.post-article__form')
 const submitBtn = document.querySelector('.post-article__btn')
 
-const titleInput = document.querySelector('input#name');
-const summaryPoints = document.querySelector('textarea#summaryPoints');
-const articleBodyFile = document.querySelector('input#body');
-const categories = document.querySelector('textarea#categories');
-const tags = document.querySelector('textarea#tags');
-const cardImageFile = document.querySelector('input#cardImage');
-const cardImageAlt = document.querySelector('input#cardImageAlt');
-const coverImageFile = document.querySelector('input#coverImage');
-const coverImageAlt = document.querySelector('input#coverImageAlt');
-const coverImageCaption = document.querySelector('input#coverImageCaption');
-const authors = document.querySelector('textarea#authors');
+const titleInput = document.querySelector('#name');
+const summaryPoints = document.querySelector('#summaryPoints');
+const articleBodyFile = document.querySelector('#body');
+const categories = document.querySelector('#categories');
+const tags = document.querySelector('#tags');
+const cardImageFile = document.querySelector('#cardImage');
+const cardImageAlt = document.querySelector('#cardImageAlt');
+const coverImageFile = document.querySelector('#coverImage');
+const coverImageAlt = document.querySelector('#coverImageAlt');
+const coverImageCaption = document.querySelector('#coverImageCaption');
+const authors = document.querySelector('#authors');
 const featured = document.querySelector('#featured');
 const hidden = document.querySelector('#hidden');
 
@@ -19,8 +19,8 @@ submitBtn.addEventListener('click', async (e) => {
   const formData = new FormData();
   let file;
 
-  formData.append('name', titleInput.value);
-  formData.append('summaryPoints', summaryPoints.value);
+  formData.append('name', nameInput.value);
+  formData.append('summaryPoints', summary.value);
   
   file = articleBodyFile.files[0];
   if (file) formData.append('body', file);

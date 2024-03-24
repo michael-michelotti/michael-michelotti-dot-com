@@ -1,67 +1,67 @@
 extends ../base
 
 block content
-  .post-article
+  .content-form
     .title-container.mb-md
       span.section-title create an article
-    form(id="postArticleForm").post-article__form
-      label.post-article__label(for="name")
+    form(id="postArticleForm").content-form__form
+      label.content-form__label(for="name")
         | Title: 
-        input.post-article__input(type="text", id="name", name="name")
+        input.content-form__input(type="text", id="name", name="name")
 
-      label.post-article__label(for="summaryPoints")
+      label.content-form__label(for="summaryPoints")
         | Summary Points (separate with newline):
-        textarea.post-article__input(id="summaryPoints", name="summaryPoints", rows=3, cols=50)
+        textarea.content-form__input(id="summaryPoints", name="summaryPoints", rows=3, cols=50)
 
-      label.post-article__label(for="body")
+      label.content-form__label(for="body")
         | Article Body:
-        input.post-article__input(type="file", id="body", name="body")
+        input.content-form__input(type="file", id="body", name="body")
 
-      label.post-article__label(for="categories")
+      label.content-form__label(for="categories")
         | Categories (separate with newline):
-        textarea.post-article__input(id="categories", name="categories", rows=3, cols=25)
+        textarea.content-form__input(id="categories", name="categories", rows=3, cols=25)
 
-      label.post-article__label(for="tags")
+      label.content-form__label(for="tags")
         | Tags (separate with newline):
-        textarea.post-article__input(id="tags", name="tags", rows=3, cols=25)
+        textarea.content-form__input(id="tags", name="tags", rows=3, cols=25)
 
-      label.post-article__label(for="cardImage")
+      label.content-form__label(for="cardImage")
         | Card image (520x520px):
-        input.post-article__input(type="file", id="cardImage", name="cardImage")
+        input.content-form__input(type="file", id="cardImage", name="cardImage")
 
-      label.post-article__label(for="cardImageAlt")
+      label.content-form__label(for="cardImageAlt")
         | Card image alt text:
-        input.post-article__input(type="text", id="cardImageAlt", name="cardImageAlt")
+        input.content-form__input(type="text", id="cardImageAlt", name="cardImageAlt")
 
-      label.post-article__label(for="coverImage")
+      label.content-form__label(for="coverImage")
         | Cover image (1440x603px):
-        input.post-article__input(type="file", id="coverImage", name="coverImage")
+        input.content-form__input(type="file", id="coverImage", name="coverImage")
 
-      label.post-article__label(for="coverImageAlt")
+      label.content-form__label(for="coverImageAlt")
         | Cover image alt text:
-        input.post-article__input(type="text", id="coverImageAlt", name="coverImageAlt")
+        input.content-form__input(type="text", id="coverImageAlt", name="coverImageAlt")
 
-      label.post-article__label(for="coverImageCaption")
+      label.content-form__label(for="coverImageCaption")
         | Cover image caption:
-        input.post-article__input(type="text", id="coverImageCaption", name="coverImageCaption")
+        input.content-form__input(type="text", id="coverImageCaption", name="coverImageCaption")
 
-      label.post-article__label(for="authors")
+      label.content-form__label(for="authors")
         | Authors (separate by newline):
-        textarea.post-article__input(id="authors", name="authors", rows=3, cols=25)
+        textarea.content-form__input(id="authors", name="authors", rows=3, cols=25)
 
-      label.post-article__label(for="featured")
+      label.content-form__label(for="featured")
         | Featured:
       select(id="featured" name="featured")
         option(value="no") No
         option(value="yes") Yes
       
-      label.post-article__label(for="hidden")
+      label.content-form__label(for="hidden")
         | Hidden:
       select(id="hidden" name="hidden")
         option(value="no") No
         option(value="yes") Yes
 
-      a.btn.btn--blue(href="#").post-article__btn.mt-md Post
+      a.btn.btn--blue(href="#").content-form__btn.mt-md Post
 
 block scripts 
   script(src='/js/post-article.js')
