@@ -13,8 +13,9 @@ router.route('/featured').get(articleController.getFeaturedArticles);
 router
   .route('/:id')
   .get(articleController.getArticle)
-  .patch(authController.protect, articleController.updateArticle)
+  .patch(authController.protect, upload.any(), articleController.processFrontendPatch, articleController.updateArticle)
   .delete(authController.protect, articleController.deleteArticle);
+
 
 router
   .route('/')

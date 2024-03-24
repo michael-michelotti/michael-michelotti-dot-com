@@ -168,6 +168,18 @@ exports.postArticle = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.updateArticle = catchAsync(async (req, res, next) => {
+  const article = await Article.findOne({ _id: req.params.id });
+
+  if (!article)
+    return next(new AppError('Could not find an article with that ID.', 404));
+
+  res.status(200).render(`${PAGE_ROOT}/updateArticle`, {
+    title: "Update an article",
+    article
+  });
+});
+
 exports.postProject = catchAsync(async (req, res, next) => {
   res.status(200).render(`${PAGE_ROOT}/postProject`, {
     title: "Create a project",

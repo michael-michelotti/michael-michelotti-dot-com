@@ -3,63 +3,66 @@ extends ../base
 block content
   .content-form
     .title-container.mb-md
-      span.section-title create an article
+      span.section-title update an article
     form(id="postArticleForm").content-form__form
       label.content-form__label(for="name")
         | Title: 
-        input.content-form__input(type="text", id="name", name="name")
+        input.content-form__input(type="text", id="name", name="name", value=article.name)
 
       label.content-form__label(for="summaryPoints")
         | Summary Points (separate with newline):
-        textarea.content-form__input(id="summaryPoints", name="summaryPoints", rows=3)
+        textarea.content-form__input(id="summaryPoints", name="summaryPoints", rows=3) !{article.summaryPoints.join('\n')}
 
       label.content-form__label(for="body")
         | Article Body:
+        a.conrent-form__link(href=`/articleFiles/${article.slug}.md`, download) Download
         input.content-form__input(type="file", id="body", name="body")
 
       label.content-form__label(for="categories")
         | Categories (separate with newline):
-        textarea.content-form__input(id="categories", name="categories", rows=3)
+        textarea.content-form__input(id="categories", name="categories", rows=3) !{article.categories.join('\n')}
 
       label.content-form__label(for="tags")
         | Tags (separate with newline):
-        textarea.content-form__input(id="tags", name="tags", rows=3)
+        textarea.content-form__input(id="tags", name="tags", rows=3) !{article.tags.join('\n')}
 
       label.content-form__label(for="cardImage")
         | Card image (520x520px):
+        a.conrent-form__link(href=`/img/${article.cardImage}`, download) Download
         input.content-form__input(type="file", id="cardImage", name="cardImage")
 
       label.content-form__label(for="cardImageAlt")
         | Card image alt text:
-        input.content-form__input(type="text", id="cardImageAlt", name="cardImageAlt")
+        input.content-form__input(type="text", id="cardImageAlt", name="cardImageAlt", value=article.cardImageAltText)
 
       label.content-form__label(for="coverImage")
         | Cover image (1440x603px):
+        a.conrent-form__link(href=`/img/${article.coverImage.split('.').slice(0, -1).join('.')}` + '-large.jpg', download) Download
         input.content-form__input(type="file", id="coverImage", name="coverImage")
 
       label.content-form__label(for="coverImageAlt")
         | Cover image alt text:
-        input.content-form__input(type="text", id="coverImageAlt", name="coverImageAlt")
+        input.content-form__input(type="text", id="coverImageAlt", name="coverImageAlt", value=article.coverImageAltText)
 
       label.content-form__label(for="coverImageCaption")
         | Cover image caption:
-        input.content-form__input(type="text", id="coverImageCaption", name="coverImageCaption")
+        input.content-form__input(type="text", id="coverImageCaption", name="coverImageCaption", value=article.coverImageCaption)
 
       label.content-form__label(for="authors")
         | Authors (separate by newline):
-        textarea.content-form__input(id="authors", name="authors", rows=3)
+        textarea.content-form__input(id="authors", name="authors", rows=3) !{article.authors.join('\n')}
 
       label.content-form__label(for="featured")
         | Featured:
       select(id="featured" name="featured")
-        option(value="no") No
-        option(value="yes") Yes
+        option(value="no" selected=!article.featured) No
+        option(value="yes" selected=article.featured) Yes
       
       label.content-form__label(for="hidden")
         | Hidden:
       select(id="hidden" name="hidden")
-        option(value="no") No
-        option(value="yes") Yes
+        option(value="no" selected=!article.hidden) No
+        option(value="yes" selected=article.hidden) Yes
 
       a.btn.btn--blue(href="#").content-form__btn.mt-md Post
 

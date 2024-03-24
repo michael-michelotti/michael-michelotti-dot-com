@@ -11,6 +11,7 @@ router.get('/projects/:slug', viewsController.getProject);
 
 router.get('/articles', viewsController.getAllArticles);
 router.get('/articles/post', authController.protect, viewsController.postArticle);
+router.get('/articles/update/:id', authController.protect, viewsController.updateArticle);
 router.get('/articles/:slug', viewsController.getArticle);
 
 module.exports = router;
