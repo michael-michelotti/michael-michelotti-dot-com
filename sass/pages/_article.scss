@@ -74,6 +74,14 @@
     font-size: 1.8rem;
     line-height: 1.8;
   }
+
+  &__body p, &__body ul {
+    margin-bottom: 1.8rem;
+  }
+
+  &__body blockquote {
+    font-style: italic;
+  }
 }
 
 .rel-content {

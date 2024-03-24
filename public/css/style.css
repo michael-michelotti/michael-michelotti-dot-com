@@ -91,6 +91,9 @@ body {
   color: #fff;
   border-bottom: 3px solid #fff; }
 
+.katex-html {
+  display: none; }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -305,6 +308,10 @@ body {
   .article__body {
     font-size: 1.8rem;
     line-height: 1.8; }
+  .article__body p, .article__body ul {
+    margin-bottom: 1.8rem; }
+  .article__body blockquote {
+    font-style: italic; }
 
 .rel-content {
   font-family: "Montserrat", sans-serif;
