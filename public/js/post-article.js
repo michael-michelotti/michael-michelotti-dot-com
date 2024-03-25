@@ -99,12 +99,13 @@ if (pathname.startsWith('/articles/update')) {
 
 
 } else if (window.location.pathname.startsWith('/articles/post')) {
-
   submitBtn.addEventListener('click', async (e) => {
+    const newArticleFormData = parseArticleFormData();
+
     try {
       const response = await fetch('/api/v1/articles?frontend=true', {
         method: 'POST',
-        body: formData
+        body: newArticleFormData
       });
   
       if (!response.ok) {

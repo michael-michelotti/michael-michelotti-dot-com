@@ -1,4 +1,4 @@
-It was just another Tuesday when I decided on what would become my next embedded systems project. I knew I wanted to have _some sensor_ drive _some motor_. In my innocence, I chose a TSOP IR receiver and a DC motor.
+It was just another Tuesday when I decided on what would become my next embedded systems project. I knew I wanted to have _some sensor_ drive _some motor_. In my innocence, I chose a TSOP IR receiver and a DC motor. The IR receiver would pick up a signal from an IR remote, then I would process that signal to control the fan. Perfect.
 
 Excitedly, I got to work planning and developing. 
 * An NEC driver to decode my receiver? Functioning in isolation. :triumph: 
@@ -35,3 +35,5 @@ Feeling their collective hands on my shoulders, I got to work. I implemented an 
 Finally, my IR receiver was happy. Finally, I turned on the fan. Alas, I'm still using cheap components on a breadboard, and thus the ringing remains. But hey, __I can turn on the fan__ :relieved:.
 
 <img src="/img/Final_Ripple_After_Mitigation.png" alt="Oscilloscope screenshot post mitigation" style="max-width: 500px; height: auto; margin-bottom: 1.8rem;">
+
+[Project link](https://github.com/michael-michelotti/ir-remote-fan)
