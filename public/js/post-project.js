@@ -1,5 +1,5 @@
-const projectForm = document.querySelector('.content-form__form')
-const submitBtn = document.querySelector('.content-form__btn')
+const projectForm = document.querySelector('.content-form__form');
+const submitBtn = document.querySelector('.content-form__btn');
 
 const nameInput = document.querySelector('#name');
 const summary = document.querySelector('#summary');
@@ -16,7 +16,7 @@ const featured = document.querySelector('#featured');
 const featured_position = document.querySelector('#featured_position');
 const hidden = document.querySelector('#hidden');
 
-submitBtn.addEventListener('click', async (e) => {
+function parseProjectFormData() {
   const formData = new FormData();
   let file;
 
@@ -38,10 +38,16 @@ submitBtn.addEventListener('click', async (e) => {
   formData.append('featured_position', featured_position.value);
   formData.append('hidden', hidden.value);
 
+  return formData;
+}
+
+submitBtn.addEventListener('click', async (e) => {
+  const projectFormData = parseProjectFormData();
+
   try {
     const response = await fetch('/api/v1/projects?frontend=true', {
       method: 'POST',
-      body: formData
+      body: projectFormData,
     });
 
     if (!response.ok) {
