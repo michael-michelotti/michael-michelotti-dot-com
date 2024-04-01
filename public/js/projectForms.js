@@ -16,7 +16,7 @@ const featured = document.querySelector('#featured');
 const featured_position = document.querySelector('#featured_position');
 const hidden = document.querySelector('#hidden');
 
-submitBtn.addEventListener('click', async (e) => {
+function parseProjectFormData() {
   const formData = new FormData();
   let file;
 
@@ -28,26 +28,74 @@ submitBtn.addEventListener('click', async (e) => {
   formData.append('techsUsed', techsUsed.value);
   formData.append('liveLink', liveLink.value);
   formData.append('githubLink', githubLink.value);
-
-  file = coverImageFile.files[0];
-  if (file) formData.append('coverImage', file);
-
   formData.append('coverImageAltText', coverImageAlt.value);
   formData.append('contributors', contributors.value);
   formData.append('featured', featured.value);
   formData.append('featured_position', featured_position.value);
   formData.append('hidden', hidden.value);
 
-  try {
-    const response = await fetch('/api/v1/projects?frontend=true', {
-      method: 'POST',
-      body: formData
-    });
+  file = coverImageFile.files[0];
+  if (file) formData.append('coverImage', file);
 
-    if (!response.ok) {
-      throw new Error(`HTTP error: ${response.status}`);
+  return formData;
+}
+
+if (pathname.startsWith('/projects/update')) {
+  let origFormData;
+  let submittedFormData;
+  let alteredFormData;
+  let file;
+
+  window.onload = function() {
+    origFormData = parseProjectFormData();
+  };
+
+  submitBtn.addEventListener('click', async (e) => {
+    try {
+      submittedFormData = parseProjectFormData();
+      alteredFormData = new FormData();
+
+      for (let [key, value] of submittedFormData.entries()) {
+        if (origFormData.get(key) !== value) {
+          alteredFormData.append(key, value)
+        }
+      }
+
+      file = coverImageFile.files[0];
+      if (file) {
+        alteredFormData.set('coverImage', file);
+      }
+
+      const projectId = pathname.split('/')[3];
+      const response = await fetch(`/api/v1/projects/${projectId}?frontend=true&name=${nameInput.value}`, {
+        method: 'PATCH',
+        body: alteredFormData,
+      })
+
+      if (response.ok) {
+        window.location.replace(`/projects/update/${projectId}`);
+      }
+
+    } catch(err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.error('Issue with article post operation: ', err);
-  }
-});
+  })
+
+} else if (pathname.startsWith('/projects/post')) {
+  submitBtn.addEventListener('click', async (e) => {
+    const newProjectFormData = parseProjectFormData();
+
+    try {
+      const response = await fetch('/api/v1/projects?frontend=true', {
+        method: 'POST',
+        body: newProjectFormData
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+    } catch (err) {
+      console.error('Issue with article post operation: ', err);
+    }
+  });
+}

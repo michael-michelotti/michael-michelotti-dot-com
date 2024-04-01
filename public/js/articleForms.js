@@ -50,7 +50,7 @@ function parseArticleFormData() {
 if (pathname.startsWith('/articles/update')) {
   let origFormData;
   let submittedFormData;
-  let patchBodyObj;
+  let alteredFormData;
   let file;
 
   window.onload = function() {
@@ -60,32 +60,32 @@ if (pathname.startsWith('/articles/update')) {
   submitBtn.addEventListener('click', async (e) => {
     try {
       submittedFormData = parseArticleFormData();
-      patchBodyObj = new FormData();
+      alteredFormData = new FormData();
       for (let [key, value] of submittedFormData.entries()) {
         if (origFormData.get(key) !== value) {
-          patchBodyObj.append(key, value)
+          alteredFormData.append(key, value)
         }
       }
 
       file = articleBodyFile.files[0];
       if (file) {
-        patchBodyObj.set('body', file);
+        alteredFormData.set('body', file);
       }
 
       file = cardImageFile.files[0];
       if (file) {
-        patchBodyObj.set('cardImage', file);
+        alteredFormData.set('cardImage', file);
       }
 
       file = coverImageFile.files[0];
       if (file) {
-        patchBodyObj.set('coverImage', file);
+        alteredFormData.set('coverImage', file);
       }
 
       const articleId = pathname.split('/')[3];
       const response = await fetch(`/api/v1/articles/${articleId}?frontend=true&name=${titleInput.value}`, {
         method: 'PATCH',
-        body: patchBodyObj,
+        body: alteredFormData,
       })
 
       if (response.ok) {
