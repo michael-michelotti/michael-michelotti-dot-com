@@ -1,7 +1,4 @@
-const { marked } = require('marked');
-const showdown = require('showdown');
 const markdownit = require('markdown-it');
-const sanitizeHtml = require('sanitize-html');
 const { full: emoji } = require('markdown-it-emoji');
 const mk = require('markdown-it-katex');
 
@@ -147,16 +144,6 @@ exports.getArticle = catchAsync(async (req, res, next) => {
   if (!article)
     return next(new AppError('Could not find an article with that name.', 404));
 
-  // Parse the article body markdown into HTML, sanitize
-  // article.body = marked.parse(article.body, {
-  //   sanitizer: sanitizeHtml
-  // });
-  // showdown.setFlavor('github');
-  // const converter = new showdown.Converter({
-  //   emoji: true,
-  //   openLinksInNewWindow: true
-  // });
-  // article.body = converter.makeHtml(article.body);
   const md = markdownit({
     html: true,
     linkify: true,
