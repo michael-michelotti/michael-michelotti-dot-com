@@ -50,7 +50,7 @@ articleSchema.pre('findOneAndUpdate', function (next) {
   next();
 });
 
-// If updating the name, I want to update the slug
+// If updating the name, also update the slug
 articleSchema.pre('findOneAndUpdate', function (next) {
   if ('name' in this._update) {
     this.set({ slug: slugify(this._update.name, { lower: true }) });
