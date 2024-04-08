@@ -1,9 +1,10 @@
 mixin projectLinks(project)
   .project-links
-    a.project-links__link(href=`${project.githubLink || '#'}`, target=project.githubLink ? '_blank' : '_self')
-      svg.project-links__icon
-        use(xlink:href=`/img/sprite.svg#icon-github`)
-      span.project-links__caption GitHub
+    if project.githubLink
+      a.project-links__link(href=`${project.githubLink || '#'}`, target=project.githubLink ? '_blank' : '_self')
+        svg.project-links__icon
+          use(xlink:href=`/img/sprite.svg#icon-github`)
+        span.project-links__caption GitHub
     if project.liveLink
       a.project-links__link(href=`${project.liveLink}`, target=project.liveLink ? '_blank' : '_self')
         svg.project-links__icon

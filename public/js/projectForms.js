@@ -16,6 +16,8 @@ const featured = document.querySelector('#featured');
 const featured_position = document.querySelector('#featured_position');
 const hidden = document.querySelector('#hidden');
 
+const pathname = window.location.pathname;
+
 function parseProjectFormData() {
   const formData = new FormData();
   let file;

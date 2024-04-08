@@ -7,8 +7,9 @@ mixin projectRow(project, href='')
     if href
       .project-row__title
         a.project-row__name(href=href)= project.name
-        .project-row__links
-          +projectLinks(project)
+        if project.liveLink || project.githubLink
+          .project-row__links
+            +projectLinks(project)
     else
       .project-row__title
         .project-row__name= project.name
