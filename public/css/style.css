@@ -208,7 +208,9 @@ body {
     flex-direction: row;
     margin-inline: auto;
     width: 80%;
-    height: 4rem;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    background-color: #ebebeb;
     gap: 5rem; }
   .projects__search-box {
     flex: 1 0 50%;
@@ -811,7 +813,7 @@ body {
   .checkbox-filter__content {
     display: none;
     position: absolute;
-    padding: 1rem;
+    padding: 1rem 2rem;
     z-index: 100;
     width: 100%;
     background-color: #fff;

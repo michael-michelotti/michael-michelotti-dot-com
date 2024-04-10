@@ -6,7 +6,10 @@
     flex-direction: row;
     margin-inline: auto;
     width: 80%;
-    height: 4rem;
+    // height: 4rem;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    background-color: $color-light;
     gap: 5rem;
   }
 
