@@ -11,6 +11,11 @@
     padding: 2rem;
     background-color: $color-light;
     gap: 5rem;
+
+    @include respond(tab-land) {
+      flex-direction: column;
+      justify-content: space-around;
+    };
   }
 
   &__search-box {

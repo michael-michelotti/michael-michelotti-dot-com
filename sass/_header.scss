@@ -6,10 +6,6 @@
   background-color: $color-light;
   padding: 1rem;
 
-  @include respond(phone) {
-    display: none;
-  }
-
   &__branding {
     @include removeLinkDecoration;
     height: 100%;

@@ -104,9 +104,6 @@ body {
   height: 6rem;
   background-color: #ebebeb;
   padding: 1rem; }
-  @media only screen and (max-width: 37.5em) {
-    .header {
-      display: none; } }
   .header__branding {
     text-decoration: none;
     color: #333;
@@ -212,6 +209,10 @@ body {
     padding: 2rem;
     background-color: #ebebeb;
     gap: 5rem; }
+    @media only screen and (max-width: 75em) {
+      .projects__search {
+        flex-direction: column;
+        justify-content: space-around; } }
   .projects__search-box {
     flex: 1 0 50%;
     appearance: none;
