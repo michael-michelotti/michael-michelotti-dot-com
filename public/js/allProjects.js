@@ -47,11 +47,8 @@ async function fetchSearchResults(query, category, techs) {
         url += `categories=${category}&`
 
     if (techs.length !== 0) {
-        console.log(techs);
         url += `techsUsed=` + techs.join(',');
     }
-    
-    console.log(url);
     
     try {
         const res = await fetch(url);

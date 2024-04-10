@@ -17,7 +17,7 @@ router
 
 router
   .route('/')
-  .get(projectController.getAllProjects)
+  .get(projectController.processProjectsSearchBar, projectController.getAllProjects)
   .post(authController.protect, upload.any(), projectController.processFrontendPost, projectController.createProject);
 
 module.exports = router;

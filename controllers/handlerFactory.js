@@ -76,34 +76,22 @@ exports.getOne = (Model, popOptions) =>
 
 exports.getAll = (Model) =>
   catchAsync(async (req, res, next) => {
-    let query;
+    let filter = {};
 
-    if (req.query.search) {
-      const searchResults = await Model.aggregate([{$search: req.query.search}]); 
-      const ids = searchResults.map((result) => result._id);
-      query = Model.find({_id: {$in: ids}});
-    } else {
-      query = Model.find({});
-    }
-
-    if (req.query.techsUsed) {
-      req.query.techsUsed = {$in: req.query.techsUsed.split(',')};
-    }
-
-    const features = new APIFeatures(query, req.query)
+    const features = new APIFeatures(Model.find(filter), req.query)
       .filter()
       .sort()
       .limitFields()
       .paginate();
 
-    const doc = await features.query;
+    const docs = await features.query;
 
     // SEND RESPONSE
     res.status(200).json({
       status: 'success',
-      results: doc.length,
+      results: docs.length,
       data: {
-        data: doc,
+        data: docs,
       },
     });
   });

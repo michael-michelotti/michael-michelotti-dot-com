@@ -13,12 +13,25 @@ exports.deleteProject = factory.deleteOne(Project);
 
 exports.getFeaturedProjects = factory.getFeatured(Project);
 
+exports.processProjectsSearchBar = catchAsync(async (req, res, next) => {
+  if (req.query.search) {
+    const searchResults = await Project.aggregate([{$search: req.query.search}]); 
+    const ids = searchResults.map((result) => result._id);
+    req.query._id = {$in: ids};
+  }
+
+  if (req.query.techsUsed) {
+    req.query.techsUsed = {$all: req.query.techsUsed.split(',')};
+  }
+
+  next();
+});
+
 exports.processFrontendPost = catchAsync(async (req, res, next) => {
     if (req.query.frontend !== 'true') return next();
   
     const parentDir = path.join(__dirname, '..');
     const publicImgDir = path.join(parentDir, 'public', 'img');
-    console.log("hello");
   
     const coverImageFile = req.files.find((file) => file.fieldname === 'coverImage');
 
@@ -67,8 +80,6 @@ exports.processFrontendPost = catchAsync(async (req, res, next) => {
     req.body.techsUsed = req.body.techsUsed.split('\r\n');
     req.body.contributors = req.body.contributors.split('\r\n');
 
-    console.log(req.body);
-  
     next();
-  });
+});
   
