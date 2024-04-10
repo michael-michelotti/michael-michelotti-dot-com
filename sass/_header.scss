@@ -6,6 +6,8 @@
   background-color: $color-light;
   padding: 1rem;
 
+
+
   &__branding {
     @include removeLinkDecoration;
     height: 100%;
@@ -44,9 +46,18 @@
   }
 
   &__nav {
+    @include respond(phone) {
+      margin-right: 0rem;
+    }
     display: flex;
     gap: 3rem;
     margin-right: 2rem;
+  }
+
+  @include respond(phone) {
+    #nav-about, #nav-skills {
+      display: none;
+    }
   }
 
   &__link {
