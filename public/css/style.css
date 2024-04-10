@@ -94,6 +94,9 @@ body {
 .katex-html {
   display: none; }
 
+.disabled-text {
+  color: #777; }
+
 .header {
   display: flex;
   justify-content: space-between;

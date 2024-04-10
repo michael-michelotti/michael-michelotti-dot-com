@@ -13,8 +13,24 @@ const debouncedSearch = _.debounce(async (event) => {
         const selectedTechs = Array.from(techFilters).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
 
         const data = await fetchSearchResults(searchQuery, selectedCategory, selectedTechs);
-        const projectNames = data.data.data.map((project) => project.name);
+        const projects = data.data.data;
+        const remainingTechs = projects.flatMap((project) => project.techsUsed);
+        const uniqueRemainingTechs = [...new Set(remainingTechs)];
+        const projectNames = projects.map((project) => project.name);
     
+        // Gray out any techs used that no remaining projects use
+        let siblingSpan;
+        techFilters.forEach((checkbox) => {
+            siblingSpan = checkbox.previousElementSibling;
+            if (!uniqueRemainingTechs.includes(checkbox.value)) {
+                checkbox.disabled = true;
+                siblingSpan.classList.add('disabled-text');
+            } else {
+                checkbox.disabled = false;
+                siblingSpan.classList.remove('disabled-text');
+            }
+        })
+
         allProjectRows.forEach((row) => {
             const rowProjectName = row.querySelector('.project-row__name').textContent;
             if (!projectNames.includes(rowProjectName)) {
