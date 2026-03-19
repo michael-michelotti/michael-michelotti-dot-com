@@ -18,7 +18,7 @@
       left: 0;
       height: 100%;
       width: 3px;
-      background-color: $color-tertiary;
+      background-color: $color-dark;
       transform: scaleY(0);
       transition: transform 0.1s, width 0.5s cubic-bezier(1, 0, 0, 1) 0.1s;
     }
@@ -34,7 +34,7 @@
     fill: $color-dark;
     position: relative;
     z-index: 10;
-    transition: fill 0.3s;
+    transition: fill 0.4s 0.1s;
   }
 
   &__link:hover &__icon {
@@ -46,7 +46,7 @@
     font-size: 1.8rem;
     position: relative;
     z-index: 10;
-    transition: color 0.3s;
+    transition: color 0.4s 0.1s;
   }
 
   &__link:hover &__caption {

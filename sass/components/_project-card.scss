@@ -3,7 +3,8 @@
   grid-template-columns: repeat(2, 1fr);
   row-gap: 3.5rem;
 
-  width: 30rem;
+  width: 100%;
+  max-width: 45rem;
   background-color: $color-light;
 
   &__img {
@@ -21,7 +22,7 @@
     @include removeLinkDecoration;
     width: 80%;
     color: $color-white;
-    background-color: $color-tertiary;
+    background-color: $color-dark;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +36,7 @@
     transition: all $transition-slow;
 
     &:hover {
-      background-color: darken($color-tertiary, 10%);
+      background-color: $color-primary;
     }
   }
 
@@ -71,7 +72,7 @@
   &__tech-icon {
     height: 3rem;
     width: 3rem;
-    fill: $color-primary;
+    fill: $color-dark;
   }
 
   &__links {

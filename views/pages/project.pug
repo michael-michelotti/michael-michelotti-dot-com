@@ -1,7 +1,24 @@
 extends ../base
 
-include ../mixins/_projectRow
+include ../mixins/_projectLinks
+include ../mixins/_techGrid
 
 block content
-  .projects__content.mb-md.mt-md(id="projectsContent")
-    +projectRow(project)
+  - const im = project.coverImage
+  .project-detail.mt-md.mb-md
+    .project-detail__header
+      .project-detail__name= project.name
+      .project-detail__links
+        +projectLinks(project)
+      .project-detail__summary= project.summary
+    picture.project-detail__picture
+      source(media='(max-width: 56.25em)', srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`)
+      source(media='(max-width: 75em)', srcset=`/img/${im}`)
+      source(media='(max-width: 112.5em)', srcset=`/img/${im} 1x, /img/${sizeImageUrl(im, '-large')} 2x`)
+      source(media='(min-width: 112.5em)', srcset=`/img/${sizeImageUrl(im, '-large')}`)
+      img.project-detail__img(src=`/img/${project.coverImage}`, alt=`${project.name} cover photo`)
+    .project-detail__body
+      - const descParas = project.detailDescription.split('\n')
+      each para in descParas
+        p.project-detail__description= para
+    +techGrid('Tech Used', project.techsUsed)
