@@ -5,7 +5,8 @@
 
   width: 100%;
   max-width: 45rem;
-  background-color: $color-light;
+  background-color: $color-white;
+  border: solid 0.1rem $color-dark;
 
   &__img {
     width: 100%;
@@ -35,7 +36,7 @@
     padding: 1rem;
     transition: all $transition-slow;
 
-    &:hover {
+    .project-card:hover & {
       background-color: $color-primary;
     }
   }

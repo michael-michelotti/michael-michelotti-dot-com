@@ -18,7 +18,7 @@
       left: 0;
       height: 100%;
       width: 3px;
-      background-color: $color-dark;
+      background-color: $color-primary;
       transform: scaleY(0);
       transition: transform 0.1s, width 0.5s cubic-bezier(1, 0, 0, 1) 0.1s;
     }

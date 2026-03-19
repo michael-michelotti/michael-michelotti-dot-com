@@ -15,9 +15,22 @@ exports.getFeaturedProjects = factory.getFeatured(Project);
 
 exports.processProjectsSearchBar = catchAsync(async (req, res, next) => {
   if (req.query.search) {
-    const searchResults = await Project.aggregate([{$search: req.query.search}]); 
+    const searchTerm = req.query.search;
+    const searchResults = await Project.aggregate([{
+      $search: {
+        index: 'projectSearch',
+        compound: {
+          should: [
+            { autocomplete: { query: searchTerm, path: 'name' } },
+            { autocomplete: { query: searchTerm, path: 'summary' } },
+            { autocomplete: { query: searchTerm, path: 'detailDescription' } }
+          ]
+        }
+      }
+    }]);
     const ids = searchResults.map((result) => result._id);
     req.query._id = {$in: ids};
+    delete req.query.search;
   }
 
   if (req.query.techsUsed) {

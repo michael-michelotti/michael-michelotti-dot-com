@@ -1,23 +1,24 @@
 include ../../mixins/_iconLink
 
 section.about#about
-  .title-container.mb-md.pt-lg
-    span.section-title about me
-  .about__content.pb-lg
-    .about__portrait
-      div
-        span(class='about__img', role='img', aria-label='Portrait of Michael Michelotti')
-      .about__links
-        +iconLink('about', githubLink, 'github')
-        +iconLink('about', resumeLink, 'resume')
-        +iconLink('about', linkedinLink, 'linkedin')
-    .about__text
-      p.about__p
-        | I have a Bachelor's degree in Physics from the University of Maryland, College Park. Since graduating, my interest has veered towards Computer Engineering and Computer Science. 
-      p.about__p
-        | Since 2020, I have been teaching myself the fundamentals of Computer Science: processor architecture, code compilation, communication protocols. Now, I aim to specialize in embedded systems software. 
-        | In my free time, I build embedded projects, typically utilizing ARM processors from STM. 
-        | I'm also interested in data science and web design. At my day job, I created a Python data pipeline for processing sensor data collected by a drone. I also coded this website using Express, SASS, PUG, and other tools!      
-      p.about__p
-        | My main focus is on embedded systems. I am currently coding my own mouse, with custom USB drivers written from scratch for an STM MCU.
-        | Lastly, I'm keeping my web design (both front and back end) skills sharp by maintaining this website.
+  .section-container.pt-lg.pb-lg
+    .title-container.mb-md
+      span.section-title about me
+    .about__content
+      .about__portrait
+        div
+          span(class='about__img', role='img', aria-label='Portrait of Michael Michelotti')
+        .about__links
+          +iconLink('about', githubLink, 'github')
+          +iconLink('about', resumeLink, 'resume')
+          +iconLink('about', linkedinLink, 'linkedin')
+      .about__text
+        p.about__p
+          | I have a Bachelor's degree in Physics from the University of Maryland, College Park. Since graduating, my interest has veered towards Computer Engineering and Computer Science.
+        p.about__p
+          | Since 2020, I have been teaching myself the fundamentals of Computer Science: processor architecture, code compilation, communication protocols. Now, I aim to specialize in embedded systems software.
+          | In my free time, I build embedded projects, typically utilizing ARM processors from STM.
+          | I'm also interested in data science and web design. At my day job, I created a Python data pipeline for processing sensor data collected by a drone. I also coded this website using Express, SASS, PUG, and other tools!
+        p.about__p
+          | My main focus is on embedded systems. I am currently coding my own mouse, with custom USB drivers written from scratch for an STM MCU.
+          | Lastly, I'm keeping my web design (both front and back end) skills sharp by maintaining this website.

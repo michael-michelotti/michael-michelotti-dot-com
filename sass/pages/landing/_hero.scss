@@ -11,8 +11,9 @@
   }
 
   &__name {
+    font-family: $font-display;
     font-size: 7rem;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: -0.75px;
     color: $color-white;
     text-align: center;

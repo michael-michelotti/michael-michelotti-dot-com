@@ -19,7 +19,7 @@ router
 
 router
   .route('/')
-  .get(articleController.getAllArticles)
+  .get(articleController.processArticlesSearchBar, articleController.getAllArticles)
   .post(authController.protect, upload.any(), articleController.processFrontendPost, articleController.createArticle);
 
 module.exports = router;

@@ -79,24 +79,6 @@ if (heroSection) {
   footerObserver.observe(footer);
 }
 
-if (skills) {
-  const lazyLoadSkills = (entries, observer) => {
-    const [entry] = entries;
-
-    if (!entry.isIntersecting) return;
-
-    entry.target.style = `background: linear-gradient(0, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(/img/${entry.target.dataset.src})`;
-
-    entry.target.classList.remove('lazy-img');
-    observer.unobserve(entry.target);
-  };
-
-  const skillsObserver = new IntersectionObserver(lazyLoadSkills, {
-    rootMargin: '500px',
-  });
-
-  skillsObserver.observe(skills);
-}
 
 if (projects) {
   const loadImg = (entries, observer) => {

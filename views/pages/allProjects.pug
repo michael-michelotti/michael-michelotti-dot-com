@@ -5,18 +5,19 @@ include ../mixins/_checkboxFilter
 
 block content
   section.projects
-    .section-title.projects__title all projects
-    .projects__search.mb-md
-      input.projects__search-box(id="searchInput", type="text", placeholder="Type to search...")
-      select.projects__category-filter(id="categoryFilter")
-        option(value="", selected)
-          | All categories
-        each category in uniqueCategories
-          option(value=category) #{category}
-      +checkboxFilter(uniqueTechs)
-    .projects__card-grid(id="projectsContent")
-      each project in projects
-        +projectCard(project, lazyLoad=false, showTechs=true)
+    .section-container.pt-lg
+      .section-title.projects__title all projects
+      .search-bar.mb-md
+        input.search-bar__input(id="searchInput", type="text", placeholder="Type to search...")
+        select.search-bar__select(id="categoryFilter")
+          option(value="", selected)
+            | All categories
+          each category in uniqueCategories
+            option(value=category) #{category}
+        +checkboxFilter(uniqueTechs)
+      .projects__card-grid(id="projectsContent")
+        each project in projects
+          +projectCard(project, lazyLoad=false, showTechs=true)
 
 block scripts 
   script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js')

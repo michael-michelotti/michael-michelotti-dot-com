@@ -1,29 +1,30 @@
 include ../../mixins/_skill
 
-section.skills#skills.lazy-img(data-src='skills-backdrop.jpg')
-  .title-container.pt-lg.mb-md 
-    span.section-title.section-title--white skills
-  .skills__levels.pb-lg
-    .skill-grid
-      .skill-grid__name Core
-      .skill-grid__grid
-        +skill('c', 'C')
-        +skill('arm', 'Cortex-M')
-        +skill('stm', 'STM32')
-        +skill('freertos', 'FreeRTOS')
-    .col-divider.col-divider--white
-    .skill-grid
-      .skill-grid__name Proficient
-      .skill-grid__grid
-        +skill('espressif', 'ESP-IDF')
-        +skill('python', 'Python')
-        +skill('linux', 'Linux')
-        +skill('gnu', 'GDB')
-    .col-divider.col-divider--white
-    .skill-grid
-      .skill-grid__name Tools
-      .skill-grid__grid
-        +skill('docker', 'Docker')
-        +skill('cmake', 'CMake')
-        +skill('bash', 'Bash')
-        +skill('kicad', 'KiCad')
+section.skills#skills
+  .section-container.pt-lg.pb-lg
+    .title-container.mb-md
+      span.section-title skills
+    .skills__levels
+      .skill-grid
+        .skill-grid__name Core
+        .skill-grid__grid
+          +skill('c', 'C')
+          +skill('arm', 'Cortex-M')
+          +skill('stm', 'STM32')
+          +skill('freertos', 'FreeRTOS')
+      .col-divider
+      .skill-grid
+        .skill-grid__name Proficient
+        .skill-grid__grid
+          +skill('espressif', 'ESP-IDF')
+          +skill('python', 'Python')
+          +skill('linux', 'Linux')
+          +skill('gnu', 'GDB')
+      .col-divider
+      .skill-grid
+        .skill-grid__name Tools
+        .skill-grid__grid
+          +skill('docker', 'Docker')
+          +skill('cmake', 'CMake')
+          +skill('bash', 'Bash')
+          +skill('kicad', 'KiCad')

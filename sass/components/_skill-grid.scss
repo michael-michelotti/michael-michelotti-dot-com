@@ -2,17 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
+  flex: 1 1 0;
+  min-width: 0;
 
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem 5rem;
+    gap: 2rem;
+    width: 100%;
   }
 
   &__name {
     font-size: 2.4rem;
-    color: $color-white;
+    color: $color-dark;
     font-weight: $font-regular;
   }
 }
@@ -22,16 +25,14 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: 15rem;
-  height: 15rem;
 
   &__icon {
     @include iconLarge;
-    fill: $color-white;
+    fill: $color-dark;
   }
 
   &__caption {
-    color: $color-white;
+    color: $color-dark;
     font-size: 1.8rem;
     text-align: center;
   }

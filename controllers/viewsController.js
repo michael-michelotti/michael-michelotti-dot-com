@@ -71,8 +71,12 @@ exports.getAllArticles = catchAsync(async (req, res, next) => {
    */
   const articles = await Article.find({ hidden: false });
 
+  const allCategories = articles.flatMap((article) => article.categories).filter((cat) => cat !== '');
+  const uniqueCategories = [...new Set(allCategories)];
+
   res.status(200).render(`${PAGE_ROOT}/allArticles`, {
     title: 'All Articles',
+    uniqueCategories,
     articles,
   });
 });

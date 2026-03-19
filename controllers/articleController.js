@@ -7,6 +7,28 @@ const slugify = require('slugify');
 const sharp = require('sharp');
 
 
+exports.processArticlesSearchBar = catchAsync(async (req, res, next) => {
+  if (req.query.search) {
+    const searchTerm = req.query.search;
+    const searchResults = await Article.aggregate([{
+      $search: {
+        index: 'articleSearch',
+        compound: {
+          should: [
+            { autocomplete: { query: searchTerm, path: 'name' } },
+            { autocomplete: { query: searchTerm, path: 'summaryPoints' } }
+          ]
+        }
+      }
+    }]);
+    const ids = searchResults.map((result) => result._id);
+    req.query._id = {$in: ids};
+    delete req.query.search;
+  }
+
+  next();
+});
+
 exports.getAllArticles = factory.getAll(Article);
 exports.createArticle = factory.createOne(Article);
 exports.updateArticle = factory.updateOne(Article);

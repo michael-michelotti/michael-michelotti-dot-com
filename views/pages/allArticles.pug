@@ -4,17 +4,21 @@ include ../mixins/_articleCard
 
 block content
   section.articles
-    .section-title.articles__title all articles
-    .articles__content.pb-lg
-      - const indexedArticles = articles.map((a, i) => [i, a])
-      each entry in indexedArticles
-        - const [i, article] = entry
-        - const rowNum = Math.floor(i / 2) + 1
-        //- even articles, lay down column divider
-        if i % 2 === 0
-          +articleCard(article, `grid-row: ${rowNum}`, lazyLoad=false)
-          .col-divider(style=`grid-row: ${rowNum}`)
-        //- odd articles, lay down row divider
-        else
-          +articleCard(article, `grid-row: ${rowNum}`, lazyLoad=false)
-          .row-divider(style=`grid-row: ${rowNum}`)
+    .section-container.pt-lg
+      .section-title.articles__title all articles
+      .search-bar.mb-md
+        input.search-bar__input(id="searchInput", type="text", placeholder="Type to search...")
+        select.search-bar__select(id="categoryFilter")
+          option(value="", selected)
+            | All categories
+          each category in uniqueCategories
+            option(value=category) #{category}
+      .articles__content.pb-lg
+        each article, i in articles
+          +articleCard(article, '', lazyLoad=false)
+          if i < articles.length - 1
+            .row-divider
+
+block scripts
+  script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js')
+  script(src='/js/allArticles.js')

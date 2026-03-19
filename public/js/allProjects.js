@@ -50,7 +50,7 @@ async function fetchSearchResults(query, category, techs) {
     let url = 'api/v1/projects/?'
 
     if (query.length >= 1)
-        url += `search[index]=default&search[autocomplete][query]=${encodeURIComponent(query)}&search[autocomplete][path]=name&`;
+        url += `search=${encodeURIComponent(query)}&`;
 
     if (category.length !== 0)
         url += `categories=${category}&`
