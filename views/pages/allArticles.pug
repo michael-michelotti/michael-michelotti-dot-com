@@ -4,7 +4,7 @@ include ../mixins/_articleCard
 
 block content
   section.articles
-    .section-title.mb-md.pt-lg all articles
+    .section-title.articles__title all articles
     .articles__content.pb-lg
       - const indexedArticles = articles.map((a, i) => [i, a])
       each entry in indexedArticles

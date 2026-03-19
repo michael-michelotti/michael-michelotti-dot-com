@@ -4,7 +4,10 @@
   &__levels {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 8rem;
+    max-width: 110rem;
+    margin-inline: auto;
 
     @include respond(tab-land) {
       flex-direction: column;

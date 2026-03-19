@@ -1,8 +1,10 @@
 .article-card {
   @include removeLinkDecoration;
   display: flex;
-  align-items: flex-start;
-  width: 50rem;
+  align-items: stretch;
+  width: 100%;
+  max-width: 60rem;
+  overflow: hidden;
 
   @include respond(phone) {
     flex-direction: column;
@@ -20,6 +22,11 @@
     fill: $color-primary;
   }
 
+  &__text {
+    flex: 1;
+    padding: 2rem;
+  }
+
   &__title {
     display: flex;
     align-items: center;
@@ -34,26 +41,25 @@
   &__icon {
     @include iconSmall;
     fill: $color-dark;
+    flex-shrink: 0;
   }
 
   &__summary {
-    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+    margin-top: 0.5rem;
   }
 
   &__point {
     font-size: 1.4rem;
     line-height: 1.8;
-    // display: list-item;
 
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
   }
 
   &__img {
     width: 20rem;
-    height: 20rem;
-    padding: 1rem;
     object-fit: cover;
 
     @include respond(phone) {

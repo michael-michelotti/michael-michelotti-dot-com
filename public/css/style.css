@@ -377,6 +377,15 @@ body {
   margin-bottom: 1rem;
 }
 
+.articles {
+  padding-bottom: 10rem;
+}
+.articles__title {
+  width: 80%;
+  margin-inline: auto;
+  padding-top: 5rem;
+  margin-bottom: 3rem;
+}
 .articles__content {
   padding: 0 5%;
   display: grid;
@@ -665,7 +674,10 @@ body {
 .skills__levels {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 8rem;
+  max-width: 110rem;
+  margin-inline: auto;
 }
 @media only screen and (max-width: 75em) {
   .skills__levels {
@@ -708,8 +720,10 @@ body {
   text-decoration: none;
   color: #333;
   display: flex;
-  align-items: flex-start;
-  width: 50rem;
+  align-items: stretch;
+  width: 100%;
+  max-width: 60rem;
+  overflow: hidden;
 }
 @media only screen and (max-width: 37.5em) {
   .article-card {
@@ -726,6 +740,10 @@ body {
   transition: all 0.3s;
   fill: #0072ff;
 }
+.article-card__text {
+  flex: 1;
+  padding: 2rem;
+}
 .article-card__title {
   display: flex;
   align-items: center;
@@ -739,21 +757,21 @@ body {
   height: 2rem;
   width: 2rem;
   fill: #333;
+  flex-shrink: 0;
 }
 .article-card__summary {
-  padding-left: 1.5rem;
+  padding-left: 3.5rem;
+  margin-top: 0.5rem;
 }
 .article-card__point {
   font-size: 1.4rem;
   line-height: 1.8;
 }
 .article-card__point:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .article-card__img {
   width: 20rem;
-  height: 20rem;
-  padding: 1rem;
   object-fit: cover;
 }
 @media only screen and (max-width: 37.5em) {
