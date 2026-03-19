@@ -300,10 +300,12 @@ body {
   padding: 1rem;
 }
 .projects__content {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   gap: 5rem;
-  align-items: center;
+  justify-items: center;
+  width: 80%;
+  margin-inline: auto;
 }
 
 .articles__content {
@@ -742,6 +744,19 @@ body {
   text-align: center;
   grid-column: 1/-1;
   margin: 2rem 1rem 0 1rem;
+}
+.project-card__techs {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0 1rem;
+}
+.project-card__tech-icon {
+  height: 3rem;
+  width: 3rem;
+  fill: #0072ff;
 }
 .project-card__links {
   grid-column: 1/-1;

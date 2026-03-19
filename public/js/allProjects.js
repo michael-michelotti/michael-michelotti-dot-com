@@ -1,7 +1,7 @@
 const searchInput = document.getElementById('searchInput');
 const categoryFilter = document.getElementById('categoryFilter');
 const projectsContent = document.getElementById('projectsContent');
-const allProjectRows = document.querySelectorAll('.project-row');
+const allProjectCards = document.querySelectorAll('.project-card');
 const techDropdownButton = document.querySelector('.checkbox-filter__button');
 const techDropdownContent = document.querySelector('.checkbox-filter__content');
 const dropdownArrow = document.querySelector('.checkbox-filter__arrow');
@@ -31,23 +31,16 @@ const debouncedSearch = _.debounce(async (event) => {
             }
         })
 
-        allProjectRows.forEach((row) => {
-            const rowProjectName = row.querySelector('.project-row__name').textContent;
-            if (!projectNames.includes(rowProjectName)) {
-                hideOrShowProject(row, hideOrShow='hide');
+        allProjectCards.forEach((card) => {
+            const cardProjectName = card.querySelector('.project-card__name').textContent;
+            if (!projectNames.includes(cardProjectName)) {
+                card.style.display = 'none';
             } else {
-                hideOrShowProject(row, hideOrShow='show');
+                card.style.display = '';
             }
         })
     }, 300);
 
-function hideOrShowProject(row, hideOrShow='hide') {
-    let displayStr = hideOrShow === 'hide' ? 'none' : '';
-
-    if (row.nextSibling.classList.contains('row-divider'))
-        row.nextSibling.style.display = displayStr;
-    row.style.display = displayStr;
-}
 
 searchInput.addEventListener('input', debouncedSearch);
 categoryFilter.addEventListener('change', debouncedSearch);

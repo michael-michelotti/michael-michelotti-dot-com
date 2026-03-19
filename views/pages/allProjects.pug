@@ -1,6 +1,6 @@
 extends ../base
 
-include ../mixins/_projectRow
+include ../mixins/_projectCard
 include ../mixins/_checkboxFilter
 
 block content
@@ -16,8 +16,7 @@ block content
       +checkboxFilter(uniqueTechs)
     .projects__content(id="projectsContent")
       each project in projects
-        +projectRow(project, `/projects/${project.slug}/`)
-        .row-divider
+        +projectCard(project, lazyLoad=false, showTechs=true)
 
 block scripts 
   script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js')

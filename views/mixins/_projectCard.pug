@@ -1,6 +1,6 @@
 include _projectLinks
 
-mixin projectCard(project, lazyLoad=false)
+mixin projectCard(project, lazyLoad=false, showTechs=false)
   .project-card
     a.project-card__img-link(href=`/projects/${project.slug}/`)
 
@@ -19,5 +19,10 @@ mixin projectCard(project, lazyLoad=false)
       svg.project-card__icon: use(xlink:href=`/img/sprite.svg#icon-${project.categories[0]}`, alt=`${project.categories[0]}`)
       span.project-card__name= project.name
     a(href=`/projects/${project.slug}/`).project-card__summary= project.summary
+    if showTechs && project.techsUsed && project.techsUsed.length
+      .project-card__techs
+        each tech in project.techsUsed
+          svg.project-card__tech-icon
+            use(xlink:href=`/img/sprite.svg#icon-${tech}`, alt=`${tech} icon`)
     .project-card__links
       +projectLinks(project)
