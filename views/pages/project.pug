@@ -12,11 +12,11 @@ block content
         +projectLinks(project)
       .project-detail__summary= project.summary
     picture.project-detail__picture
-      source(media='(max-width: 56.25em)', srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`)
-      source(media='(max-width: 75em)', srcset=`/img/${im}`)
-      source(media='(max-width: 112.5em)', srcset=`/img/${im} 1x, /img/${sizeImageUrl(im, '-large')} 2x`)
-      source(media='(min-width: 112.5em)', srcset=`/img/${sizeImageUrl(im, '-large')}`)
-      img.project-detail__img(src=`/img/${project.coverImage}`, alt=`${project.name} cover photo`)
+      source(media='(max-width: 56.25em)', srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${im} 2x`)
+      source(media='(max-width: 75em)', srcset=`${imageBaseUrl}/${im}`)
+      source(media='(max-width: 112.5em)', srcset=`${imageBaseUrl}/${im} 1x, ${imageBaseUrl}/${sizeImageUrl(im, '-large')} 2x`)
+      source(media='(min-width: 112.5em)', srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-large')}`)
+      img.project-detail__img(src=`${imageBaseUrl}/${project.coverImage}`, alt=`${project.name} cover photo`)
     .project-detail__body
       - const descParas = project.detailDescription.split('\n')
       each para in descParas

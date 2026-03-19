@@ -907,7 +907,7 @@ body {
 .tech-grid__grid-item {
   height: 4rem;
   width: 4rem;
-  fill: #0072ff;
+  fill: #333;
 }
 
 .col-divider {

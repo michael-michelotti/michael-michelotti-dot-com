@@ -6,13 +6,13 @@ mixin projectCard(project, lazyLoad=false, showTechs=false)
 
       - const im = project.coverImage
       if lazyLoad
-        img.project-card__img.lazy-img(srcset=`/img/${sizeImageUrl(im, '-lazy')} 1x, /img/${sizeImageUrl(im, '-lazy')} 2x`
-        data-srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
-        src=`/img/${sizeImageUrl(im, '-lazy')}`
+        img.project-card__img.lazy-img(srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-lazy')} 1x, ${imageBaseUrl}/${sizeImageUrl(im, '-lazy')} 2x`
+        data-srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${im} 2x`
+        src=`${imageBaseUrl}/${sizeImageUrl(im, '-lazy')}`
         alt=project.coverImageAltText)
       else
-        img.project-card__img(srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
-        src=`/img/${project.coverImage}`
+        img.project-card__img(srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${im} 2x`
+        src=`${imageBaseUrl}/${project.coverImage}`
         alt=project.coverImageAltText)
 
     a.project-card__title(href=`/projects/${project.slug}/`)

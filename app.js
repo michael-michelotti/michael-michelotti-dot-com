@@ -58,6 +58,7 @@ app.use(compression());
 app.locals.githubLink = process.env.GITHUB_LINK;
 app.locals.resumeLink = process.env.RESUME_LINK;
 app.locals.linkedinLink = process.env.LINKEDIN_LINK;
+app.locals.imageBaseUrl = process.env.IMAGE_BASE_URL || '/img';
 app.locals.sizeImageUrl = (url, size = '') => {
   if (!size) return url;
   const { name, ext } = path.parse(url);

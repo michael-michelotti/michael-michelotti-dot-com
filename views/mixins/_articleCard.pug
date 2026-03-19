@@ -10,11 +10,11 @@ mixin articleCard(article, inlineStyle='', lazyLoad=false)
         each point in article.summaryPoints
           li.article-card__point= point
     if lazyLoad
-      img.lazy-img.article-card__img(srcset=`/img/${sizeImageUrl(im, '-lazy')} 1x, /img/${sizeImageUrl(im, '-lazy')} 2x`
-      data-srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
-      src=`/img/lazy-${im}`
+      img.lazy-img.article-card__img(srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-lazy')} 1x, ${imageBaseUrl}/${sizeImageUrl(im, '-lazy')} 2x`
+      data-srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${im} 2x`
+      src=`${imageBaseUrl}/lazy-${im}`
       alt=article.cardImageAltText)
     else
-      img.article-card__img(srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`
+      img.article-card__img(srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${im} 2x`
       alt=article.cardImageAltText
-      src=`/img/${im}`)
+      src=`${imageBaseUrl}/${im}`)

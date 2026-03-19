@@ -19,11 +19,11 @@ mixin projectRow(project, href='')
 
     .project-row__content
       picture.project-row__picture
-        source(media='(max-width: 56.25em)', srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`)
-        source(media='(max-width: 75em)', srcset=`/img/${im}`)
-        source(media='(max-width: 112.5em)', srcset=`/img/${im} 1x, /img/${sizeImageUrl(im, '-large')} 2x`)
-        source(media='(min-width: 112.5em)', srcset=`/img/${sizeImageUrl(im, '-large')}`)
-        img.project-row__img(src=`/img/${project.coverImage}`, alt=`${project.name} cover photo`)
+        source(media='(max-width: 56.25em)', srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${im} 2x`)
+        source(media='(max-width: 75em)', srcset=`${imageBaseUrl}/${im}`)
+        source(media='(max-width: 112.5em)', srcset=`${imageBaseUrl}/${im} 1x, ${imageBaseUrl}/${sizeImageUrl(im, '-large')} 2x`)
+        source(media='(min-width: 112.5em)', srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-large')}`)
+        img.project-row__img(src=`${imageBaseUrl}/${project.coverImage}`, alt=`${project.name} cover photo`)
       .project-row__text
         .project-row__summary #[em SUMMARY:] #[br] #{project.summary}
         - const descParas = project.detailDescription.split('\n')

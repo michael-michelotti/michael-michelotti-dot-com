@@ -3,7 +3,7 @@ extends ../base
 mixin relatedArticleCard(article)
   a.rel-article-card(href=`/articles/${article.slug}/`)
     .rel-article-card__title= article.name
-    img.rel-article-card__img(src=`/img/${article.cardImage}`, alt=article.coverImageAltText)
+    img.rel-article-card__img(src=`${imageBaseUrl}/${article.cardImage}`, alt=article.coverImageAltText)
 
 block content
   //- declaring this in a varible with a short name because i repeat it a bunch 
@@ -13,10 +13,10 @@ block content
 
     header.article__header
       picture.article__pic
-        source(media='(max-width: 37.5em)', srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${im} 2x`)
-        source(media='(max-width: 56.25em)', srcset=`/img/${sizeImageUrl(im, '-small')} 1x, /img/${sizeImageUrl(im, '-large')} 2x`)
-        source(media='(max-width: 75em)', srcset=`/img/${im} 1x, /img/${sizeImageUrl(im, '-large')} 2x`)
-        img.article__img(src=`/img/${im}`, alt=`${article.name} cover image`)
+        source(media='(max-width: 37.5em)', srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${im} 2x`)
+        source(media='(max-width: 56.25em)', srcset=`${imageBaseUrl}/${sizeImageUrl(im, '-small')} 1x, ${imageBaseUrl}/${sizeImageUrl(im, '-large')} 2x`)
+        source(media='(max-width: 75em)', srcset=`${imageBaseUrl}/${im} 1x, ${imageBaseUrl}/${sizeImageUrl(im, '-large')} 2x`)
+        img.article__img(src=`${imageBaseUrl}/${im}`, alt=`${article.name} cover image`)
       .article__caption= article.coverImageCaption
 
     .article__by

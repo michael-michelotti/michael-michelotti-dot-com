@@ -28,7 +28,7 @@ block content
 
       label.content-form__label(for="cardImage")
         | Card image (520x520px):
-        a.conrent-form__link(href=`/img/${article.cardImage}`, download) Download
+        a.conrent-form__link(href=`${imageBaseUrl}/${article.cardImage}`, download) Download
         input.content-form__input(type="file", id="cardImage", name="cardImage")
 
       label.content-form__label(for="cardImageAlt")
@@ -37,7 +37,7 @@ block content
 
       label.content-form__label(for="coverImage")
         | Cover image (1440x603px):
-        a.conrent-form__link(href=`/img/${article.coverImage.split('.').slice(0, -1).join('.')}` + '-large.jpg', download) Download
+        a.conrent-form__link(href=`${imageBaseUrl}/${article.coverImage.split('.').slice(0, -1).join('.')}` + '-large.jpg', download) Download
         input.content-form__input(type="file", id="coverImage", name="coverImage")
 
       label.content-form__label(for="coverImageAlt")

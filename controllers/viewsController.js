@@ -156,6 +156,7 @@ exports.getArticle = catchAsync(async (req, res, next) => {
   md.use(emoji);
   md.use(mk);
   article.body = md.render(article.body);
+  article.body = article.body.replace(/\/img\//g, `${process.env.IMAGE_BASE_URL}/`);
 
   /**
    * Articles with overlapping categories or tags with main article
