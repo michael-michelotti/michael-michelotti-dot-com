@@ -16,12 +16,18 @@
   }
 
   &__label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5rem;
+    cursor: pointer;
+
+    &:has(input:disabled) {
+      cursor: default;
+    }
 
     &-text {
       font-size: 1.4rem;
-      margin-right: 1rem;
     }
   }
 
@@ -31,10 +37,21 @@
     width: 100%;
     background-color: $color-white;
     text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     @include searchBarBox;
 
     &:focus {
       border: 0.2rem solid $color-dark;
     }
+  }
+
+  &__arrow {
+    width: 1.2rem;
+    height: 0.8rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }

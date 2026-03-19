@@ -1,9 +1,10 @@
 mixin checkboxFilter(values)
   .checkbox-filter
-    button.checkbox-filter__button 
-      | Select tech used to filter
+    button.checkbox-filter__button
+      span.checkbox-filter__button-text Select tech filter
+      span.checkbox-filter__arrow
     .checkbox-filter__content
       each value in values
-        label.checkbox-filter__label 
+        label.checkbox-filter__label
           span.checkbox-filter__label-text #{value}
           input.checkbox-filter__input(type='checkbox', value=value)

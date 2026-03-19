@@ -10,11 +10,11 @@ block content
       input.projects__search-box(id="searchInput", type="text", placeholder="Type to search...")
       select.projects__category-filter(id="categoryFilter")
         option(value="", selected)
-          | Select category
+          | All categories
         each category in uniqueCategories
           option(value=category) #{category}
       +checkboxFilter(uniqueTechs)
-    .projects__content(id="projectsContent")
+    .projects__card-grid(id="projectsContent")
       each project in projects
         +projectCard(project, lazyLoad=false, showTechs=true)
 
