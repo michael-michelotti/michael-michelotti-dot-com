@@ -31,23 +31,22 @@ if (heroSection && header) {
 // Using Intersection Observer to highlight the current section on the header
 if (heroSection) {
   const enteringSectionHandler = (entries) => {
-    const [entry] = entries;
-    if (!entry.isIntersecting) return;
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-    sectionId = entry.target.id;
-
-    const navLinks = document.querySelectorAll('.header__link');
-    navLinks.forEach((link) => {
-      if (link.href.split('#').at(-1) == sectionId) {
-        link.classList.add('active-nav');
-      } else {
-        link.classList.remove('active-nav');
-      }
+      const navLinks = document.querySelectorAll('.header__link');
+      navLinks.forEach((link) => {
+        if (link.getAttribute('href') === `#${entry.target.id}`) {
+          link.classList.add('active-nav');
+        } else {
+          link.classList.remove('active-nav');
+        }
+      });
     });
   };
 
   const sectionObserver = new IntersectionObserver(enteringSectionHandler, {
-    threshold: 0.5,
+    rootMargin: '-50% 0px -50% 0px',
   });
 
   const sections = document.querySelectorAll('section');

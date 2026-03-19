@@ -6,3 +6,5 @@ dev-data
 .DS_Store
 .cache/
 data/
+CLAUDE.md
+*.css.map
